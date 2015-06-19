@@ -44,6 +44,11 @@
 <script>
 $(function(){
   $(".order-num span").html(localStorage.getItem("id"));
+  $("#submit").click(function(){
+      var local = window.location.toString(),
+          loll = local.substring(0,local.lastIndexOf("/")+1);
+      window.location = loll+"list.html";
+  })
 })
 /*iscroll的固定写法 end*/
 var _hmt = _hmt || [];
