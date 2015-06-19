@@ -17,7 +17,7 @@ nav a{float:left;font-size:0.6rem;width:33%;text-align:center;line-height:39px;}
 .right>p{margin-bottom:10px;}
 .right>dl{overflow:hidden;height:100%;}
 .right>dl dt{float:left;}
-.right>dl dt p:first-child{margin:.1rem 0 .5rem 0;}
+.right>dl dt p:first-child{margin:.1rem 0 .4rem 0;}
 .right>dl dd{float:right;position:relative;}
 .red{color:#c00c00;}
 .spanType1{font-size:20px;font-weight:bold;}
