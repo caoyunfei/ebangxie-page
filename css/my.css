@@ -64,10 +64,16 @@ header a {
   height: 100%;
 }
 .user-container .f_l{
-	  width: 30%;
+	width: 80px;
   height: 80px;
-  background: url(../images/tx.jpg) 10px 10px no-repeat;
-  background-size: 71px 71px;
+  line-height:80px;
+  text-align:center;
+  border-radius:10px;
+  background:#59cbf6;
+  margin:10px 0 0 10px;
+  color:#fff;
+  font-size:50px;
+  font-weight: bolder;
 }
 .user-container .f_r{
 	width: 70%;

@@ -44,10 +44,10 @@ $(function(){
      i = 0,len = orderList.length,
      getType = function(type){
          switch(type){
-          case 0 :return '光面';
-          case 1 :return '网面';
-          case 2 :return '翻毛';
-          case 3 :return '磨砂';}
+          case 0 :return '光面|网面';
+          case 1 :return '翻毛|磨砂';
+          case 2 :return '修鞋|翻新';
+         }
        };
     for(;i<len;i++){
         order = orderList[i];

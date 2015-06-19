@@ -25,7 +25,18 @@
 	</div>
 </div>
 </div>
+<script src="js/zepto.min.js"></script>
 <script>
+
+$(function(){
+	//取出my.html存入本地存储的数据
+	var order = JSON.parse(localStorage.getItem("queryOrder"));
+	console.log(order.data.length);
+	//TODO:解析订单，插入dom
+	//....
+})
+
+
 var _hmt = _hmt || [];
 (function() {
 var hm = document.createElement("script");

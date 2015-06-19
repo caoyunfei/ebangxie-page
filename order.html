@@ -21,7 +21,7 @@
 	<div class="wrap">
 		<header id="header" class="bg" style="position:relative;"><div class="city"><a target="_self" href="list.html"><h6>< 返回</h6></a></div>填写订单信息</header>
 		<div class="main">
-			<form action="#" method="POST" id="forms" autocomplete="off">
+			<form action="http://localhost:8080/ebangxie-web/admin/order/add" method="POST" id="forms" autocomplete="off">
 				<input type="hidden" name="keyword" id="keyword" value="project_xiu">
 				<div class="H-intro">
 					<a href="order-detail.html" class="H-cont">共10件，合计102元</a>
@@ -30,24 +30,28 @@
 				<div class="H-dlbox">
 					<dl class="H-dlList">
 					   <dt><span class="H-place1"></span></dt>
-					   <dd><input name="order_time" value="" placeholder="选择服务时间" id="svctime" readonly="true"><i></i></dd>
+					   <dd><input name="pickupTime" value="" placeholder="选择服务时间" id="svctime" readonly="true"><i></i></dd>
 					</dl>
 					<dl class="H-dlList">
 					   <dt><span class="H-place2"></span></dt>
-					   <dd><input name="order_address" value="" placeholder="填写你的地址" id="place"></dd>
+					   <dd><input name="receiveAddress" value="" placeholder="填写你的地址" id="place"></dd>
 					</dl>
                     <dl class="H-dlList">
                        <dt><span class="H-place4"></span></dt>
-                       <dd><input name="order_address" value="" placeholder="填写你的电话" id="number"></dd>
+                       <dd><input name="userName" value="" placeholder="填写你的姓名" id="userName"></dd>
+                    </dl>
+                    <dl class="H-dlList">
+                       <dt><span class="H-place4"></span></dt>
+                       <dd><input name="userMobile" value="" placeholder="填写你的电话" id="number"></dd>
                     </dl>
 					<dl class="H-dlList">
 					   <dt><span class="H-place3"></span></dt>
-					   <dd><input name="order_remark" value="" placeholder="填写更多要求" id="order_remark"></dd>
+					   <dd><input name="remark" value="" placeholder="填写更多要求" id="order_remark"></dd>
 					</dl>
 				</div>
 				<div class="H-submit">
 					<input type="hidden" name="keyword" value="project_xiu">
-					<input type="submit" class="reserBtn px34 bg" value="提交订单">
+					<input id="submit" type="button" class="reserBtn px34 bg" value="提交订单">
 				</div>
 			</form>
 		</div>
@@ -62,6 +66,95 @@
 <link href="css/mobiscroll.scroller.css" rel="stylesheet" type="text/css">
 <link href="css/mobiscroll.scroller.android-ics.css" rel="stylesheet" type="text/css">
 <script type="text/javascript">
+    $(function () {
+        var dateScroll = function(){
+            var date = new Date();
+            var curr = new Date().getFullYear(),
+                d = date.getDate(),
+                m = date.getMonth();
+            $('#svctime').scroller('destroy').scroller({
+                preset: 'datehour',
+                minDate: new Date(curr, m, d, 8, 00),
+                maxDate: new Date(curr, m, d+7),
+                invalid: [{ d: new Date(), start: '00:00', end: (date.getHours()+2)+':'+date.getMinutes() }],
+                theme: "android-ics light",
+                mode: "scroller",
+                lang: 'zh',
+                display:"bottom",
+                animate: "slideup",
+                stepMinute: 30,
+                dateOrder: 'MMDdd',
+                timeWheels: 'HHii',
+                rows:3
+            });
+        }
+        dateScroll();//时间选择控件
+        var localdata = window.localStorage;
+        $('#place').val(localdata.getItem("fdata_place"));
+        $('#svctime').val(localdata.getItem("fdata_svctime"));
+        $('#number').val(localdata.getItem("number"));
+        $('#userName').val(localdata.getItem("userName"));
+        $("#order_remark").val(localdata.getItem("fdata_remark"));
+
+        // // //表单提交验证
+        // $('#forms').submit(function(){
+        //     var place_val = $('#place').val(),
+        //         svctime_val = $('#svctime').val(),
+        //         keyword = $("#keyword").val(),
+        //         number = $("#number").val(),
+        //         userName = $("#userName").val(),
+        //         order_remark = $("#order_remark").val();
+        //     if(!svctime_val){
+        //         alert('请选择服务时间！');
+        //         return false;
+        //     }
+        //     if(!place_val){
+        //         alert('请填你的地址！');
+        //         return false;
+        //     }
+        //     localdata.setItem("fdata_place",place_val);
+        //     localdata.setItem("fdata_svctime",svctime_val);
+        //     localdata.setItem("fdata_remark",order_remark);
+        //     localdata.setItem("number",number);
+        //     localdata.setItem("userName",userName);
+        //     return true;
+        // });
+      var Hcont = $(".H-cont"),
+          data = JSON.parse(localStorage.getItem("data"));
+          if(data){
+              Hcont.html("共"+data.clickCount+"件，合计"+data.allTotal+"元");
+          };
+      $('#submit').on('click',function(){
+         var data = JSON.parse(localStorage.getItem("data")),
+             order = {
+                pickupTime:$('#svctime').val(),
+                receiveAddress:$('#place').val(),
+                userName:$('#userName').val(),
+                userMobile:$('#number').val(),
+                remark:$('#order_remark').val(),
+                productPrice:data.allTotal,
+                productNumber:data.clickCount,
+                productDesc:'Ax3,Bx2,Cx1'
+             };
+             console.log(order);
+             console.log(data);
+             console.log(JSON.stringify(order));
+        $.ajax({
+            type:'post',
+            url:'http://123.57.220.173/admin/order/add',
+            data:{json:JSON.stringify(order)},
+            dataType:'text',
+            success:function(msg){
+              alert('访问成功');
+            },
+            error:function(){
+                alert('访问错误')
+            }
+        })
+      })
+    });
+
+
 	(function(a) {
     var b = {weekText: ["周日", "周一", "周二", "周三", "周四", "周五", "周六"],daysCount: 15,};
     a.mobiscroll.presets.datehour = function(p) {
@@ -204,59 +297,7 @@
     };
     a.mobiscroll.presetShort("datehour")
 })(jQuery);
-$(function () {
-		var dateScroll = function(){
-			var date = new Date();
-			var curr = new Date().getFullYear(),
-				d = date.getDate(),
-				m = date.getMonth();
-			$('#svctime').scroller('destroy').scroller({
-				preset: 'datehour',
-				minDate: new Date(curr, m, d, 8, 00),
-				maxDate: new Date(curr, m, d+7),
-				invalid: [{ d: new Date(), start: '00:00', end: (date.getHours()+2)+':'+date.getMinutes() }],
-				theme: "android-ics light",
-				mode: "scroller",
-				lang: 'zh',
-				display:"bottom",
-				animate: "slideup",
-				stepMinute: 30,
-				dateOrder: 'MMDdd',
-				timeWheels: 'HHii',
-				rows:3
-			});
-		}
-		dateScroll();//时间选择控件
-        var localdata = window.localStorage;
-        $('#place').val(localdata.getItem("fdata_place"));
-        $('#svctime').val(localdata.getItem("fdata_svctime"));
-        $("#order_remark").val(localdata.getItem("fdata_remark"));
 
-		//表单提交验证
-		$('#forms').submit(function(){
-			var place_val = $('#place').val(),
-				svctime_val = $('#svctime').val(),
-				keyword = $("#keyword").val(),
-                order_remark = $("#order_remark").val();
-			if(!svctime_val){
-				alert('请选择服务时间！');
-				return false;
-			}
-			if(!place_val){
-				alert('请填你的地址！');
-				return false;
-			}
-            localdata.setItem("fdata_place",place_val);
-            localdata.setItem("fdata_svctime",svctime_val);
-            localdata.setItem("fdata_remark",order_remark);
-			return true;
-		});
-      var Hcont = $(".H-cont"),
-          data = JSON.parse(localStorage.getItem("data"));
-          if(data){
-              Hcont.html("共"+data.clickCount+"件，合计"+data.allTotal+"元");
-          }
-	});
 var _hmt = _hmt || [];
 (function() {
 var hm = document.createElement("script");
