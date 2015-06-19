@@ -51,7 +51,7 @@
 				</div>
 				<div class="H-submit">
 					<input type="hidden" name="keyword" value="project_xiu">
-					<input id="submit" type="button" class="reserBtn px34 bg" value="提交订单">
+					<input id="submit" type="button" class="reserBtn bg" value="提交订单">
 				</div>
 			</form>
 		</div>
@@ -97,7 +97,7 @@
         $('#userName').val(localdata.getItem("userName"));
         $("#order_remark").val(localdata.getItem("fdata_remark"));
 
-        // // //表单提交验证
+        // //表单提交验证
         // $('#forms').submit(function(){
         //     var place_val = $('#place').val(),
         //         svctime_val = $('#svctime').val(),
@@ -120,19 +120,47 @@
         //     localdata.setItem("userName",userName);
         //     return true;
         // });
+
       var Hcont = $(".H-cont"),
           data = JSON.parse(localStorage.getItem("data"));
           if(data){
               Hcont.html("共"+data.clickCount+"件，合计"+data.allTotal+"元");
           };
       $('#submit').on('click',function(){
+         var    place_val = $('#place').val(),
+                svctime_val = $('#svctime').val(),
+                keyword = $("#keyword").val(),
+                number = $("#number").val(),
+                userName = $("#userName").val(),
+                order_remark = $("#order_remark").val();
+            if(!svctime_val){
+                alert('请选择服务时间');
+                return false;
+            }
+            if(!place_val){
+                alert('请填你的地址');
+                return false;
+            }
+            if(!number){
+                alert('请填你的电话');
+                return false;
+            }
+            if(!userName){
+                alert('请填你的姓名');
+                return false;
+            }
+            localdata.setItem("fdata_place",place_val);
+            localdata.setItem("fdata_svctime",svctime_val);
+            localdata.setItem("fdata_remark",order_remark);
+            localdata.setItem("number",number);
+            localdata.setItem("userName",userName);
          var data = JSON.parse(localStorage.getItem("data")),
              order = {
-                pickupTime:$('#svctime').val(),
-                receiveAddress:$('#place').val(),
-                userName:$('#userName').val(),
-                userMobile:$('#number').val(),
-                remark:$('#order_remark').val(),
+                pickupTime:svctime_val,
+                receiveAddress:svctime_val,
+                userName:userName,
+                userMobile:number,
+                remark:order_remark,
                 productPrice:data.allTotal,
                 productNumber:data.clickCount,
                 productDesc:'Ax3,Bx2,Cx1'
