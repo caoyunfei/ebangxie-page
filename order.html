@@ -149,6 +149,8 @@
             dataType:'text',
             success:function(msg){
                var order = JSON.parse(msg);
+               alert(order.code);
+               alert(msg);
                if(+order.code === 1000){
                  localStorage.setItem("id",order.id);
                  window.location = loll+"success.html";
@@ -162,5 +164,4 @@
         });
       })
     });
-
 var _hmt = _hmt || [];(function() {var hm = document.createElement("script");hm.src = "//hm.baidu.com/hm.js?c47a84206681693e534ee69cbd180f19";var s = document.getElementsByTagName("script")[0];s.parentNode.insertBefore(hm, s);})();</script></body></html>
