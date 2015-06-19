@@ -119,6 +119,10 @@ $(".my-title").click(function(){
             dataType:'text',
             success:function(msg){
               var order = JSON.parse(msg);
+
+              alert(msg);
+              alert(order.code);
+              return;
               if(+order.code === 1000){
                  localStorage.setItem("queryOrder",msg);
                  window.location = loll+"myorder.html";
