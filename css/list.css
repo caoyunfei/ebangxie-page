@@ -21,14 +21,12 @@ nav a{float:left;font-size:0.6rem;width:33%;text-align:center;line-height:39px;}
 .right>dl dt{float:left;}
 .right>dl dt p:first-child{margin:.2rem 0 .6rem 0;}
 .right>dl dd{float:right;position:relative;}
-.red{color: #c00c00;}
-.spanType1{font-size: 20px;font-weight: bold;}
-.org{color: #e87747;}
+.red{color:#c00c00;}
+.spanType1{font-size:20px;font-weight:bold;}
+.org{color:#e87747;}
 .spanType3{text-decoration:line-through;font-size:0.25rem;color:#b2b2b2;}
-.add-sub{width:111px;height:30px;}
-@media screen and (min-width:460px){
-  .add-sub{width:111px;height:30px;margin-right:40px;}
-}
+.add-sub{width:111px;height:30px;margin-right:2px;}
+@media screen and (min-width:460px){.add-sub{width:111px;height:30px;margin-right:40px;}}
 .add-sub div{float:left;}
 .sub{height:30px;width:30px;background:url(../images/add-sub2.png) no-repeat;  background-size:106px 30px;margin-right:3px;visibility:hidden;}
 .text{height:30px;width:45px;text-align:center;line-height:30px;color:#47C0E8;font-size:14px;font-weight:bold;background:url(../images/add-sub2.png) -32px 0;margin-right:3px;visibility:hidden;}
