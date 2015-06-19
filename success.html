@@ -26,16 +26,16 @@
 
         <div class="orderinfo">
 
-          <div class="section">
-            <img src=images/car1.png alt="">
-            <h6>亲！您的订单已经生成我们会尽快安排上门取件</h1>
+          <div class="section order-tip">
+            <img src=images/car1.png alt="订单生成成功">
+            <p>亲！您的订单已经生成我们会<br>尽快安排上门取件</p>
           </div>
 
-          <div class="section">
-            订单号：182406975212
+          <div class="section order-num">
+            订单号：<span>182406975212</span>
           </div>
 
-          <div class="section">
+          <div class="section order-btn">
             <div class="H-submit">
                     <input id="submit" type="button" class="reserBtn" value="查看订单">
             </div>
@@ -43,20 +43,19 @@
                 <input id="submit" type="button" class="reserBtn" value="继续购物"  style="background:#ff9501;">
             </div>
           </div>
-          
         </div>
-
-
         <div class="hotline">
-          <h1>如有疑问请拨打客服电话</h1>
-          <h1>18240697521</h1>
+          <p>如有疑问请拨打客服电话</p>
+          <p>18240697521</p>
         </div>
     </div> 
 </div>
 </div>
 <script src="js/zepto.min.js"></script>
 <script>
-
+$(function(){
+  $(".order-num span").html(localStorage.getItem("id"));
+})
 /*iscroll的固定写法 end*/
 var _hmt = _hmt || [];
 (function() {

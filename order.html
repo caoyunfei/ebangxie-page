@@ -157,7 +157,7 @@
          var data = JSON.parse(localStorage.getItem("data")),
              order = {
                 pickupTime:svctime_val,
-                receiveAddress:svctime_val,
+                receiveAddress:place_val,
                 userName:userName,
                 userMobile:number,
                 remark:order_remark,
@@ -165,21 +165,24 @@
                 productNumber:data.clickCount,
                 productDesc:'Ax3,Bx2,Cx1'
              };
-             console.log(order);
-             console.log(data);
-             console.log(JSON.stringify(order));
+             // console.log(order);
+             // console.log(data);
+             // console.log(JSON.stringify(order));
         $.ajax({
             type:'post',
             url:'http://123.57.220.173/admin/order/add',
             data:{json:JSON.stringify(order)},
             dataType:'text',
             success:function(msg){
-              alert('访问成功');
+               localStorage.setItem("id",JSON.parse(msg).id);
+               var local = window.location;
+               var loll = local.substring(0,local.lastIndexOf("/")+1)
+               window.location = loll+"success.html";
             },
             error:function(){
                 alert('访问错误')
             }
-        })
+        });
       })
     });
 
