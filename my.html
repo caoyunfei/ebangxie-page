@@ -112,7 +112,7 @@ $(".my-title").click(function(){
    
    $.ajax({
             type:'post',
-            url:'http://123.57.220.173/admin/order/query',
+            url:'/admin/order/add',
             data:{mobile:localStorage.getItem("number")},
             dataType:'text',
             success:function(msg){

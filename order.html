@@ -142,7 +142,7 @@
              };
         $.ajax({
             type:'post',
-            url:'http://localhost/admin/order/add',
+            url:'/admin/order/query'
             data:{json:JSON.stringify(order)},
             dataType:'text',
             success:function(msg){
