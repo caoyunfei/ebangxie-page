@@ -96,7 +96,11 @@ $(function(){
     };
 }
 $("#number").html(localStorage.getItem("number"));
-$(".f_l").html(userName.substring(userName.length-1));
+if(userName === null){
+  $(".f_l").html("您");
+}else{
+  $(".f_l").html(userName.substring(userName.length-1));
+}
 
 $(".my-title").click(function(){
 
