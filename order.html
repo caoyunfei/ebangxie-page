@@ -149,8 +149,6 @@
             dataType:'text',
             success:function(msg){
                var order = JSON.parse(msg);
-               alert(order.code);
-               alert(msg);
                if(+order.code === 1000){
                  localStorage.setItem("id",order.id);
                  window.location = loll+"success.html";
@@ -159,8 +157,6 @@
                }
             },
             error:function(){
-                 alert('error');
-                 return;
                  window.location = loll+"error.html";
             }
         });
