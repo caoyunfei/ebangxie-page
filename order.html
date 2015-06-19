@@ -107,7 +107,9 @@
                 keyword = $("#keyword").val(),
                 number = $("#number").val(),
                 userName = $("#userName").val(),
-                order_remark = $("#order_remark").val();
+                order_remark = $("#order_remark").val(),
+                local = window.location.toString(),
+                loll = local.substring(0,local.lastIndexOf("/")+1);
             if(!svctime_val){
                 alert('请选择服务时间');
                 return false;
@@ -146,13 +148,15 @@
             data:{json:JSON.stringify(order)},
             dataType:'text',
             success:function(msg){
-               localStorage.setItem("id",JSON.parse(msg).id);
-               var local = window.location.toString();
-               var loll = local.substring(0,local.lastIndexOf("/")+1)
-               window.location = loll+"success.html";
+               if(+msg.code === 1000){
+                 localStorage.setItem("id",JSON.parse(msg).id);
+                 window.location = loll+"success.html";
+               }else{
+                 window.location = loll+"error.html";
+               }
             },
             error:function(){
-                alert('访问错误')
+                 window.location = loll+"error.html";
             }
         });
       })

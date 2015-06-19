@@ -76,7 +76,9 @@ $(function(){
   var data = JSON.parse(localStorage.getItem("data")),
              navA = $('a[href="order.html"]'),
              navSpan = navA.find("span"),
-             userName = localStorage.getItem("userName");
+             userName = localStorage.getItem("userName"),
+             local = window.location.toString(),
+             loll = local.substring(0,local.lastIndexOf("/")+1);
   navA.on("click",function(){
     if(data&&!data.clickCount){
       alert('您还没有任何订单');
@@ -119,13 +121,13 @@ $(".my-title").click(function(){
               var order = JSON.parse(msg);
               if(+order.code === 1000){
                  localStorage.setItem("queryOrder",msg);
-                 var local = window.location.toString();
-                 var loll = local.substring(0,local.lastIndexOf("/")+1)
                  window.location = loll+"myorder.html";
+              }else{
+                 window.location = loll+"error.html";
               }
             },
             error:function(){
-                alert('访问错误')
+                window.location = loll+"error.html";
             }
         })
 })

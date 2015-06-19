@@ -1,0 +1,36 @@
+@charset "utf-8";
+#scroller{height:100%;font-family:"方正兰亭细黑简体" "微软雅黑";font-size:.4rem;color:#343434;}
+.container{height:100%;padding:10px 0;}
+.orderinfo{
+	background:#fff;
+	display:-webkit-box;
+	-webkit-box-orient:vertical;
+	height:100%;
+	margin-bottom:10px;
+}
+.section{
+	height:50%;
+}
+.order-tip{
+	display:-webkit-box;
+   -webkit-box-pack:center;
+   -webkit-box-align:center;
+   font-size:.28rem;
+}
+.order-tip img{
+   width:.73rem;
+   height:.71rem;
+   margin-right:4px;
+}
+.order-btn{
+	border:none;
+	display:-webkit-box;
+   -webkit-box-pack:center;
+   -webkit-box-align:center;
+}
+.H-submit{height:20%;border-radius:.08rem;width:100%;
+display:-webkit-box;
+   -webkit-box-pack:center;
+   -webkit-box-align:center;}
+.reserBtn{width:60%;height:100%;display:block;color:#fff;font-family:"方正兰亭细黑简体" "微软雅黑";
+	-webkit-box-pack:center;border:none;border-radius:.08rem;background:#59cbf6;outline:none;font-size:20px;}
