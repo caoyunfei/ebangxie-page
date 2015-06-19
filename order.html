@@ -142,7 +142,7 @@
              };
         $.ajax({
             type:'post',
-            url:'/admin/order/query'
+            url:'/admin/order/add',
             data:{json:JSON.stringify(order)},
             dataType:'text',
             success:function(msg){

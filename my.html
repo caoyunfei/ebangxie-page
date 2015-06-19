@@ -112,7 +112,7 @@ $(".my-title").click(function(){
    
    $.ajax({
             type:'post',
-            url:'/admin/order/add',
+            url:'/admin/order/query',
             data:{mobile:localStorage.getItem("number")},
             dataType:'text',
             success:function(msg){
