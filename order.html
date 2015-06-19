@@ -148,8 +148,9 @@
             data:{json:JSON.stringify(order)},
             dataType:'text',
             success:function(msg){
-               if(+msg.code === 1000){
-                 localStorage.setItem("id",JSON.parse(msg).id);
+               var order = JSON.parse(msg);
+               if(+order.code === 1000){
+                 localStorage.setItem("id",order.id);
                  window.location = loll+"success.html";
                }else{
                  window.location = loll+"error.html";
