@@ -28,9 +28,8 @@
 	display:-webkit-box;
    -webkit-box-pack:center;
    -webkit-box-align:center;
-   font-size:.44rem;
+   font-size:.34rem;
    background:url(../images/dingdan-bg.jpg) center center no-repeat;
-   background-size:2.8rem .4rem:
 }
 .order-num span{
 	color:#ff9501;
