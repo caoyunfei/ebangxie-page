@@ -70,6 +70,7 @@ var data = JSON.parse(localStorage.getItem("data")),
            navA = $('a[href="order.html"]'),
            navSpan = navA.find("span");
 navA.on("touchstart",function(){
+  $(this).off("click");
   if(!data || !data.clickCount){
     alert('您还没有任何订单');
     return false;

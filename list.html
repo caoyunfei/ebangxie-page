@@ -318,6 +318,18 @@
                 data = JSON.parse(localStorage.getItem("data")),
                 i = len = 0,
                 orderList = order = addClass =null,
+                // TYPE_A = 0,//光网 低
+                // TYPE_B = 1,//光网 中
+                // TYPE_C = 2,//光网 高
+
+                // TYPE_D = 3,//翻磨 低
+                // TYPE_E = 4,//翻磨 中
+                // TYPE_F = 5,//翻磨 高
+
+                // TYPE_G = 6,//修翻 换跟钉、加后掌
+                // TYPE_H = 7,//修翻 加前掌
+                // TYPE_I = 8,//翻修 补色、翻新
+
                 TYPE_GW = 0,TYPE_FM = 1,TYPE_XX = 2;//光面0，网面1，翻毛2，磨砂3
            
            //在进入选择页面之后，首先访问本地存储，看看有没有值，若有值
@@ -342,14 +354,15 @@
               }
            }
            //若没有任何订单则footer中的去往订单导航不可用
-           navA.on('click',function(){
+           navA.on('touchstart',function(){
+              $(this).off("click");
               data = JSON.parse(localStorage.getItem("data"));//获取新的data，不然得刷新一下
               if(!data || !data.clickCount){
                 alert('您还没有任何订单');
                 return false;
               }
            });
-           navA.on('touchstart',function(){
+           navA.on('click',function(){
               data = JSON.parse(localStorage.getItem("data"));//获取新的data，不然得刷新一下
               if(!data || !data.clickCount){
                 alert('您还没有任何订单');
@@ -377,6 +390,16 @@
                 isRefresh && myScroll.refresh();
            }
            tab(hash);
+           navLi.on('touchstart',function(e){
+                $(this).off("click");
+                var target = e.target;
+                if(target === this){
+                    hash = target.dataset.index; 
+                }else{
+                    hash = e.target.parentNode.dataset.index;
+                }
+                tab(hash,true);
+           });
            navLi.on('click',function(e){
                 var target = e.target;
                 if(target === this){
@@ -386,16 +409,6 @@
                 }
                 tab(hash,true);
            });
-           navLi.on('touchstart',function(e){
-                var target = e.target;
-                if(target === this){
-                    hash = target.dataset.index; 
-                }else{
-                    hash = e.target.parentNode.dataset.index;
-                }
-                tab(hash,true);
-           });
-
            //交互2：点击 + 号，改变dom
             listUl.find(".add").each(function() {
                 var
@@ -404,6 +417,23 @@
                     index = this.dataset.index,
                     sub = text.prev(),
                     navLiSpan = $($(".nav li span")[index]);
+                 _this.on('touchstart',function(){
+                    _this.off("click");
+                    var curValue = text.text(),
+                        clickCount = $('a[href="order.html"] span').text(),
+                        count = navLiSpan.text();
+                    clickCount++;
+                    curValue++;
+                    count++;
+                    text.css("visibility","visible");
+                    sub.css("visibility","visible");
+                    text.html(curValue);
+                    navLiSpan.addClass("tips");
+                    navSpan.addClass("tips");
+                    navLiSpan.html(count);
+                    navSpan.html(clickCount);
+                    save(index,count);
+                });
                 _this.on('click',function(){
                     var curValue = text.text(),
                         clickCount = $('a[href="order.html"] span').text(),
@@ -420,22 +450,7 @@
                     navSpan.html(clickCount);
                     save(index,count);
                 });
-                _this.on('touchstart',function(){
-                    var curValue = text.text(),
-                        clickCount = $('a[href="order.html"] span').text(),
-                        count = navLiSpan.text();
-                    clickCount++;
-                    curValue++;
-                    count++;
-                    text.css("visibility","visible");
-                    sub.css("visibility","visible");
-                    text.html(curValue);
-                    navLiSpan.addClass("tips");
-                    navSpan.addClass("tips");
-                    navLiSpan.html(count);
-                    navSpan.html(clickCount);
-                    save(index,count);
-                });
+
             })
             //交互3：点击 - 号，改变dom
             listUl.find(".sub").each(function() {
@@ -444,6 +459,36 @@
                     text = _this.next(),
                     index = text.next()[0].dataset.index,
                     navLiSpan = $($(".nav li span")[index]);
+                 _this.on('touchstart',function(){
+                    _this.off("click");
+                    var curValue = _this.next().text(),
+                        clickCount = $('a[href="order.html"] span').text(),
+                        count = navLiSpan.text();
+                    curValue--;
+                    count--;
+                    clickCount--;
+                    if(!curValue){
+                        text.css("visibility","hidden");
+                        _this.css("visibility","hidden");
+                    }else{
+                        text.css("visibility","visible");
+                        _this.css("visibility","visible");
+                    }
+                    text.html(curValue);
+                    if(!count){
+                       navLiSpan.removeClass("tips");
+                    }else{
+                       navLiSpan.addClass("tips");
+                    }
+                    navLiSpan.html(count);
+                    if(!clickCount){
+                       navSpan.removeClass("tips");
+                    }else{
+                       navSpan.addClass("tips"); 
+                    }
+                    navSpan.html(clickCount);
+                    save(index,count);
+                });
                 _this.on('click',function(){
                     var curValue = _this.next().text(),
                         clickCount = $('a[href="order.html"] span').text(),
@@ -473,35 +518,7 @@
                     navSpan.html(clickCount);
                     save(index,count);
                 });
-                _this.on('touchstart',function(){
-                    var curValue = _this.next().text(),
-                        clickCount = $('a[href="order.html"] span').text(),
-                        count = navLiSpan.text();
-                    curValue--;
-                    count--;
-                    clickCount--;
-                    if(!curValue){
-                        text.css("visibility","hidden");
-                        _this.css("visibility","hidden");
-                    }else{
-                        text.css("visibility","visible");
-                        _this.css("visibility","visible");
-                    }
-                    text.html(curValue);
-                    if(!count){
-                       navLiSpan.removeClass("tips");
-                    }else{
-                       navLiSpan.addClass("tips");
-                    }
-                    navLiSpan.html(count);
-                    if(!clickCount){
-                       navSpan.removeClass("tips");
-                    }else{
-                       navSpan.addClass("tips"); 
-                    }
-                    navSpan.html(clickCount);
-                    save(index,count);
-                });
+                
             })
 function save (type,count) {
 type = +type || 0;
@@ -571,5 +588,4 @@ data.clickCount = clickCount;
 localStorage.setItem("data",JSON.stringify(data)); //更新本地存储
 }
 })
-</script>
-</body></html>
+</script></body></html>

@@ -79,6 +79,7 @@ $(function(){
              local = window.location.toString(),
              loll = local.substring(0,local.lastIndexOf("/")+1);
  navA.on("touchstart",function(){
+  $(this).off("click");
     if(!data || !data.clickCount){
       alert('您还没有任何订单');
       return false;
@@ -103,6 +104,7 @@ if(userName === null){
   $(".f_l").html(userName.substring(userName.length-1));
 }
 $(".my-title").on('touchstart',function(){
+  $(this).off("click");
    $.ajax({
             type:'post',
             url:'/admin/order/query',

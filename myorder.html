@@ -32,7 +32,6 @@
 $(function(){
 	//取出my.html存入本地存储的数据
 	var order = JSON.parse(localStorage.getItem("queryOrder"));
-	console.log(order.data.length);
 	//TODO:解析订单，插入dom
 	//....
 	$("#scroller").html(localStorage.getItem("queryOrder"));
