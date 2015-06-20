@@ -3,7 +3,7 @@ $(function() {
 });
 
 function init() {
-	var url = EDAIJIA.webpath_admin + '/order/query';
+	var url = EBANGXIE.webpath_admin + '/order/search';
 
 	$('#orderlist').datagrid({
 		title : '',
