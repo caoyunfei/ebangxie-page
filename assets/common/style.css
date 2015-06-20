@@ -1,0 +1,215 @@
+html, body, table {
+	margin: 0px;
+	padding: 0px;
+	font-size: 12px;
+}
+
+#hheader {
+	margin-top: 2px;
+	margin-top: 2px;
+	margin-left: 0px;
+	margin-right: 0px;
+}
+
+.mcontainer {
+	margin: 0 auto;
+	width: 1000px;
+	/* border: 1px solid #999999; */
+}
+
+.hide {
+	display: none;
+}
+
+.inline-div {
+	display: inline-block;
+}
+
+.queryarea {
+	margin: 5px;
+}
+
+.contentarea {
+	margin: 5px;
+}
+
+.litable {
+	border: 1px solid #cad9ea;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-left: 0px;
+	margin-right: 0px;
+	color: #666;
+	table-layout: fixed;
+	empty-cells: show;
+	border-collapse: collapse;
+	margin-left: 0;
+	margin-right: auto;
+}
+
+.litable th {
+	background-repeat: repeat-x;
+	height: 30px;
+}
+
+.litable td {
+	height: 25px;
+}
+
+.litable td, .litable th {
+	border: 1px solid #cad9ea;
+	padding: 0 1em 0;
+}
+
+.litable tr.alter {
+	background-color: #f5fafe;
+}
+
+.tetable td, .tetable th {
+	border: 1px solid #cad9ea;
+}
+
+.textinput100 {
+	width: 100px;
+	height: 22px;
+}
+
+.textinput150 {
+	width: 150px;
+	height: 22px;
+}
+
+.textinput200 {
+	width: 200px;
+	height: 22px;
+}
+
+.textinputdate {
+	width: 100px;
+	height: 22px !important;
+	border-color: #95B8E7 !important;
+}
+
+.textinputtime {
+	width: 150px;
+	height: 22px !important;
+	border-color: #95B8E7 !important;
+}
+
+.textinputtime2 {
+	width: 120px;
+	height: 22px !important;
+	border-color: #95B8E7 !important;
+}
+
+.select100 {
+	width: 100px;
+}
+
+.select150 {
+	width: 150px;
+}
+
+.select200 {
+	width: 200px;
+}
+
+.spacing {
+	margin-bottom: 15px;
+}
+
+.spacing-small {
+	margin-bottom: 12px;
+}
+
+.spacing-minor {
+	margin-bottom: 8px;
+}
+
+.spacing-medium {
+	margin-bottom: 20px;
+}
+
+.spacing-top {
+	margin-top: 15px;
+}
+
+.spacing-top-medium {
+	margin-top: 20px;
+}
+
+.spacing-top-minor {
+	margin-top: 8px;
+}
+
+.spacing-top-large {
+	margin-top: 25px;
+}
+
+.spacing-left-small {
+	margin-left: 12px;
+}
+
+.spacing-left-medium {
+	margin-left: 20px;
+}
+
+.spacing-right-medium {
+	margin-right: 20px;
+}
+
+.padding-right-medium {
+	padding-right: 20px;
+}
+
+.select300 {
+	width: 300px;
+}
+
+.treeborder {
+	border: 1px solid #cad9ea;
+}
+
+.aadisabled {
+	background-color: #EEE !important;
+}
+
+.spacing-right-tiny {
+	margin-right: 5px;
+}
+
+.thin-text {
+	line-height: 12px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+a.aalink {
+	text-decoration: underline;
+	color: blue;
+	cursor: pointer
+}
+
+a.aalink:link {
+	text-decoration: underline;
+	color: blue
+}
+
+a.aalink:active {
+	text-decoration: blink
+}
+
+a.aalink:hover {
+	text-decoration: underline;
+	color: blue
+}
+
+a.aalink:visited {
+	text-decoration: none;
+	color: blue
+}
+
+label.ui-label-red:after {
+	content: "(*)";
+	color: red;
+}
