@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html>
-<head>
+<html><head>
 <meta charset="utf-8">
 <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
 <meta name="format-detection" content="telephone=no">
@@ -100,6 +99,67 @@
           if(data){
               Hcont.html("共"+data.clickCount+"件，合计"+data.allTotal+"元");
           };
+      $('#submit').on('touchstart',function(){
+         var    place_val = $('#place').val(),
+                svctime_val = $('#svctime').val(),
+                keyword = $("#keyword").val(),
+                number = $("#number").val(),
+                userName = $("#userName").val(),
+                order_remark = $("#order_remark").val(),
+                local = window.location.toString(),
+                loll = local.substring(0,local.lastIndexOf("/")+1);
+            if(!svctime_val){
+                alert('请选择服务时间');
+                return false;
+            }
+            if(!place_val){
+                alert('请填你的地址');
+                return false;
+            }
+            if(!number){
+                alert('请填你的电话');
+                return false;
+            }
+            if(!userName){
+                alert('请填你的姓名');
+                return false;
+            }
+            localdata.setItem("fdata_place",place_val);
+            localdata.setItem("fdata_remark",order_remark);
+            localdata.setItem("number",number);
+            localdata.setItem("userName",userName);
+         var data = JSON.parse(localStorage.getItem("data")),
+             order = {
+                pickupTime:svctime_val,
+                receiveAddress:place_val,
+                userName:userName,
+                userMobile:number,
+                remark:order_remark,
+                productPrice:data.allTotal,
+                productNumber:data.clickCount,
+                productDesc:'Ax3,Bx2,Cx1'
+             };
+        $.ajax({
+            type:'post',
+            url:'/admin/order/add',
+            data:{json:JSON.stringify(order)},
+            dataType:'text',
+            success:function(msg){
+               var order = JSON.parse(msg);
+               if(+order.code === 1000){
+                 //清空本地中的所选商品信息
+                 localStorage.setItem("data",'{"allTotal":0,"clickCount":0,"orderList":[{"type":0,"count":0,"total":0}]}');
+                 localStorage.setItem("id",order.id);
+                 window.location = loll+"success.html";
+               }else{
+                 window.location = loll+"error.html";
+               }
+            },
+            error:function(){
+                 window.location = loll+"error.html";
+            }
+        });
+      })
       $('#submit').on('click',function(){
          var    place_val = $('#place').val(),
                 svctime_val = $('#svctime').val(),
