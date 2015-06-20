@@ -8,9 +8,8 @@
 <div class=banner>
 <div class=swipe id=slider style="visibility:visible;">
 <div id=banners class="swipe-wrap">
-<a><img width=640 height=274 src=images/1.jpg alt=1></a>
-<a><img width=640 height=274 src=images/2.jpg alt=2></a>
-<a><img width=640 height=274 src=images/3.jpg alt=3></a></div><ul id=position><li></li><li></li><li></li></ul>
+<a><img width=640 height=370 src=images/banner1.jpg alt=1></a>
+<a><img width=640 height=370 src=images/banner2.jpg alt=2></a></div><ul id=position><li></li><li></li></ul>
 </div>
 </div>
 <div class="project flexbox">
@@ -50,7 +49,7 @@ function set_imgsize(){
 		disableScroll : true,
 		stopPropagation : false,
 		callback : function(pos){
-            if(bullets.size()<=2){
+            if(bullets.size()<=1){
                 if(pos>1){
                     pos = (pos+1)/2-1;
                 }
