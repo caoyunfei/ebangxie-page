@@ -97,7 +97,7 @@ if(userName === null){
 }else{
   $(".f_l").html(userName.substring(userName.length-1));
 }
-$(".my-title").on('touchstart',function(){
+$("#queryOrder").on('touchstart',function(){
   $(this).off("click");
    $.ajax({
             type:'post',
