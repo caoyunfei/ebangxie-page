@@ -147,9 +147,6 @@
             success:function(msg){
                var order = JSON.parse(msg);
                if(+order.code === 1000){
-                 //清空本地中的所选商品信息
-                 // localStorage.setItem("data",'{"allTotal":0,"clickCount":0,"orderList":[{"type":0,"count":0,"total":0}]}');
-                 localStorage.removeItem("data");
                  localStorage.setItem("id",order.id);
                  window.location = loll+"success.html";
                }else{
