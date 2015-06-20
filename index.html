@@ -3,12 +3,7 @@
 </head>
 <body><div class=wrap>
 <header id=header class=bg style="position:relative;"><div class=city>
-<a target="_self" href="javascript:void(0)">
-<h5><span>北京</span>
-<!-- 目前只支持北京，等城市多了可以解开注释 -->
-<!-- <i class=down></i> -->
-</h5>
-</a>
+<a target="_self" href="javascript:void(0)"><h5><span>北京</span></h5></a>
 </div>e帮鞋</header>
 <div id="wrapper">
 <div id="scroller">
@@ -42,13 +37,6 @@
 <script src=js/zepto.min.js></script><script src=js/swipe.min.js defer></script>
 <script>
 $(function(){
-//目前只支持北京，等城市多了，可以解开注释
-//  var city = localStorage.getItem("city");
-// if(city && city!=="null"){
-//     $(".city").find("span").html(city);
-// }else{
-// 	 $(".city").find("span").html('北京');
-// }
 function set_imgsize(){
 	var bullets = $("#position li");
 	new Swipe(document.getElementById('slider'), {
