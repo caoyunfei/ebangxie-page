@@ -43,7 +43,7 @@ $(function(){
      i = 0,len = orderList.length,
      getType = function(type,subtype){
          type = +type;
-         subtype = +subtype;
+         subtype = +subtype
    if(type === 0){
        if(subtype === 0){
          return "光面、网面--低帮";
@@ -69,7 +69,12 @@ $(function(){
          return "补色、翻新";
        }
    }
-       };
+       },
+   myScroll = new IScroll('#wrapper', { 
+                bounceEasing: 'elastic',
+                bounceTime: 1200,
+                fadeScrollbars:true,
+                scrollbars:true});
     for(;i<len;i++){
         order = orderList[i];
         if(!order.total) continue;
