@@ -51,12 +51,8 @@ body{
 	max-height:100%;
 }
 @-webkit-keyframes reverseRotataZ{
-  	0% {
-    	-webkit-transform:rotateZ(0deg);
-  	}
-  	100% {
-    	-webkit-transform: rotateZ(-360deg);
-  	}
+  	0% {-webkit-transform:rotateZ(0deg);}
+  	100% {-webkit-transform: rotateZ(-360deg);}
 }
 /* Arrow */
 #iSlider-arrow{
@@ -71,20 +67,20 @@ body{
 	border-right:2px solid #66d4ef;
 	z-index:10000;
 	opacity:0.8;
-	-webkit-animation: nextPage 1.2s linear infinite;
+	-webkit-animation:nextPage 1.2s linear infinite;
 }
-@-webkit-keyframes nextPage {
+@-webkit-keyframes nextPage{
   	0% {
-    	-webkit-transform: translateY(40px) rotate(-45deg);
-    	opacity: 0.8;
+    	-webkit-transform:translateY(40px) rotate(-45deg);
+    	opacity:0.8;
   	}
   	50% {
-  		-webkit-transform: translateY(20px) rotate(-45deg);
-  		opacity: 0.4;
+  		-webkit-transform:translateY(20px) rotate(-45deg);
+  		opacity:0.4;
   	}
   	100% {
-    	-webkit-transform: translateY(10px) rotate(-45deg);
-    	opacity: 0;
+    	-webkit-transform:translateY(10px) rotate(-45deg);
+    	opacity:0;
   	}
 }
 </style>
@@ -98,8 +94,7 @@ body{
 			{content: "images/banner1_01.jpg"},
 			{content: "images/banner1_02.jpg"},
 			{content: "images/banner1_03.jpg"},
-			{content: "images/banner1_04.jpg"},
-			];
+			{content: "images/banner1_04.jpg"}];
 		
 		var	islider = new iSlider({
 			type: 'pic',
