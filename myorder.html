@@ -35,8 +35,7 @@ $(function(){
 	console.log(order.data.length);
 	//TODO:解析订单，插入dom
 	//....
-	alert(order.data);
-	$("#scroller").html(order.data);
+	$("#scroller").html(localStorage.getItem("queryOrder"));
 })
 
 
