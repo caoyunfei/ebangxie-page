@@ -92,7 +92,6 @@
         dateScroll();//时间选择控件
         var localdata = window.localStorage;
         $('#place').val(localdata.getItem("fdata_place"));
-        $('#svctime').val(localdata.getItem("fdata_svctime"));
         $('#number').val(localdata.getItem("number"));
         $('#userName').val(localdata.getItem("userName"));
         $("#order_remark").val(localdata.getItem("fdata_remark"));
@@ -127,7 +126,6 @@
                 return false;
             }
             localdata.setItem("fdata_place",place_val);
-            localdata.setItem("fdata_svctime",svctime_val);
             localdata.setItem("fdata_remark",order_remark);
             localdata.setItem("number",number);
             localdata.setItem("userName",userName);
