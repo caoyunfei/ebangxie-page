@@ -22,6 +22,7 @@
 <header id="header" class="bg" style="position:relative;"><div class="city"><a target="_self" href="my.html"><h6>< 返回</h6></a></div>我的订单</header>
 <div id="wrapper">
 	<div id="scroller">
+
 	</div>
 </div>
 </div>
@@ -34,6 +35,7 @@ $(function(){
 	console.log(order.data.length);
 	//TODO:解析订单，插入dom
 	//....
+	$("#scroller").html(order.data);
 })
 
 
