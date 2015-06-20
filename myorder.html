@@ -52,7 +52,6 @@ $(function(){
                 scrollbars:true});
     for(;i<len;i++){
         order = orderList[i];
-        console.log(order);
        	scroller.append('<div class="order-container"><div><h5>订单号：'+order.id+'</h5></div><ul class="item"><li><div class="order-title">下单时间</div><div class="order-total">'+order.orderTime+'</div></li></ul><ul class="item"><li><div class="order-title">订单状态</div><div class="order-total">'+getStatus(order.status)+'</div></li></ul><ul class="item"><li><div class="order-title">订单描述</div><div class="order-total">'+order.productDesc+'</div></li></ul><ul class="item"><li><div class="order-title">合计</div><div class="order-total">￥'+order.productPrice+'</div></li></ul></div>');
     }
     scroller.append('<div class="H-submit"><input type="submit" class="reserBtn px34 bg" value="清空重选"></div>');
