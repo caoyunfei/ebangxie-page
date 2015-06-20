@@ -92,28 +92,27 @@ body{
 <body><div id="iSlider-wrapper"></div><div id="iSlider-arrow"></div>
 <script src="js/islider.js"></script>
 <script>
-		var list = [
-			{content: "images/banner2.jpg"},
-			{content: "images/banner2-2.jpg"}];
-		var	islider = new iSlider({
-			type: 'pic',
-		    data: list,
-		    dom: document.getElementById("iSlider-wrapper"),
-		    isVertical: true,
-		    isLooping: true,
-		    animateType: 'card',
-		    onslidechange: function(idx) {
-
-		    	if (this.isLooping === false) {
-			    	if (idx === this.data.length - 1) {
-			    		document.getElementById('iSlider-arrow').style.display = 'none';
-			    	}
-			    	else {
-			    		document.getElementById('iSlider-arrow').style.display = 'block';
-			    	}
-			    }
-		    }
-		});
+var list = [
+	{content: "images/banner2.jpg"},
+	{content: "images/banner2-2.jpg"}];
+var	islider = new iSlider({
+	type: 'pic',
+    data: list,
+    dom: document.getElementById("iSlider-wrapper"),
+    isVertical: true,
+    isLooping: true,
+    animateType: 'card',
+    onslidechange: function(idx) {
+    	if (this.isLooping === false) {
+	    	if (idx === this.data.length - 1) {
+	    		document.getElementById('iSlider-arrow').style.display = 'none';
+	    	}
+	    	else {
+	    		document.getElementById('iSlider-arrow').style.display = 'block';
+	    	}
+	    }
+    }
+});
 </script>
 </body>
 </html>
