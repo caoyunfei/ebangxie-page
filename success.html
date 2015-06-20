@@ -51,9 +51,9 @@
 <script>
 $(function(){
   $(".order-num span").html(localStorage.getItem("id"));
+  var local = window.location.toString(),
+      loll = local.substring(0,local.lastIndexOf("/")+1),order = null;
   $("#go").click(function(){
-      var local = window.location.toString(),
-          loll = local.substring(0,local.lastIndexOf("/")+1);
       window.location = loll+"list.html";
   })
   $("#submit").click(function(){
@@ -63,7 +63,7 @@ $(function(){
             data:{mobile:localStorage.getItem("number")},
             dataType:'text',
             success:function(msg){
-              var order = JSON.parse(msg);
+              order = JSON.parse(msg);
               if(+order.code === 1000){
                  localStorage.setItem("queryOrder",msg);
                  window.location = loll+"myorder.html";
