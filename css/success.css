@@ -1,72 +1,17 @@
 @charset "utf-8";
 #scroller{height:100%;font-family:"方正兰亭细黑简体" "微软雅黑";font-size:.4rem;color:#343434;}
 .container{height:100%;padding:10px 0;}
-
-.orderinfo{
-	background:#fff;
-	display:-webkit-box;
-	-webkit-box-orient:vertical;
-	height:70%;
-	margin-bottom:10px;
-}
-.section{
-	border-bottom:1px dashed #aaa;
-	height:33%;
-}
-.order-tip{
-	display:-webkit-box;
-   -webkit-box-pack:center;
-   -webkit-box-align:center;
-   font-size:.28rem;
-}
-.order-tip img{
-   width:.73rem;
-   height:.71rem;
-   margin-right:4px;
-}
-.order-num{
-	display:-webkit-box;
-   -webkit-box-pack:center;
-   -webkit-box-align:center;
-   font-size:.34rem;
-   background:url(../images/dingdan-bg.jpg) center center no-repeat;
-}
-.order-num span{
-	color:#ff9501;
-}
-.order-btn{
-	border:none;
-	display:-webkit-box;
-   -webkit-box-pack:center;
-   -webkit-box-align:center;
-}
-.H-submit{height:40%;border-radius:.08rem;width:140px;width:50%;
-display:-webkit-box;
-   -webkit-box-pack:center;
-   -webkit-box-align:center;}
-.reserBtn{width:60%;height:100%;display:block;color:#fff;font-family:"方正兰亭细黑简体" "微软雅黑";
-	-webkit-box-pack:center;border:none;border-radius:.08rem;background:#59cbf6;outline:none;font-size:20px;}
-.hotline{
-	background:#fff;
-	height:30%;
-	margin-bottom:10px;
-	font-size:.36rem;
-	display:-webkit-box;
-   -webkit-box-orient:vertical;
-   -webkit-box-pack:center;
-   -webkit-box-align:center;
-   font-size:.3rem;
-}
-.hotline p:first-child{
-	margin-bottom:5px;
-	color:#343434;
-	height:30%;
-	padding-top:10px;
-}
-.hotline p:last-child{
-	margin-bottom:5px;
-	height:70%;
-}
-.hotline p:last-child a{
-	color:#ff9501;
-}
+.center{display:-webkit-box;-webkit-box-pack:center;-webkit-box-align:center;}
+.orderinfo{background:#fff;display:-webkit-box;-webkit-box-orient:vertical;height:70%;margin-bottom:10px;}
+.section{border-bottom:1px dashed #aaa;height:33%;}
+.order-tip{font-size:.28rem;}
+.order-tip img{width:.73rem;height:.71rem;margin-right:4px;}
+.order-num{font-size:.34rem;background:url(../images/dingdan-bg.jpg) center center no-repeat;}
+.order-num span{color:#ff9501;}
+.order-btn{border:none;}
+.H-submit{height:40%;border-radius:.08rem;width:140px;width:50%;}
+.reserBtn{width:60%;height:100%;display:block;color:#fff;font-family:"方正兰亭细黑简体" "微软雅黑";-webkit-box-pack:center;border:none;border-radius:.08rem;background:#59cbf6;outline:none;font-size:20px;}
+.hotline{background:#fff;height:30%;margin-bottom:10px;font-size:.36rem;-webkit-box-orient:vertical;font-size:.3rem;}
+.hotline p:first-child{margin-bottom:5px;color:#343434;height:30%;padding-top:10px;}
+.hotline p:last-child{margin-bottom:5px;height:70%;}
+.hotline p:last-child a{color:#ff9501;}

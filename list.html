@@ -300,9 +300,6 @@
 <script src="js/iscroll.js" defer></script><script src="js/zepto.min.js"></script>
 <script>
     $(function(){
-       function log(content){
-          console.log && console.log(content);
-       }
        var 
                myScroll = new IScroll('#wrapper', { 
                             bounceEasing: 'elastic',
@@ -437,7 +434,6 @@
                     navSpan.addClass("tips");
                     navLiSpan.html(count);
                     navSpan.html(clickCount);
-                    // log("index:"+index+" count:"+count+" curValue:"+curValue+" clickCount:"+clickCount);
                     save(index,count);
                 });
             })
