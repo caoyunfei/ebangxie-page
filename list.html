@@ -49,7 +49,7 @@
                     <div class="add-sub">
                         <div class="sub"></div>
                         <div class="text">0</div>
-                        <div class="add" data-index=0></div>
+                        <div class="add" data-index=0 data-subtype=0></div>
                     </div>
                 </dd>
             </dl>
@@ -75,7 +75,7 @@
                     <div class="add-sub">
                         <div class="sub"></div>
                         <div class="text">0</div>
-                        <div class="add" data-index=0></div>
+                        <div class="add" data-index=0 data-subtype=1></div>
                     </div>
                 </dd>
             </dl>
@@ -101,7 +101,7 @@
                     <div class="add-sub">
                         <div class="sub"></div>
                         <div class="text">0</div>
-                        <div class="add" data-index=0></div>
+                        <div class="add" data-index=0 data-subtype=2></div>
                     </div>
                 </dd>
             </dl>
@@ -129,7 +129,7 @@
                     <div class="add-sub">
                         <div class="sub"></div>
                         <div class="text">0</div>
-                        <div class="add" data-index=1></div>
+                        <div class="add" data-index=1 data-subtype=0></div>
                     </div>
                 </dd>
             </dl>
@@ -155,7 +155,7 @@
                     <div class="add-sub">
                         <div class="sub"></div>
                         <div class="text">0</div>
-                        <div class="add" data-index=1></div>
+                        <div class="add" data-index=1 data-subtype=1></div>
                     </div>
                 </dd>
             </dl>
@@ -181,7 +181,7 @@
                     <div class="add-sub">
                         <div class="sub"></div>
                         <div class="text">0</div>
-                        <div class="add" data-index=1></div>
+                        <div class="add" data-index=1 data-subtype=2></div>
                     </div>
                 </dd>
             </dl>
@@ -209,7 +209,7 @@
                     <div class="add-sub">
                         <div class="sub"></div>
                         <div class="text">0</div>
-                        <div class="add" data-index=2></div>
+                        <div class="add" data-index=2 data-subtype=0></div>
                     </div>
                 </dd>
             </dl>
@@ -235,7 +235,7 @@
                     <div class="add-sub">
                         <div class="sub"></div>
                         <div class="text">0</div>
-                        <div class="add" data-index=2></div>
+                        <div class="add" data-index=2 data-subtype=1></div>
                     </div>
                 </dd>
             </dl>
@@ -261,7 +261,7 @@
                     <div class="add-sub">
                         <div class="sub"></div>
                         <div class="text">0</div>
-                        <div class="add" data-index=2></div>
+                        <div class="add" data-index=2 data-subtype=2></div>
                     </div>
                 </dd>
             </dl>
@@ -303,18 +303,7 @@ var
     navSpan = navA.find("span"),
     data = JSON.parse(localStorage.getItem("data")),
     i = len = 0,
-    orderList = order = addClass =null,
-    // TYPE_A = 0,//光网 低
-    // TYPE_B = 1,//光网 中
-    // TYPE_C = 2,//光网 高
-
-    // TYPE_D = 3,//翻磨 低
-    // TYPE_E = 4,//翻磨 中
-    // TYPE_F = 5,//翻磨 高
-
-    // TYPE_G = 6,//修翻 换跟钉、加后掌
-    // TYPE_H = 7,//修翻 加前掌
-    // TYPE_I = 8,//翻修 补色、翻新
+    orderList = order = addClass = lu = iii =null,
     TYPE_GW = 0,TYPE_FM = 1,TYPE_XX = 2;//光面0，网面1，翻毛2，磨砂3
 //在进入选择页面之后，首先访问本地存储，看看有没有值，若有值
 //就把值取出来，赋值到 tab、footer、text上
@@ -330,10 +319,13 @@ if(data){
      if(order.count){
         addClass.addClass("tips");
         addClass.html(order.count);
-        var lu = $(listUl[order.type]);
-        lu.find(".sub")[0].style.visibility="visible";
-        lu.find(".text")[0].style.visibility="visible";
-        lu.find(".text")[0].innerHTML=order.count;
+        lu = $(listUl[order.type]);
+        iii = $(lu.find(".add")[order.subtype]).prev();
+        if(order.curValue){
+            iii[0].style.visibility="visible";
+            iii[0].innerHTML = order.curValue; 
+            iii.prev()[0].style.visibility="visible";
+        }
      }
   }
 }
@@ -397,9 +389,9 @@ listUl.find(".add").each(function() {
         _this = $(this),
         text = _this.prev(),
         index = this.dataset.index,
+        subtype = this.dataset.subtype,
         sub = text.prev(),
         navLiSpan = $($(".nav li span")[index]);
-        console.log(index);
      _this.on('touchstart',function(){
         _this.off("click");
         var curValue = text.text(),
@@ -415,7 +407,7 @@ listUl.find(".add").each(function() {
         navSpan.addClass("tips");
         navLiSpan.html(count);
         navSpan.html(clickCount);
-        save(index,count);
+        save(index,count,subtype,curValue);
     });
     _this.on('click',function(){
         var curValue = text.text(),
@@ -431,7 +423,7 @@ listUl.find(".add").each(function() {
         navSpan.addClass("tips");
         navLiSpan.html(count);
         navSpan.html(clickCount);
-        save(index,count);
+        save(index,count,subtype,curValue);
     });
 
 })
@@ -441,6 +433,7 @@ var
     _this = $(this),
     text = _this.next(),
     index = text.next()[0].dataset.index,
+    subtype = text.next()[0].dataset.subtype,
     navLiSpan = $($(".nav li span")[index]);
  _this.on('touchstart',function(){
     _this.off("click");
@@ -470,7 +463,7 @@ var
        navSpan.addClass("tips"); 
     }
     navSpan.html(clickCount);
-    save(index,count);
+    save(index,count,subtype,curValue);
 });
 _this.on('click',function(){
     var curValue = _this.next().text(),
@@ -499,10 +492,10 @@ _this.on('click',function(){
        navSpan.addClass("tips"); 
     }
     navSpan.html(clickCount);
-    save(index,count);
+    save(index,count,subtype,curValue);
  }); 
 })
-function save (type,count) {
+function save (type,count,subtype,curValue) {
 type = +type || 0;
 count = +count || 0;
 var 
@@ -510,20 +503,37 @@ var
  total = allTotal = clickCount = i = len = val = 0,
  orderList = order = newOrder = null,
  isInOrderList = false,
- getVal = function(type){//根据不同的类型返回不同的单价
-   switch(type){
-    case 0 :return 10;
-    case 1 :return 15;
-    case 2 :return 20;
-    case 3 :return 25;}
+ getVal = function(type,subtype){//根据不同的类型返回不同的单价
+   type = +type;
+   subtype = +subtype;
+   if(type === 0){
+       if(subtype === 0){
+         return 20;
+       }else if(subtype === 1){
+         return 30;
+       }else if(subtype === 2){
+         return 40;
+       }
+   }else if(type === 1){
+      if(subtype === 0){
+         return 30;
+       }else if(subtype === 1){
+         return 40;
+       }else if(subtype === 2){
+         return 50;
+       }
+   }else if(type === 2){
+      if(subtype === 0){
+         return 50;
+       }else if(subtype === 1){
+         return 80;
+       }else if(subtype === 2){
+         return 130;
+       }
+   }
  },
- getTotal = function(type,count){ //根据不同类型的鞋子数x单价 得出同类鞋子集合的总价
-   val = getVal(type);
-   switch(type){
-    case 0 :return count*val;
-    case 1 :return count*val;
-    case 2 :return count*val;
-    case 3 :return count*val;}
+ getTotal = function(type,subtype,curValue){ //根据不同类型的鞋子数x单价 得出同类鞋子集合的总价
+   val = getVal(type,subtype);return val*curValue;
  };
 if(data){
  orderList = data.orderList; //不同类型鞋子的集合
@@ -531,15 +541,20 @@ if(data){
    order = orderList[i];
    if(order.type === type){ // 若本次要存储的存在于本地存储，则更新订单中的count、total
       order.count = count;
-      order.total = getTotal(type,count);
-      isInOrderList = true;
+      if(order.subtype === subtype){
+           order.curValue = curValue;
+           order.total = getTotal(type,subtype,curValue);
+           isInOrderList = true;
+      }
    }
  }
  if(!isInOrderList){//若本次要存储的不存在，则push新订单
    newOrder = {
                 "type":type,
+                "subtype":subtype,
+                "curValue":curValue,
                 "count":count,
-                "total":getTotal(type,count)
+                "total":getTotal(type,subtype,curValue)
               }
    orderList.push(newOrder);
  }
@@ -547,12 +562,12 @@ if(data){
 for(i = 0,len = orderList.length;i<len;i++){
   order = orderList[i];
   allTotal += order.total;
-  clickCount += order.count;
+  clickCount += order.curValue;
 }
 data.allTotal = allTotal;
 data.clickCount = clickCount;
 }else{ //若没有本地存储
- total = allTotal = getTotal(type,count); //因为是第一次存储，所以总价等于集合价
+ total = allTotal = getTotal(type,subtype,count); //因为是第一次存储，所以总价等于集合价
  data = 
       {
         "allTotal":allTotal,
@@ -561,6 +576,8 @@ data.clickCount = clickCount;
         [
           {
             "type":type,
+            "subtype":subtype,
+            "curValue":curValue,
             "count":count,
             "total":total
           }

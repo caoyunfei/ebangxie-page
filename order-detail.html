@@ -41,26 +41,48 @@ $(function(){
      orderList = data.orderList,
      order = null,
      i = 0,len = orderList.length,
-     getType = function(type){
-         switch(type){
-          case 0 :return '光面|网面';
-          case 1 :return '翻毛|磨砂';
-          case 2 :return '修鞋|翻新';
-         }
+     getType = function(type,subtype){
+         type = +type;
+         subtype = +subtype;
+   if(type === 0){
+       if(subtype === 0){
+         return "光面、网面--低帮";
+       }else if(subtype === 1){
+         return "光面、网面--高帮";
+       }else if(subtype === 2){
+         return "光面、网面--过膝";
+       }
+   }else if(type === 1){
+      if(subtype === 0){
+         return "翻毛、磨砂--低帮";
+       }else if(subtype === 1){
+         return "翻毛、磨砂--高帮";
+       }else if(subtype === 2){
+         return "翻毛、磨砂--过膝";
+       }
+   }else if(type === 2){
+      if(subtype === 0){
+         return "换跟钉、加后掌";
+       }else if(subtype === 1){
+         return "加前掌";
+       }else if(subtype === 2){
+         return "补色、翻新";
+       }
+   }
        };
     for(;i<len;i++){
         order = orderList[i];
-        if(!order.count) continue;
-       orderContainer.append('<ul class="item"><li><div class="order-title">'+getType(order.type)+'</div><div class="order-total">￥'+order.total+'</div><div class="order-count">'+order.count+'件</div></li></ul>');
+        if(!order.total) continue;
+       orderContainer.append('<ul class="item"><li><div class="order-title">'+getType(order.type,order.subtype)+'</div><div class="order-total">￥'+order.total+'</div><div class="order-count">'+order.curValue+'件</div></li></ul>');
     }
     orderContainer.append('<ul class="item"><li><div class="order-title">运费</div><div class="order-total">￥0</div></li></ul><ul class="item"><li><div class="order-title">合计</div><div class="order-total">￥'+data.allTotal+'</div><div class="order-count">'+data.clickCount+'件</div></li></ul>');
     $('.reserBtn').on("touchstart",function(){
       $(this).off("click");
-       localStorage.setItem("data",'{"allTotal":0,"clickCount":0,"orderList":[{"type":0,"count":0,"total":0}]}');
+       localStorage.setItem("data",'{"allTotal":0,"clickCount":0,"orderList":[{"type":0,"subtype":0,"curValue":0,"count":0,"total":0}]}');
        location.href = "list.html";
     });
     $('.reserBtn').on("click",function(){
-       localStorage.setItem("data",'{"allTotal":0,"clickCount":0,"orderList":[{"type":0,"count":0,"total":0}]}');
+       localStorage.setItem("data",'{"allTotal":0,"clickCount":0,"orderList":[{"type":0,"subtype":0,"curValue":0,"count":0,"total":0}]}');
        location.href = "list.html";
     });
 })</script></body></html>

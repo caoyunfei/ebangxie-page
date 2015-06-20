@@ -23,7 +23,7 @@
 			<form action="http://localhost:8080/ebangxie-web/admin/order/add" method="POST" id="forms" autocomplete="off">
 				<input type="hidden" name="keyword" id="keyword" value="project_xiu">
 				<div class="H-intro">
-					<a href="order-detail.html" class="H-cont">共10件，合计102元</a>
+					<a href="order-detail.html" class="H-cont"></a>
 					<span class="H-go"></span>
 				</div>
 				<div class="H-dlbox">
@@ -148,7 +148,7 @@
             success:function(msg){
                var order = JSON.parse(msg);
                if(+order.code === 1000){
-               localStorage.setItem("data",'{"allTotal":0,"clickCount":0,"orderList":[{"type":0,"count":0,"total":0}]}');
+                localStorage.setItem("data",'{"allTotal":0,"clickCount":0,"orderList":[{"type":0,"subtype":0,"curValue":0,"count":0,"total":0}]}');
                  localStorage.setItem("id",order.id);
                  window.location = loll+"success.html";
                }else{
@@ -190,7 +190,48 @@
             localdata.setItem("number",number);
             localdata.setItem("userName",userName);
          var data = JSON.parse(localStorage.getItem("data")),
-             order = {
+             orderList = data.orderList,
+             i = 0,len = orderList.length,
+             type = o = null,desc = '';
+       function getType(type,subtype){
+         type = +type;
+         subtype = +subtype;
+         if(type === 0){
+             if(subtype === 0){
+               return "A";
+             }else if(subtype === 1){
+               return "B";
+             }else if(subtype === 2){
+               return "C";
+             }
+         }else if(type === 1){
+            if(subtype === 0){
+               return "D";
+             }else if(subtype === 1){
+               return "E";
+             }else if(subtype === 2){
+               return "F";
+             }
+         }else if(type === 2){
+            if(subtype === 0){
+               return "G";
+             }else if(subtype === 1){
+               return "H";
+             }else if(subtype === 2){
+               return "I";
+             }
+         }
+       };
+        for(;i<len;i++){
+          o = orderList[i];
+          if(!o.total) continue;
+          type = getType(o.type,o.subtype);
+          desc += type+"x"+o.curValue+","
+        }
+       if(desc){
+         desc = desc.substring(0,desc.length-1);
+       }
+       var order = {
                 pickupTime:svctime_val,
                 receiveAddress:place_val,
                 userName:userName,
@@ -198,8 +239,8 @@
                 remark:order_remark,
                 productPrice:data.allTotal,
                 productNumber:data.clickCount,
-                productDesc:'Ax3,Bx2,Cx1'
-             };
+                productDesc:desc
+       }
         $.ajax({
             type:'post',
             url:'/admin/order/add',
@@ -208,7 +249,7 @@
             success:function(msg){
                var order = JSON.parse(msg);
                if(+order.code === 1000){
-                localStorage.setItem("data",'{"allTotal":0,"clickCount":0,"orderList":[{"type":0,"count":0,"total":0}]}');
+                localStorage.setItem("data",'{"allTotal":0,"clickCount":0,"orderList":[{"type":0,"subtype":0,"curValue":0,"count":0,"total":0}]}');
                  localStorage.setItem("id",order.id);
                  window.location = loll+"success.html";
                }else{
