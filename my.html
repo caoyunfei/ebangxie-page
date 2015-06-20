@@ -34,19 +34,13 @@
     <dl class="item-list">
       <a href="javascript:void(0)">
          <dt class="fir"></dt>
-         <dd class="my-title">查询订单</dd>
+         <dd class="my-title" id="queryOrder">查询订单</dd>
       </a>
     </dl>
     <dl class="item-list">
       <a href="account.html">
         <dt class="to"></dt>
-        <dd class="my-title">账户管理</dd>
-      </a>
-    </dl>
-    <dl class="item-list">
-      <a href="address.html">
-        <dt class="ces"></dt>
-        <dd class="my-title">地址管理</dd>
+        <dd class="my-title">我要吐槽</dd>
       </a>
     </dl>
     <div class="H-submit">
@@ -124,7 +118,7 @@ $(".my-title").on('touchstart',function(){
             }
         })
 });
-$(".my-title").on('click',function(){
+$("#queryOrder").on('click',function(){
    $.ajax({
             type:'post',
             url:'/admin/order/query',
