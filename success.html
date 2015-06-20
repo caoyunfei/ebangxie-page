@@ -50,7 +50,6 @@
 <script>
 $(function(){
   $(".order-num span").html(localStorage.getItem("id"));
-   localStorage.setItem("data",'{"allTotal":0,"clickCount":0,"orderList":[{"type":0,"count":0,"total":0}]}');
   var local = window.location.toString(),
       loll = local.substring(0,local.lastIndexOf("/")+1),order = null;
   $("#go").on('touchstart',function(){

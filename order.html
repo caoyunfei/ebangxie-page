@@ -147,6 +147,7 @@
             success:function(msg){
                var order = JSON.parse(msg);
                if(+order.code === 1000){
+               localStorage.setItem("data",'{"allTotal":0,"clickCount":0,"orderList":[{"type":0,"count":0,"total":0}]}');
                  localStorage.setItem("id",order.id);
                  window.location = loll+"success.html";
                }else{
