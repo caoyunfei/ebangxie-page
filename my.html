@@ -79,13 +79,13 @@ $(function(){
              local = window.location.toString(),
              loll = local.substring(0,local.lastIndexOf("/")+1);
  navA.on("touchstart",function(){
-    if(data&&!data.clickCount){
+    if(!data || !data.clickCount){
       alert('您还没有任何订单');
       return false;
     }
  });
  navA.on("click",function(){
-    if(data&&!data.clickCount){
+    if(!data || !data.clickCount){
       alert('您还没有任何订单');
       return false;
     }
