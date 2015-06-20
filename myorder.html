@@ -50,9 +50,42 @@ $(function(){
                 bounceTime: 1200,
                 fadeScrollbars:true,
                 scrollbars:true});
+
+    var a = "Ax2,Bx3,Cx4,Dx5";
+    function getDesc(proDesc){
+      var arr = proDesc.split(",");
+      var desc = "";
+      for(var i =0,len = arr.length;i<len;i++){
+         var pro = arr[i].split("x")[0];
+         var count = arr[i].split("x")[1];
+         if(pro == "A"){
+             desc+="光网--低帮X"+count+",";
+         }else if(pro == 'B'){
+             desc+="光网--高帮X"+count+",";
+         }else if(pro == 'C'){
+             desc+= "光网--过膝X"+count+",";          
+         }else if(pro == 'D'){
+             desc+= "翻磨--低帮X"+count+",";          
+         }else if(pro == 'E'){
+             desc+= "翻磨--高帮X"+count+",";          
+         }else if(pro == 'F'){
+             desc+= "翻磨--高帮X"+count+",";          
+         }else if(pro == 'G'){
+             desc+= "跟钉、后掌--高帮X"+count+",";          
+         }else if(pro == 'H'){
+             desc+= "前掌--高帮X"+count+",";          
+         }else if(pro == 'I'){
+             desc+= "翻补--高帮X"+count+",";         
+         }
+      }
+      return desc.substring(0,desc.length-1);
+    }
+
+    var desc = getDesc(a);
+    console.log(desc);
     for(;i<len;i++){
         order = orderList[i];
-       	scroller.append('<div class="order-container"><div><h5>订单号：'+order.id+'</h5></div><ul class="item"><li><div class="order-title">下单时间</div><div class="order-total">'+order.orderTime+'</div></li></ul><ul class="item"><li><div class="order-title">订单状态</div><div class="order-total">'+getStatus(order.status)+'</div></li></ul><ul class="item"><li><div class="order-title">订单描述</div><div class="order-total">'+order.productDesc+'</div></li></ul><ul class="item"><li><div class="order-title">合计</div><div class="order-total">￥'+order.productPrice+'</div></li></ul></div>');
+       	scroller.append('<div class="order-container"><div><h5>订单号：'+order.id+'</h5></div><ul class="item"><li><div class="order-title">下单时间</div><div class="order-total">'+order.orderTime+'</div></li></ul><ul class="item"><li><div class="order-title">订单状态</div><div class="order-total">'+getStatus(order.status)+'</div></li></ul><ul class="item"><li><div class="order-title">订单描述</div><div class="order-total" style="white-space:nowrap;text-overflow:ellipsis;overflow:hidden;">'+getDesc(order.productDesc)+'</div></li></ul><ul class="item"><li><div class="order-title">合计</div><div class="order-total">￥'+order.productPrice+'</div></li></ul></div>');
     }
     scroller.append('<div class="H-submit"><input type="submit" class="reserBtn px34 bg" value="清空重选"></div>');
     $('.reserBtn').on("touchstart",function(){
