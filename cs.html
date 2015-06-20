@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="UTF-8">
+<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+<meta name="format-detection" content="telephone=no">
+<meta content="320" name="MobileOptimized">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta name="format-detection" content="telephone=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta name=description content=e帮鞋>
+<meta name=keywords content=e帮鞋>
+<title>e帮鞋-联系客服</title>
+<link rel="shortcut icon" href="images/logo_50_50png.png"/>
+<link rel=stylesheet href="css/style.css">
+<link rel=stylesheet href="css/error.css">
+</head>
+<body>
+<div class="wrap">
+<header id="header" class="bg" style="position:relative;">点击打电话</header>
+<div id="wrapper" style="height:100%;">
+<div id="scroller">
+<div class="container">
+  <div class="orderinfo">
+    <div class="section order-tip center">
+          <p><a href="tel:18240697521" style="color:#ff9501;font-size:.8rem">18240697521</a></p>
+    </div>
+    <div class="section order-btn center">
+      <div class="H-submit center">
+        <input id="submit" type="button" class="reserBtn" value="返回首页">
+      </div>
+    </div>
+  </div>
+</div> 
+</div>
+</div>
+<script src="js/zepto.min.js"></script>
+<script>
+$(function(){
+  $("#submit").on('touchstart',function(){
+      $(this).off("click");
+      var local = window.location.toString(),
+          loll = local.substring(0,local.lastIndexOf("/")+1);
+      window.location = loll+"index.html";
+  });
+  $("#submit").on('click',function(){
+      var local = window.location.toString(),
+          loll = local.substring(0,local.lastIndexOf("/")+1);
+      window.location = loll+"index.html";
+  });
+})</script></body></html>
