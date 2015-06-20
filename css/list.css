@@ -24,10 +24,10 @@ nav a{float:left;font-size:0.6rem;width:33%;text-align:center;line-height:39px;}
 .org{color:#e87747;}
 .spanType3{text-decoration:line-through;font-size:0.25rem;color:#b2b2b2;}
 .add-sub{width:111px;height:30px;margin-right:2px;}
-@media screen and (min-width:460px){.add-sub{width:111px;height:30px;margin-right:40px;}}
+@media screen and (min-width:460px){.add-sub{width:115px;height:34px;margin-right:40px;}}
 .add-sub div{float:left;}
-.sub{height:30px;width:30px;background:url(../images/add-sub.svg) no-repeat;  background-size:106px 30px;margin-right:3px;visibility:hidden;}
-.text{height:30px;width:45px;text-align:center;line-height:30px;color:#47C0E8;font-size:14px;font-weight:bold;background:url(../images/add-sub.svg) -32px 0;margin-right:3px;visibility:hidden;}
-.add{height:30px;width:30px;background:url(../images/add-sub.svg) 31px 0;background-size:108px 30px;}
+.sub{height:30px;width:29px;background:url(../images/add-sub.svg) no-repeat;background-size:105px 29px;margin-right:3px;visibility:hidden;}
+.text{height:31px;width:46px;text-align:center;line-height:30px;color:#47C0E8;font-size:14px;font-weight:bold;background:url(../images/add-sub.svg) -32px 0;margin-right:3px;visibility:hidden;}
+.add{height:30px;width:29px;background:url(../images/add-sub.svg) 30px 0;background-size:105px 29px;}
 .tips{background:#fb0a53;display:inline-block !important;width:19px;height:19px;text-align:center;line-height:19px;border-radius:50%;color: #fff;font-size:12px;font-family:"Helvetica","微软雅黑","宋体";position:absolute;top:4px; right: 20%; } a[href="order.html"]{position: relative;}
 a[href="order.html"]{position:relative;}
