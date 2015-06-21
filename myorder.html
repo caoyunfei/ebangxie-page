@@ -85,6 +85,11 @@ $(function(){
     myScroll.refresh();
 });
  function saveDesc(desc,clickCount,allTotal){
-    alert(desc+","+clickCount+","+allTotal);
+    var myOrderDetail = {
+       productDesc:desc,
+       productPrice:allTotal,
+       productNumber:productNumber
+    }
+    localStorage.setItem("myOrderDetail",JSON.parse(myOrderDetail));
  }
 </script></body></html>
