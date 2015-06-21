@@ -44,6 +44,9 @@ function loaded () {
 	myScroll = new IScroll('#wrapper',{bounceEasing:'elastic',bounceTime:1200,fadeScrollbars:true,scrollbars:true,preventDefault:false});
 }
 $(function(){
+   localStorage.removeItem("queryOrder");
+   localStorage.removeItem("myOrderDetail");
+   localStorage.removeItem("id");
 function set_imgsize(){
 	var bullets = $("#position li");
 	new Swipe(document.getElementById('slider'),{
