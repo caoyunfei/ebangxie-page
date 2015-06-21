@@ -118,11 +118,11 @@
                 return false;
             }
             if(!number){
-                alert('请填你的电话');
+                alert('请填你的手机号');
                 return false;
             }
             if(!/^(13[0-9]|14[0-9]|15[0-9]|18[0-9])\d{8}$/i.test(number)){
-               alert('请填写正确的电话');
+               alert('请填写正确的手机号');
                return false;
             }
             if(!userName){
@@ -130,7 +130,7 @@
                 return false;
             }
             if(!/[\u4E00-\u9FA5\uF900-\uFA2D]/.test(userName)){
-                alert('无效的姓名');
+                alert('请填正确的姓名');
                 return false;
             }
             localdata.setItem("fdata_place",place_val);
@@ -223,15 +223,31 @@
                 return false;
             }
             if(!place_val){
-                alert('请填你的地址');
+                alert('请填写你的地址');
+                return false;
+            }
+            if(place_val.length<3){
+                alert('请填写正确地址');
                 return false;
             }
             if(!number){
-                alert('请填你的电话');
+                alert('请填写你的手机号');
                 return false;
             }
+            if(!/^(13[0-9]|14[0-9]|15[0-9]|18[0-9])\d{8}$/i.test(number)){
+               alert('请填写正确的手机号');
+               return false;
+            }
             if(!userName){
-                alert('请填你的姓名');
+                alert('请填写你的姓名');
+                return false;
+            }
+            if(!/[\u4E00-\u9FA5\uF900-\uFA2D]/.test(userName)){
+                alert('请填正确的姓名');
+                return false;
+            }
+            if(userName.length<2){
+                alert('请填正确的姓名');
                 return false;
             }
             localdata.setItem("fdata_place",place_val);
