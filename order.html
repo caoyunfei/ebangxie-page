@@ -121,8 +121,16 @@
                 alert('请填你的电话');
                 return false;
             }
+            if(!/^(13[0-9]|14[0-9]|15[0-9]|18[0-9])\d{8}$/i.test(number)){
+               alert('请填写正确的电话');
+               return false;
+            }
             if(!userName){
                 alert('请填你的姓名');
+                return false;
+            }
+            if(!/[\u4E00-\u9FA5\uF900-\uFA2D]/.test(userName)){
+                alert('无效的姓名');
                 return false;
             }
             localdata.setItem("fdata_place",place_val);
