@@ -184,7 +184,7 @@
         $.ajax({
             type:'post',
             url:'/admin/order/add',
-            data:{json:JSON.stringify(order),productNumber:JSON.stringify(order).allTotal},
+            data:{json:JSON.stringify(order),productNumber:JSON.stringify(order).clickCount},
             dataType:'text',
             success:function(msg){
                var order = JSON.parse(msg);
@@ -285,7 +285,7 @@
         $.ajax({
             type:'post',
             url:'/admin/order/add',
-            data:{json:JSON.stringify(order),productNumber:JSON.stringify(order).allTotal},
+            data:{json:JSON.stringify(order),productNumber:JSON.stringify(order).clickCount},
             dataType:'text',
             success:function(msg){
                var order = JSON.parse(msg);
