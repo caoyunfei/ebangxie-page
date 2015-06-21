@@ -20,78 +20,72 @@
 <div class="wrap">
 <header id="header" class="bg" style="position:relative;"><div class="city"><a target="_self" href="javascript:void(0);" onclick="history.go(-1)"><h6>< 返回</h6></a></div>历史描述</header>
 <div id="wrapper" style="height:100%;">
-  <div id="scroller">
-     <div class="order-container">
-        <div>
-          <h5>订单详情</h5>
-        </div>
-     </div>
-  </div>
+<div id="scroller"><div class="order-container"><div><h5>订单详情</h5></div></div></div>
 </div>
 </div>
 <script src="js/iscroll.js"></script>
 <script src="js/zepto.min.js"></script>
 <script>
 $(function(){
-  var 
-     myOrderDetail = JSON.parse(localStorage.getItem("myOrderDetail")),
-     orderContainer = $(".order-container"),
-     descArr = myOrderDetail.productDesc.split(","),
-     desc = '',
-     i = 0,len = descArr.length,
-     getType = function(type){
-       if(type === 'A'){
-             return "光面、网面--低帮";
-       }else if(type === 'B'){
-             return "翻毛、磨砂--高帮";
-       }else if(type === 'C'){
-             return "翻毛、磨砂--过膝";
-       }else if(type === 'D'){
-             return "翻毛、磨砂--低帮";
-       }else if(type === 'E'){
-             return "翻毛、磨砂--高帮";
-       }else if(type === 'F'){
-             return "翻毛、磨砂--过膝";
-       }else if(type === 'G'){
-              return "换跟钉、加后掌";
-       }else if(type === 'H'){
-              return "加前掌";
-       }else if(type === 'I'){
-             return "补色、翻新";
-       }
+var 
+   myOrderDetail = JSON.parse(localStorage.getItem("myOrderDetail")),
+   orderContainer = $(".order-container"),
+   descArr = myOrderDetail.productDesc.split(","),
+   desc = '',
+   i = 0,len = descArr.length,
+   getType = function(type){
+     if(type === 'A'){
+           return "光面、网面--低帮";
+     }else if(type === 'B'){
+           return "翻毛、磨砂--高帮";
+     }else if(type === 'C'){
+           return "翻毛、磨砂--过膝";
+     }else if(type === 'D'){
+           return "翻毛、磨砂--低帮";
+     }else if(type === 'E'){
+           return "翻毛、磨砂--高帮";
+     }else if(type === 'F'){
+           return "翻毛、磨砂--过膝";
+     }else if(type === 'G'){
+            return "换跟钉、加后掌";
+     }else if(type === 'H'){
+            return "加前掌";
+     }else if(type === 'I'){
+           return "补色、翻新";
+     }
 },
 getVal = function(type){
-       if(type === 'A'){
-             return 20;
-       }else if(type === 'B'){
-             return 30;
-       }else if(type === 'C'){
-             return 40;
-       }else if(type === 'D'){
-             return 30;
-       }else if(type === 'E'){
-             return 40;
-       }else if(type === 'F'){
-             return 50;
-       }else if(type === 'G'){
-              return 30;
-       }else if(type === 'H'){
-              return 80;
-       }else if(type === 'I'){
-             return 130;
-       }
+     if(type === 'A'){
+           return 20;
+     }else if(type === 'B'){
+           return 30;
+     }else if(type === 'C'){
+           return 40;
+     }else if(type === 'D'){
+           return 30;
+     }else if(type === 'E'){
+           return 40;
+     }else if(type === 'F'){
+           return 50;
+     }else if(type === 'G'){
+            return 30;
+     }else if(type === 'H'){
+            return 80;
+     }else if(type === 'I'){
+           return 130;
+     }
 },
-   myScroll = new IScroll('#wrapper',{ 
-                bounceEasing: 'elastic',
-                bounceTime: 1200,
-                fadeScrollbars:true,
-                scrollbars:true});
-    for(;i<len;i++){
-        desc = descArr[i];
-        var a = desc.split("x")[0];
-        var b = desc.split("x")[1];
-        orderContainer.append('<ul class="item"><li><div class="order-title">'+getType(a)+'</div><div class="order-total">￥'+(getVal(a)*b)+'</div><div class="order-count">'+b+'件</div></li></ul>');
-    }
-    orderContainer.append('<ul class="item"><li><div class="order-title">合计</div><div class="order-total">￥'+myOrderDetail.productNumber+'</div><div class="order-count">'+myOrderDetail.productPrice+'件</div></li></ul>');
-    myScroll.refresh();
+ myScroll = new IScroll('#wrapper',{ 
+              bounceEasing: 'elastic',
+              bounceTime: 1200,
+              fadeScrollbars:true,
+              scrollbars:true});
+  for(;i<len;i++){
+      desc = descArr[i];
+      var a = desc.split("x")[0];
+      var b = desc.split("x")[1];
+      orderContainer.append('<ul class="item"><li><div class="order-title">'+getType(a)+'</div><div class="order-total">￥'+(getVal(a)*b)+'</div><div class="order-count">'+b+'件</div></li></ul>');
+  }
+  orderContainer.append('<ul class="item"><li><div class="order-title">合计</div><div class="order-total">￥'+myOrderDetail.productNumber+'</div><div class="order-count">'+myOrderDetail.productPrice+'件</div></li></ul>');
+  myScroll.refresh();
 })</script></body></html>
