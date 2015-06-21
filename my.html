@@ -118,6 +118,27 @@ $("#queryOrder").on('touchstart',function(){
             }
         })
 });
+$(".reserBtn").on("click",function(){
+   $(this).off("click");
+   localStorage.removeItem("data");
+   localStorage.removeItem("fdata_place");
+   localStorage.removeItem("fdata_remark");
+   localStorage.removeItem("fdata_svctime");
+   localStorage.removeItem("number");
+   localStorage.removeItem("queryOrder");
+   localStorage.removeItem("userName");
+   window.location = loll+"index.html";
+});
+$(".reserBtn").on("click",function(){
+   localStorage.removeItem("data");
+   localStorage.removeItem("fdata_place");
+   localStorage.removeItem("fdata_remark");
+   localStorage.removeItem("fdata_svctime");
+   localStorage.removeItem("number");
+   localStorage.removeItem("queryOrder");
+   localStorage.removeItem("userName");
+   window.location = loll+"index.html";
+});
 $("#queryOrder").on('click',function(){
    $.ajax({
             type:'post',
