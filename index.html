@@ -77,13 +77,13 @@ var data = JSON.parse(localStorage.getItem("data")),
 navA.on("touchstart",function(){
   $(this).off("click");
   if(!data || !data.clickCount){
-    alert('您还没有任何订单');
+    alert('还未选择洗护鞋品');
     return false;
   }
 });
 navA.on("click",function(){
   if(!data || !data.clickCount){
-    alert('您还没有任何订单');
+    alert('还未选择洗护鞋品');
     return false;
   }
 });
