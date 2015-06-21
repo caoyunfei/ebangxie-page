@@ -129,17 +129,7 @@
             localdata.setItem("fdata_remark",order_remark);
             localdata.setItem("number",number);
             localdata.setItem("userName",userName);
-         var data = JSON.parse(localStorage.getItem("data")),
-             order = {
-                pickupTime:svctime_val,
-                receiveAddress:place_val,
-                userName:userName,
-                userMobile:number,
-                remark:order_remark,
-                productPrice:data.allTotal,
-                productNumber:data.clickCount,
-                productDesc:'Ax3,Bx2,Cx1'
-             };
+         var data = JSON.parse(localStorage.getItem("data"));
         $.ajax({
             type:'post',
             url:'/admin/order/add',
@@ -240,7 +230,7 @@
                 productPrice:data.allTotal,
                 productNumber:data.clickCount,
                 productDesc:desc
-       }
+       };
         $.ajax({
             type:'post',
             url:'/admin/order/add',
