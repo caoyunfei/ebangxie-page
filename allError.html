@@ -11,21 +11,21 @@
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <meta name=description content=e帮鞋>
 <meta name=keywords content=e帮鞋>
-<title>e帮鞋-403</title>
+<title>e帮鞋-系统异常</title>
 <link rel="shortcut icon" href="images/logo_50_50png.png"/>
 <link rel=stylesheet href="css/style.css">
 <link rel=stylesheet href="css/error.css">
 </head>
 <body>
 <div class="wrap">
-<header id="header" class="bg" style="position:relative;">403</header>
+<header id="header" class="bg" style="position:relative;">系统异常</header>
 <div id="wrapper" style="height:100%;">
 <div id="scroller">
 <div class="container">
   <div class="orderinfo">
     <div class="section order-tip center">
-      <img src=images/error.png alt="非法请求">
-      <p>主人，您请求的资源不可见</p>
+      <img src=images/error.png alt="系统异常">
+      <p>主人，小帮帮只是调皮一下下</p>
     </div>
     <div class="section order-btn center">
       <div class="H-submit center">
@@ -39,6 +39,7 @@
 <script src="js/zepto.min.js"></script>
 <script>
 $(function(){
+  $(".order-num span").html(localStorage.getItem("id"));
   $("#submit").on('touchstart',function(){
       $(this).off("click");
       var local = window.location.toString(),
@@ -50,4 +51,5 @@ $(function(){
           loll = local.substring(0,local.lastIndexOf("/")+1);
       window.location = loll+"index.html";
   });
-})</script></body></html>
+})
+</script></body></html>
