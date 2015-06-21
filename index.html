@@ -39,6 +39,7 @@
 <script src="js/iscroll.js"></script>
 <script src=js/zepto.min.js></script><script src=js/swipe.min.js></script>
 <script>
+localStorage.remeveItem("data");
 var myScroll;
 function loaded () {
 	myScroll = new IScroll('#wrapper',{bounceEasing:'elastic',bounceTime:1200,fadeScrollbars:true,scrollbars:true,preventDefault:false});
