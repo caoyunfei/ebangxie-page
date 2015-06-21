@@ -64,7 +64,7 @@ $(function(){
       $.ajax({
             type:'post',
             url:'/admin/order/query',
-            data:{mobile:localStorage.getItem("number")},
+            data:{orderId:localStorage.getItem("id")},
             dataType:'text',
             success:function(msg){
               order = JSON.parse(msg);
@@ -84,7 +84,7 @@ $(function(){
       $.ajax({
             type:'post',
             url:'/admin/order/query',
-            data:{mobile:localStorage.getItem("number")},
+            data:{orderId:localStorage.getItem("id")},
             dataType:'text',
             success:function(msg){
               order = JSON.parse(msg);
