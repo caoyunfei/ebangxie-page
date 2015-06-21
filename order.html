@@ -129,7 +129,58 @@
             localdata.setItem("fdata_remark",order_remark);
             localdata.setItem("number",number);
             localdata.setItem("userName",userName);
-         var data = JSON.parse(localStorage.getItem("data"));
+         var data = JSON.parse(localStorage.getItem("data")),
+             orderList = data.orderList,
+             i = 0,len = orderList.length,
+             type = o = null,desc = '';
+       function getType(type,subtype){
+         type = +type;
+         subtype = +subtype;
+         if(type === 0){
+             if(subtype === 0){
+               return "A";
+             }else if(subtype === 1){
+               return "B";
+             }else if(subtype === 2){
+               return "C";
+             }
+         }else if(type === 1){
+            if(subtype === 0){
+               return "D";
+             }else if(subtype === 1){
+               return "E";
+             }else if(subtype === 2){
+               return "F";
+             }
+         }else if(type === 2){
+            if(subtype === 0){
+               return "G";
+             }else if(subtype === 1){
+               return "H";
+             }else if(subtype === 2){
+               return "I";
+             }
+         }
+       };
+        for(;i<len;i++){
+          o = orderList[i];
+          if(!o.total) continue;
+          type = getType(o.type,o.subtype);
+          desc += type+"x"+o.curValue+","
+        }
+       if(desc){
+         desc = desc.substring(0,desc.length-1);
+       }
+       var order = {
+                pickupTime:svctime_val,
+                receiveAddress:place_val,
+                userName:userName,
+                userMobile:number,
+                remark:order_remark,
+                productPrice:data.allTotal,
+                productNumber:data.clickCount,
+                productDesc:desc
+       };
         $.ajax({
             type:'post',
             url:'/admin/order/add',
@@ -149,7 +200,7 @@
                  window.location = loll+"error.html";
             }
         });
-      })
+      });
       $('#submit').on('click',function(){
          var    place_val = $('#place').val(),
                 svctime_val = $('#svctime').val(),
