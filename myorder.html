@@ -88,9 +88,8 @@ $(function(){
     var myOrderDetail = {
        productDesc:desc,
        productPrice:allTotal,
-       productNumber:productNumber
+       productNumber:clickCount
     };
-    alert(JSON.parse(myOrderDetail));
     localStorage.setItem("myOrderDetail",JSON.parse(myOrderDetail));
  }
 </script></body></html>
