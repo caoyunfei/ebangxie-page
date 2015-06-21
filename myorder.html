@@ -82,15 +82,5 @@ $(function(){
         order = orderList[i];
        	scroller.append('<div class="order-container"><div><h5>订单号：'+order.id+'</h5></div><ul class="item"><li><div class="order-title">下单时间</div><div class="order-total">'+order.createTime+'</div></li></ul><ul class="item"><li><div class="order-title">订单状态</div><div class="order-total">'+getStatus(order.status)+'</div></li></ul><ul class="item"><li><div class="order-title">订单描述</div><div class="order-total" style="white-space:nowrap;text-overflow:ellipsis;overflow:hidden;">'+getDesc(order.productDesc)+'</div></li></ul><ul class="item"><li><div class="order-title width30">合计</div><div class="order-total width40">￥'+order.productPrice+'</div><div class="order-total width30">'+order.productNumber+'件</div></li></ul></div>');
     }
-    scroller.append('<div class="H-submit"><input type="submit" class="reserBtn px34 bg" value="清空重选"></div>');
-    $('.reserBtn').on("touchstart",function(){
-      $(this).off("click");
-       localStorage.setItem("data",'{"allTotal":0,"clickCount":0,"orderList":[{"type":0,"count":0,"total":0}]}');
-       location.href = "list.html";
-    });
-    $('.reserBtn').on("click",function(){
-       localStorage.setItem("data",'{"allTotal":0,"clickCount":0,"orderList":[{"type":0,"count":0,"total":0}]}');
-       location.href = "list.html";
-    });
     myScroll.refresh();
 })</script></body></html>
