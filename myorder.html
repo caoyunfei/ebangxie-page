@@ -28,7 +28,7 @@ $(function(){
      data = JSON.parse(localStorage.getItem("queryOrder")),
      scroller = $("#scroller"),
      orderList = data.data,
-     local = window.location,
+     local = window.location.toString(),
      order = null,
      i = 0,len = orderList.length,
      loll = local.substring(0,local.lastIndexOf("/")+1),
