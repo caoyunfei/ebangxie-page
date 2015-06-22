@@ -58,41 +58,41 @@ $(function(){
   // $("#cancel").on('click',function(){
   //     window.location = loll+"list.html";
   // });
-  $("#submit").on('touchstart',function(){
-    $(this).off("click");
-      $.ajax({
-            type:'post',
-            url:'/admin/order/query',
-            data:{orderId:localStorage.getItem("id")},
-            dataType:'text',
-            success:function(msg){
-              order = JSON.parse(msg);
-              if(+order.code === 1000){
-                 localStorage.setItem("queryOrder",msg);
-                 window.location = loll+"myorder.html";
-              }else{
-                 window.location = loll+"allError.html";
-              }
-            }
-        })
-  });
-  $("#submit").on('click',function(){
-      $.ajax({
-            type:'post',
-            url:'/admin/order/query',
-            data:{orderId:localStorage.getItem("id")},
-            dataType:'text',
-            success:function(msg){
-              order = JSON.parse(msg);
-              if(+order.code === 1000){
-                 localStorage.setItem("queryOrder",msg);
-                 window.location = loll+"myorder.html";
-              }else{
-                 window.location = loll+"allError.html";
-              }
-            }
-        })
-  });
+  // $("#submit").on('touchstart',function(){
+  //   $(this).off("click");
+  //     $.ajax({
+  //           type:'post',
+  //           url:'/admin/order/query',
+  //           data:{orderId:localStorage.getItem("id")},
+  //           dataType:'text',
+  //           success:function(msg){
+  //             order = JSON.parse(msg);
+  //             if(+order.code === 1000){
+  //                localStorage.setItem("queryOrder",msg);
+  //                window.location = loll+"myorder.html";
+  //             }else{
+  //                window.location = loll+"allError.html";
+  //             }
+  //           }
+  //       })
+  // });
+  // $("#submit").on('click',function(){
+  //     $.ajax({
+  //           type:'post',
+  //           url:'/admin/order/query',
+  //           data:{orderId:localStorage.getItem("id")},
+  //           dataType:'text',
+  //           success:function(msg){
+  //             order = JSON.parse(msg);
+  //             if(+order.code === 1000){
+  //                localStorage.setItem("queryOrder",msg);
+  //                window.location = loll+"myorder.html";
+  //             }else{
+  //                window.location = loll+"allError.html";
+  //             }
+  //           }
+  //       })
+  // });
   // $("#cancel").on('touchstart',function(){
   //   $(this).off("click");
   //     $.ajax({
