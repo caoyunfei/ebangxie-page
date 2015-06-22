@@ -110,11 +110,9 @@ $("#queryOrder").on('touchstart',function(){
                  localStorage.setItem("queryOrder",msg);
                  window.location = loll+"myorder.html";
               }else{
+                 alert(2);
                  window.location = loll+"error.html";
               }
-            },
-            error:function(){
-                window.location = loll+"error.html";
             }
         })
 });
@@ -155,9 +153,6 @@ $("#queryOrder").on('click',function(){
               }else{
                  window.location = loll+"error.html";
               }
-            },
-            error:function(){
-                window.location = loll+"error.html";
             }
         })
 });
