@@ -35,7 +35,7 @@
                     <input id="submit" type="button" class="reserBtn" value="查看订单">
             </div>
             <div class="H-submit center">
-                <input id="cancel" type="button" class="reserBtn" value="取消订单"  style="background:#ff9501;">
+                <input id="cancel" type="button" class="reserBtn" value="继续购物" style="background:#ff9501;">
             </div>
           </div>
         </div>
@@ -52,6 +52,13 @@ $(function(){
   $(".order-num span").html(localStorage.getItem("id"));
   var local = window.location.toString(),
       loll = local.substring(0,local.lastIndexOf("/")+1),order = null;
+  $("#cancel").on('touchstart',function(){
+      $(this).off("click");
+      window.location = loll+"list.html";
+  });
+  $("#cancel").on('click',function(){
+      window.location = loll+"list.html";
+  });
   $("#submit").on('touchstart',function(){
     $(this).off("click");
       $.ajax({
@@ -87,40 +94,39 @@ $(function(){
             }
         })
   });
-
-  $("#cancel").on('touchstart',function(){
-    $(this).off("click");
-      $.ajax({
-            type:'post',
-            url:'/admin/order/cancel',
-            data:{orderId:localStorage.getItem("id")},
-            dataType:'text',
-            success:function(msg){
-              order = JSON.parse(msg);
-              if(+order.code === 1000){
-                 alert("订单取消成功~");
-                 window.location = loll+"list.html";
-              }else{
-                 window.location = loll+"error.html";
-              }
-            }
-        })
-  });
-  $("#cancel").on('click',function(){
-      $.ajax({
-            type:'post',
-            url:'/admin/order/cancel',
-            data:{orderId:localStorage.getItem("id")},
-            dataType:'text',
-            success:function(msg){
-              order = JSON.parse(msg);
-              if(+order.code === 1000){
-                 alert("订单取消成功~");
-                 window.location = loll+"list.html";
-              }else{
-                 window.location = loll+"error.html";
-              }
-            }
-        })
-  });
+  // $("#cancel").on('touchstart',function(){
+  //   $(this).off("click");
+  //     $.ajax({
+  //           type:'post',
+  //           url:'/admin/order/cancel',
+  //           data:{orderId:localStorage.getItem("id")},
+  //           dataType:'text',
+  //           success:function(msg){
+  //             order = JSON.parse(msg);
+  //             if(+order.code === 1000){
+  //                alert("订单取消成功~");
+  //                window.location = loll+"list.html";
+  //             }else{
+  //                window.location = loll+"error.html";
+  //             }
+  //           }
+  //       })
+  // });
+  // $("#cancel").on('click',function(){
+  //     $.ajax({
+  //           type:'post',
+  //           url:'/admin/order/cancel',
+  //           data:{orderId:localStorage.getItem("id")},
+  //           dataType:'text',
+  //           success:function(msg){
+  //             order = JSON.parse(msg);
+  //             if(+order.code === 1000){
+  //                alert("订单取消成功~");
+  //                window.location = loll+"list.html";
+  //             }else{
+  //                window.location = loll+"error.html";
+  //             }
+  //           }
+  //       })
+  // });
 })</script></body></html>
