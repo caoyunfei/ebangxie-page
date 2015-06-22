@@ -15,9 +15,9 @@ nav a{float:left;font-size:0.6rem;width:33%;text-align:center;line-height:38px;}
 .project a{display:block;height:100%;width:100%;}
 .project>div{width:50%;}
 .project>div:first-child{border-right:solid 1px #e5e5e5;}
-.headico{float:left;margin:.51rem .22rem 0 .22rem;}
+.headico{float:left;margin:.51rem .2rem 0 .1rem;}
 .proFont{float:left;margin-top:.71rem;line-height:.44rem;font-family:"方正兰亭细黑简体","微软雅黑";color:#404040;}
-.proFont p:first-child{font-size:.31rem;}
+.proFont p:first-child{font-size:.3rem;}
 .proFont p:last-child{font-size:.24rem;}
 .project>div:first-child .headico svg,.project>div:last-child .headico svg{width:0.81rem;height:0.65rem}
 .tips{background:#fb0a53;display:inline-block !important;width:19px;height:19px;text-align:center;line-height:19px;border-radius:50%;color: #fff;font-size:12px;font-family:"Helvetica","微软雅黑","宋体";position:absolute;top:4px; right: 20%; } a[href="order.html"]{position: relative;}
