@@ -47,6 +47,7 @@ $(function(){
    localStorage.removeItem("queryOrder");
    localStorage.removeItem("myOrderDetail");
    localStorage.removeItem("id");
+   document.addEventListener("ontouchstart",function(e){e.preventDefault();});
 function set_imgsize(){
 	var bullets = $("#position li");
 	new Swipe(document.getElementById('slider'),{
