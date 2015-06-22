@@ -553,7 +553,7 @@ if(data){
                 "curValue":curValue,
                 "count":count,
                 "total":getTotal(type,subtype,curValue)
-              }
+              };
    orderList.push(newOrder);
  }
  //循环最新的orderList,计算出总价与总数并更新到对象上
@@ -569,7 +569,7 @@ data.clickCount = clickCount;
  data = 
       {
         "allTotal":allTotal,
-        "clickCount":1,
+        "clickCount":1,//次数有bug，当用户第一次在网站购物时，只要走入到该分支，总商品数至少是1故默认应该为1，而不是0。该bug已经解决。。
         "orderList":
         [
           {
