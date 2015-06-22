@@ -92,7 +92,7 @@ $(function(){
     $(this).off("click");
       $.ajax({
             type:'post',
-            url:'/admin/order/query',
+            url:'/admin/order/cancel',
             data:{orderId:localStorage.getItem("id")},
             dataType:'text',
             success:function(msg){
