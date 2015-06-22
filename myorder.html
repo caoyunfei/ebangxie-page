@@ -31,7 +31,7 @@ $(function(){
      local = window.location.toString(),
      order = null,
      i = 0,len = orderList.length,
-     loll = local.substring(0,local.lastIndexOf("/")+1),
+     window.loll = loll = local.substring(0,local.lastIndexOf("/")+1),
      getType = function(type){
          switch(type){
           case 0 :return '光面|网面';
