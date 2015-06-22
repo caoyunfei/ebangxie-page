@@ -307,11 +307,9 @@ var
     TYPE_GW = 0,TYPE_FM = 1,TYPE_XX = 2;//光面0，网面1，翻毛2，磨砂3
 //在进入选择页面之后，首先访问本地存储，看看有没有值，若有值
 //就把值取出来，赋值到 tab、footer、text上
-if(data){
-  if(data.clickCount){
-    navSpan.addClass("tips");
-    navSpan.html(data.clickCount);
-  }
+if(data && data.clickCount){
+  navSpan.addClass("tips");
+  navSpan.html(data.clickCount);
   orderList = data.orderList;
   for(len = orderList.length;i<len;i++){
      order = orderList[i];
@@ -500,7 +498,7 @@ type = +type || 0;
 count = +count || 0;
 var 
  data = JSON.parse(localStorage.getItem("data")),
- total = allTotal = clickCount = i = len = val = 0,
+ total = allTotal = clickCount = i = len =  0,
  orderList = order = newOrder = null,
  isInOrderList = false,
  getVal = function(type,subtype){//根据不同的类型返回不同的单价
@@ -533,7 +531,7 @@ var
    }
  },
  getTotal = function(type,subtype,curValue){ //根据不同类型的鞋子数x单价 得出同类鞋子集合的总价
-   val = getVal(type,subtype);return val*curValue;
+   return getVal(type,subtype)*curValue;
  };
 if(data){
  orderList = data.orderList; //不同类型鞋子的集合
@@ -571,7 +569,7 @@ data.clickCount = clickCount;
  data = 
       {
         "allTotal":allTotal,
-        "clickCount":clickCount,
+        "clickCount":1,
         "orderList":
         [
           {
