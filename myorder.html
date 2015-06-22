@@ -84,7 +84,8 @@ $(function(){
     }
     myScroll.refresh();
 });
- function saveDesc(desc,clickCount,allTotal){
+ function saveDesc(desc,clickCount,allTotal,e){
+    alert(e.type);
     var myOrderDetail = {
        productDesc:desc,
        productPrice:allTotal,
