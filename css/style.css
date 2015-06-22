@@ -1,11 +1,10 @@
 @charset "utf-8";
-body,button,dd,dt,dl,fieldset,form,h1,h2,h3,h4,h5,h6,input,legend,li,ol,p,select,table,td,textarea,th,ul{margin: 0;padding: 0;}
+body,button,dd,dt,dl,form,h1,h2,h3,h4,h5,h6,input,li,ol,p,select,table,td,textarea,ul{margin:0;padding:0;}
 html{font-size:100px;-ms-touch-action:none;}
-body,button,input,select,table,textarea{line-height:1.25rem,font-family:"microsoft yahei",Verdana,Arial,Helvetica,sans-serif;}
+body,button,input,select,textarea{line-height:1.25rem,font-family:"microsoft yahei",Verdana,Arial,Helvetica,sans-serif;}
 body{margin:auto;color:#333;background-color:#f0efed;overflow:hidden;}
-fieldset,img{border:0;}
+img{border:0;}
 ol,ul,li{list-style:none;}
-address,em{font-style:normal;}
 a{color:#333;text-decoration:none;outline:none;}
 img{vertical-align:middle;}
 *{-webkit-tap-highlight-color:rgba(0,0,0,0);}
@@ -22,14 +21,7 @@ input[type="button"],input[type="submit"],input[type="reset"]{-webkit-appearance
 .hide{display:none;}
 .show{display:block !important;}
 .px20{font-size:0.20rem;}
-.px22{font-size:0.22rem;}
-.px24{font-size:0.24rem;}
-.px26{font-size:0.26rem;}
-.px28{font-size:0.28rem;}
-.px30{font-size:0.30rem;}
-.px32{font-size:0.32rem;}
 .px34{font-size:0.34rem;}
-.px36{font-size:0.36rem;}
 .bg{background:#66d4ef;}
 .color{color:#66d4ef;}
 .wrap{min-width:320px;max-width:640px;margin:0px auto;overflow:hidden;}
@@ -37,7 +29,4 @@ input[type="button"],input[type="submit"],input[type="reset"]{-webkit-appearance
 .flexbox-1{-webkit-box-flex:1;-moz-box-flex:1;box-flex:1;}
 header{min-width:320px; max-width:640px;position:absolute;z-index:2;top:0;width:100%;height:45px;line-height:45px;padding:0;color:#eee;font-size:20px;text-align:center;font-weight:bold;color:#fff;}
 #wrapper{min-width:320px;max-width:640px;position:absolute;z-index:1;top:45px;bottom:45px;width:100%;background:#f0efed;overflow:hidden;}
-.city{position:absolute;left:10px;cursor:pointer;}
-.city a{color:#fff;}
-.footerbg{background:#f8f8f8;}
-header h6{font-size:16px;}
+.city{position:absolute;left:10px;cursor:pointer;}.city a{color:#fff;}.footerbg{background:#f8f8f8;}header h6{font-size:16px;}
