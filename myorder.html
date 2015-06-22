@@ -25,6 +25,11 @@
 <script>
 $(function(){
   var 
+     myScroll = new IScroll('#wrapper', { 
+                bounceEasing: 'elastic',
+                bounceTime: 1200,
+                fadeScrollbars:true,
+                scrollbars:true,preventDefault:false}),
      data = JSON.parse(localStorage.getItem("queryOrder")),
      scroller = $("#scroller"),
      orderList = data.data,
