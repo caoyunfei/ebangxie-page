@@ -332,14 +332,14 @@ navA.on('touchstart',function(){
   $(this).off("click");
   data = JSON.parse(localStorage.getItem("data"));//获取新的data，不然得刷新一下
   if(!data || !data.clickCount){
-    alert('您还没有任何订单');
+    alert('鞋篮还是空的哦~');
     return false;
   }
 });
 navA.on('click',function(){
   data = JSON.parse(localStorage.getItem("data"));
   if(!data || !data.clickCount){
-    alert('您还没有任何订单');
+    alert('鞋篮还是空的哦~');
     return false;
   }
 });
