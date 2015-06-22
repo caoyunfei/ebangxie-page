@@ -27,7 +27,7 @@ function init() {
 		idField : 'orderId',
 
 		columns : [ [ {
-			field : 'orderCode',
+			field : 'orderId',
 			title : '订单号',
 			width : 70,
 			align : 'center'
