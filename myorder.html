@@ -92,7 +92,7 @@ $(function(){
        productPrice:allTotal,
        productNumber:clickCount
     },local = window.location.toString(),loll = local.substring(0,local.lastIndexOf("/")+1);
-    data = '{"productDesc":"'+desc+'","productPrice":"'+allTotal+'","productNumber":"'+clickCount+'"}',
+    data = '{"productDesc":"'+desc+'","productPrice":"'+allTotal+'","productNumber":"'+clickCount+'"}';
     localStorage.setItem("myOrderDetail",data);
     window.location = loll+"myorder-detail.html";
  }
