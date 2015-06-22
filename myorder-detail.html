@@ -28,11 +28,6 @@
 <script>
 $(function(){
 var 
-   myScroll = new IScroll('#wrapper', { 
-                bounceEasing: 'elastic',
-                bounceTime: 1200,
-                fadeScrollbars:true,
-                scrollbars:true,preventDefault:false}),
    myOrderDetail = JSON.parse(localStorage.getItem("myOrderDetail")),
    orderContainer = $(".order-container"),
    descArr = myOrderDetail.productDesc.split(","),
@@ -84,7 +79,7 @@ getVal = function(type){
               bounceEasing: 'elastic',
               bounceTime: 1200,
               fadeScrollbars:true,
-              scrollbars:true});
+              scrollbars:true,preventDefault:false});
   for(;i<len;i++){
       desc = descArr[i];
       var a = desc.split("x")[0];

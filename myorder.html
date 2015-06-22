@@ -25,11 +25,6 @@
 <script>
 $(function(){
   var 
-     myScroll = new IScroll('#wrapper', { 
-                bounceEasing: 'elastic',
-                bounceTime: 1200,
-                fadeScrollbars:true,
-                scrollbars:true,preventDefault:false}),
      data = JSON.parse(localStorage.getItem("queryOrder")),
      scroller = $("#scroller"),
      orderList = data.data,
@@ -46,7 +41,7 @@ $(function(){
                 bounceEasing: 'elastic',
                 bounceTime: 1200,
                 fadeScrollbars:true,
-                scrollbars:true}),
+                scrollbars:true,preventDefault:false}),
         getStatus = function(status){
              switch(+status){
                 case 100 : return "您已下单";
