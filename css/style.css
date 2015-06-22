@@ -7,7 +7,7 @@ fieldset,img{border:0;}
 ol,ul,li{list-style:none;}
 address,em{font-style:normal;}
 a{color:#333;text-decoration:none;outline:none;}
-img{vertical-align: middle;}
+img{vertical-align:middle;}
 *{-webkit-tap-highlight-color:rgba(0,0,0,0);}
 .clearfix:after{visibility:hidden;display:block;font-size:0;content:" ";clear:both;height:0;} 
 input[type="button"],input[type="submit"],input[type="reset"]{-webkit-appearance:none;}
