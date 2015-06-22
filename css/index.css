@@ -15,7 +15,7 @@ nav a{float:left;font-size:0.6rem;width:33%;text-align:center;line-height:38px;}
 .project a{display:block;height:100%;}
 .project>div{width:50%;}
 .project>div:first-child{border-right:solid 1px #e5e5e5;}
-.headico{float:left;margin:.34rem .22rem 0 .22rem;}
+.headico{float:left;margin:.42rem .22rem 0 .22rem;}
 .proFont{float:left;margin-top:.5rem;line-height:.44rem;font-family:"方正兰亭细黑简体","微软雅黑";color:#404040;}
 .proFont p:first-child{font-size:.32rem;}
 .proFont p:last-child{font-size:.25rem;}
