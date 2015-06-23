@@ -43,7 +43,8 @@ $(function(){
                 bounceEasing: 'elastic',
                 bounceTime: 1200,
                 fadeScrollbars:true,
-                scrollbars:true}),
+                scrollbars:true
+            }),
         getStatus = function(status){
              switch(+status){
                 case 100 : return "您已下单";
@@ -88,9 +89,9 @@ $(function(){
        	scroller.append('<div class="order-container"><div><h5>订单号：'+order.id+'</h5></div><ul class="item"><li><div class="order-title">下单时间</div><div class="order-total">'+order.orderTime+'</div></li></ul><ul class="item"><li><div class="order-title">订单状态</div><div class="order-total">'+getStatus(order.status)+'</div></li></ul><ul class="item"><a href="javascript:void(0);" style="display:block;" ontouchstart=\'this.onclick=null;saveDesc("'+order.productDesc+'",'+order.productPrice+','+order.productNumber+');\'onclick=\'saveDesc("'+order.productDesc+'",'+order.productPrice+','+order.productNumber+');\'><li><div class="order-title">订单描述</div><div class="order-total" style="white-space:nowrap;text-overflow:ellipsis;overflow:hidden;">'+getDesc(order.productDesc)+'</div></li></a></ul><ul class="item"><li><div class="order-title width30">合计</div><div class="order-total width40">￥'+order.productPrice+'</div><div class="order-total width30">'+order.productNumber+'件</div></li></ul></div>');
     }
     myScroll.refresh();
-    myScroll.onScrollStart(function(){
-        alert(2);
-    });
+    myScroll.on("beforeScrollStart", function(e) {
+        e.preventDefault();
+    })
 });
  function saveDesc(desc,clickCount,allTotal){
     var myOrderDetail = {
