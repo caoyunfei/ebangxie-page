@@ -283,15 +283,17 @@
       </nav>
 </footer>
 </div>
-<script src="js/iscroll.js"></script><script src="js/zepto.min.js"></script>
+<script src="js/iscroll.js" defer></script>
+<script src="js/zepto.min.js"></script>
 <script>
 $(function(){
 var 
-   myScroll = new IScroll('#wrapper', { 
-                bounceEasing: 'elastic',
-                bounceTime: 1200,
-                fadeScrollbars:true,
-                scrollbars:true}),
+   myScroll = new IScroll('#wrapper',{ 
+                bounceEasing:'elastic',
+                bounceTime:1200,
+                fadeScrollbars:false,
+                scrollbars:false,
+                preventDefault:false}),
     hash = window.location.hash,
     navLi = $(".nav li"),
     listUl = $(".list ul"),
