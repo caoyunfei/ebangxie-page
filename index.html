@@ -35,13 +35,22 @@
 </nav>
 </footer>
 </div>
-<script src="js/zepto.min.js"></script>
 <script src="js/swipe.min.js"></script>
+<script src="js/iscroll.js"></script>
+<script src="js/zepto.min.js"></script>
 <script>
 $(function(){
    localStorage.removeItem("queryOrder");
    localStorage.removeItem("myOrderDetail");
    localStorage.removeItem("id");
+   var myScroll = new IScroll('#wrapper', { 
+                bounceEasing: 'elastic',
+                bounceTime: 1200,
+                fadeScrollbars:true,
+                scrollbars:true,
+                preventDefault:false,
+                preventDefaultException:{tagName:/^(A)$/}
+              });
 function set_imgsize(){
 	var bullets = $("#position li");
 	new Swipe(document.getElementById('slider'),{
