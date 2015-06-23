@@ -53,22 +53,22 @@ $(function(){
       loll = local.substring(0,local.lastIndexOf("/")+1),order = null;
   $("#view").tap(function(){
     alert('view');
-    // $(this).off("click");
-    //   $.ajax({
-    //         type:'post',
-    //         url:'/admin/order/query',
-    //         data:{orderId:localStorage.getItem("id")},
-    //         dataType:'text',
-    //         success:function(msg){
-    //           order = JSON.parse(msg);
-    //           if(+order.code === 1000){
-    //              localStorage.setItem("queryOrder",msg);
-    //              window.location = loll+"myorder.html";
-    //           }else{
-    //              window.location = loll+"allError.html";
-    //           }
-    //         }
-    //     })
+    $(this).off("click");
+      $.ajax({
+            type:'post',
+            url:'/admin/order/query',
+            data:{orderId:localStorage.getItem("id")},
+            dataType:'text',
+            success:function(msg){
+              order = JSON.parse(msg);
+              if(+order.code === 1000){
+                 localStorage.setItem("queryOrder",msg);
+                 window.location = loll+"myorder.html";
+              }else{
+                 window.location = loll+"allError.html";
+              }
+            }
+        })
   });
   // $("#view").on('click',function(){
   //   alert('view');
