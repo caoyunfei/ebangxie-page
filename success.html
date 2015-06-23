@@ -59,6 +59,7 @@ $(function(){
       window.location = loll+"list.html";
   });
   $("#view").tap(function(){
+    alert('view');
     $(this).off("click");
       $.ajax({
             type:'post',
@@ -77,6 +78,7 @@ $(function(){
         })
   });
   $("#view").on('click',function(){
+    alert('view');
       $.ajax({
             type:'post',
             url:'/admin/order/query',
@@ -94,6 +96,7 @@ $(function(){
         })
   });
   $("#cancel").tap(function(){
+    alert('cancel');
     $(this).off("click");
       $.ajax({
             type:'post',
@@ -112,6 +115,7 @@ $(function(){
         })
   });
   $("#cancel").on('click',function(){
+    alert('cancel');
       $.ajax({
             type:'post',
             url:'/admin/order/cancel',
