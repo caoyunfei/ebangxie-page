@@ -86,6 +86,6 @@ getVal = function(type){
       var b = desc.split("x")[1];
       orderContainer.append('<ul class="item"><li><div class="order-title">'+getType(a)+'</div><div class="order-total">￥'+(getVal(a)*b)+'</div><div class="order-count">'+b+'件</div></li></ul>');
   }
-  orderContainer.append('<ul class="item"><li><div class="order-title">合计</div><div class="order-total">￥'+myOrderDetail.productNumber+'</div><div class="order-count">'+myOrderDetail.productPrice+'件</div></li></ul>');
+  orderContainer.append('<ul class="item"><li><div class="order-title">合计</div><div class="order-total">￥'+myOrderDetail.productPrice+'</div><div class="order-count">'+myOrderDetail.productNumber+'件</div></li></ul>');
   myScroll.refresh();
 })</script></body></html>
