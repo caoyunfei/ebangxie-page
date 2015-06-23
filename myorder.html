@@ -25,12 +25,12 @@
 <script>
 $(function(){
   var 
-     data = JSON.parse(localStorage.getItem("queryOrder")),
+     data = JSON.parse(localStorage.getItem("queryOrder")) ,
      scroller = $("#scroller"),
-     orderList = data.data,
+     orderList = null,
      local = window.location.toString(),
      order = null,
-     i = 0,len = orderList.length,
+     i = len =0,
      loll = local.substring(0,local.lastIndexOf("/")+1),
      getType = function(type){
          switch(type){
@@ -54,8 +54,10 @@ $(function(){
                 case 140 : return "您已取消订单";
              }
         };
-
-
+    if(data){
+        orderList = data.data
+        len = orderList.length;
+    }
     function getDesc(proDesc){
       var arr = proDesc.split(",");
       var desc = "";
@@ -86,11 +88,26 @@ $(function(){
     }
     for(;i<len;i++){
         order = orderList[i];
-       	scroller.append('<div class="order-container"><div><h5>订单号：'+order.id+'</h5></div><ul class="item"><li><div class="order-title">下单时间</div><div class="order-total">'+order.orderTime+'</div></li></ul><ul class="item"><li><div class="order-title">订单状态</div><div class="order-total">'+getStatus(order.status)+'</div></li></ul><ul class="item"><a href="javascript:void(0);" style="display:block;" ontouchstart=\'this.onclick=null;saveDesc("'+order.productDesc+'",'+order.productPrice+','+order.productNumber+');\'onclick=\'saveDesc("'+order.productDesc+'",'+order.productPrice+','+order.productNumber+');\'><li><div class="order-title">订单描述</div><div class="order-total" style="white-space:nowrap;text-overflow:ellipsis;overflow:hidden;">'+getDesc(order.productDesc)+'</div></li></a></ul><ul class="item"><li><div class="order-title width30">合计</div><div class="order-total width40">￥'+order.productPrice+'</div><div class="order-total width30">'+order.productNumber+'件</div></li></ul></div>');
+       	scroller.append('<div class="order-container"><div><h5>订单号：'+order.id+'</h5></div><ul class="item"><li><div class="order-title">下单时间</div><div class="order-total">'+order.orderTime+'</div></li></ul><ul class="item"><li><div class="order-title">订单状态</div><div class="order-total">'+getStatus(order.status)+'</div></li></ul><ul class="item"><a href="javascript:void(0);" style="display:block;" ontouchstart=\'saveDesc("'+order.productDesc+'",'+order.productPrice+','+order.productNumber+');\' onclick=\'saveDesc("'+order.productDesc+'",'+order.productPrice+','+order.productNumber+');\'><li><div class="order-title">订单描述</div><div class="order-total" style="white-space:nowrap;text-overflow:ellipsis;overflow:hidden;">'+getDesc(order.productDesc)+'</div></li></a></ul><ul class="item"><li><div class="order-title width30">合计</div><div class="order-total width40">￥'+order.productPrice+'</div><div class="order-total width30">'+order.productNumber+'件</div></li></ul></div>');
     }
     myScroll.refresh();
-    myScroll.on("beforeScrollStart", function(e) {
-        e.preventDefault();
+    myScroll.on("beforeScrollStart", function() {
+       var aArr =  $(".item a");
+       aArr.each(function(){
+         var handler = $(this).attr('onclick');
+         $(this).attr('onclick',null);
+         $(this).attr('ontouchstart',null);
+         $(this).attr('data-handler',handler);
+       }); 
+    });
+    myScroll.on("scrollEnd",function(){
+       var aArr =  $(".item a");
+       aArr.each(function(){
+         var handler = $(this).attr("data-handler");
+         $(this).attr('onclick',handler);
+         $(this).attr('ontouchstart',handler);
+         $(this).attr('data-handler',null);
+       }); 
     })
 });
  function saveDesc(desc,clickCount,allTotal){
