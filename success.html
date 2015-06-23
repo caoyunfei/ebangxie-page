@@ -31,7 +31,7 @@
           </div>
           <div class="section order-btn center">
             <div class="H-submit center">
-                    <input id="submit" type="button" class="reserBtn" value="查看订单">
+                    <input id="view" type="button" class="reserBtn" value="查看订单">
             </div>
             <div class="H-submit center">
                 <input id="cancel" type="button" class="reserBtn" value="继续购物" style="background:#ff9501;">
@@ -58,7 +58,7 @@ $(function(){
   $("#cancel").on('click',function(){
       window.location = loll+"list.html";
   });
-  $("#submit").tap(function(){
+  $("#view").tap(function(){
     $(this).off("click");
       $.ajax({
             type:'post',
@@ -76,7 +76,7 @@ $(function(){
             }
         })
   });
-  $("#submit").on('click',function(){
+  $("#view").on('click',function(){
       $.ajax({
             type:'post',
             url:'/admin/order/query',

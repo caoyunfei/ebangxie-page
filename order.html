@@ -98,7 +98,7 @@
           if(data){
               Hcont.html("共"+data.clickCount+"件，合计"+data.allTotal+"元");
           };
-      $('#submit').on('touchstart',function(){
+      $('#submit').tap(function(){
           $(this).off("click");
          var    place_val = $('#place').val(),
                 svctime_val = $('#svctime').val(),
