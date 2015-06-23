@@ -98,14 +98,7 @@ $(function(){
             data = '{"productDesc":"'+this.dataset.pd+'","productPrice":"'+this.dataset.pp+'","productNumber":"'+this.dataset.pn+'"}';
         localStorage.setItem("myOrderDetail",data);
         window.location = loll+"myorder-detail.html";
-      })
-      $(this).click(function(){
-         var local = window.location.toString(),
-            loll = local.substring(0,local.lastIndexOf("/")+1);
-            data = '{"productDesc":"'+this.dataset.pd+'","productPrice":"'+this.dataset.pp+'","productNumber":"'+this.dataset.pn+'"}';
-        localStorage.setItem("myOrderDetail",data);
-        window.location = loll+"myorder-detail.html";
-      })
+      });
     }); 
 });
 </script></body></html>
