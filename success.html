@@ -88,7 +88,6 @@ $(function(){
         })
   });
   $("#cancel").tap(function(){
-    alert('cancel tap');
     $(this).off("click");
       $.ajax({
             type:'post',
@@ -106,22 +105,22 @@ $(function(){
             }
         })
   });
-  // $("#cancel").on('click',function(){
-  //   alert('cancel');
-  //     $.ajax({
-  //           type:'post',
-  //           url:'/admin/order/cancel',
-  //           data:{orderId:localStorage.getItem("id")},
-  //           dataType:'text',
-  //           success:function(msg){
-  //             order = JSON.parse(msg);
-  //             if(+order.code === 1000){
-  //                alert("订单取消成功~");
-  //                window.location = loll+"list.html";
-  //             }else{
-  //                window.location = loll+"error.html";
-  //             }
-  //           }
-  //       })
-  // });
+  $("#cancel").on('click',function(){
+    alert('cancel click');
+      $.ajax({
+            type:'post',
+            url:'/admin/order/cancel',
+            data:{orderId:localStorage.getItem("id")},
+            dataType:'text',
+            success:function(msg){
+              order = JSON.parse(msg);
+              if(+order.code === 1000){
+                 alert("订单取消成功~");
+                 window.location = loll+"list.html";
+              }else{
+                 window.location = loll+"error.html";
+              }
+            }
+        })
+  });
 })</script></body></html>
