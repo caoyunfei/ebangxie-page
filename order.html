@@ -222,19 +222,15 @@
                 loll = local.substring(0,local.lastIndexOf("/")+1);
             if(!svctime_val){
 				$.dialog({
-                    content : '请选择服务时间',				
-                    ok : function() {                       
-                    },                   
-                    lock : false
+                    content : '请选择服务时间',				                            
+					time : 850
                 });              
                 return false;
             }
             if(!place_val){
 				$.dialog({
                     content : '请填写您的地址',				
-                    ok : function() {                       
-                    },                   
-                    lock : false
+                    time : 850
                 });   
                 
                 return false;
@@ -242,9 +238,7 @@
             if(place_val.length<3){
 				$.dialog({
                     content : '请填写正确地址',				
-                    ok : function() {                       
-                    },                   
-                    lock : false
+                    time : 850
                 }); 
                
                 return false;
@@ -253,9 +247,7 @@
                
 				$.dialog({
                     content : '请填写您的姓名',				
-                    ok : function() {                       
-                    },                   
-                    lock : false
+                    time : 850
                 });
                 return false;
             }
@@ -263,27 +255,21 @@
               
 				$.dialog({
                     content : '请填正确的姓名',				
-                    ok : function() {                       
-                    },                   
-                    lock : false
+                    time : 850
                 });
                 return false;
             }
             if(userName.length<2){
                 $.dialog({
                     content : '请填正确的姓名',				
-                    ok : function() {                       
-                    },                   
-                    lock : false
+                    time : 850
                 });
                 return false;
             }
 			if(!number){
 				$.dialog({
                     content : '请填写您的手机号',				
-                    ok : function() {                       
-                    },                   
-                    lock : false
+                    time : 850
                 });
               
                 return false;
@@ -292,9 +278,7 @@
               
 			   $.dialog({
                     content : '请填写正确的手机号',				
-                    ok : function() {                       
-                    },                   
-                    lock : false
+                    time : 850
                 });
                return false;
             }
