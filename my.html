@@ -14,6 +14,7 @@
 <link rel="shortcut icon" href=images/logo_50_50png.png>
 <link rel=stylesheet href=css/style.css>
 <link rel=stylesheet href=css/my.css>
+<link rel="stylesheet" type="text/css" href="css/zepto.alert.min.css">
 </head>
 <body>
 <div class="wrap">
@@ -63,6 +64,7 @@
 </footer>
 </div>
 <script src="js/zepto.min.js"></script>
+<script type="text/javascript" src="js/zepto.alert.min.js"></script>
 <script>
 $(function(){
   var data = JSON.parse(localStorage.getItem("data")),
@@ -73,14 +75,24 @@ $(function(){
              loll = local.substring(0,local.lastIndexOf("/")+1);
  navA.on("touchstart",function(){
   $(this).off("click");
-    if(!data || !data.clickCount){
-      alert('鞋篮还是空的哦~');
+    if(!data || !data.clickCount){    
+		$.dialog({
+            content : '鞋篮还是空的哦~',				
+            ok : function() {                       
+            },                   
+            lock : false
+        });         
       return false;
     }
  });
  navA.on("click",function(){
     if(!data || !data.clickCount){
-      alert('鞋篮还是空的哦~');
+		$.dialog({
+            content : '鞋篮还是空的哦~',				
+            ok : function() {                       
+            },                   
+            lock : false
+        });    
       return false;
     }
  });

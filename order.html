@@ -12,8 +12,10 @@
 <meta name=keywords content=e帮鞋>
 <title>e帮鞋-填写信息</title>
 <link rel="shortcut icon" href="images/logo_50_50png.png"/>
+<link rel="stylesheet" type="text/css" href="css/zepto.alert.min.css">
 <link rel=stylesheet href="css/style.css">
 <link rel=stylesheet href="css/order.css">
+
 </head>
 <body>
 	<div class="wrap">
@@ -62,6 +64,7 @@
 <script src="js/mobiscroll.scroller.android-ics.js" defer></script>
 <script src="js/mobiscroll.i18n.zh.js" defer></script>
 <script src="js/date.min.js" defer></script>
+<script type="text/javascript" src="js/zepto.alert.min.js"></script>
 <link href="css/mobiscroll.scroller.css" rel="stylesheet" type="text/css">
 <link href="css/mobiscroll.scroller.android-ics.css" rel="stylesheet" type="text/css">
 <script type="text/javascript">
@@ -218,35 +221,81 @@
                 local = window.location.toString(),
                 loll = local.substring(0,local.lastIndexOf("/")+1);
             if(!svctime_val){
-                alert('请选择服务时间');
+				$.dialog({
+                    content : '请选择服务时间',				
+                    ok : function() {                       
+                    },                   
+                    lock : false
+                });              
                 return false;
             }
             if(!place_val){
-                alert('请填写你的地址');
+				$.dialog({
+                    content : '请填写你的地址',				
+                    ok : function() {                       
+                    },                   
+                    lock : false
+                });   
+                
                 return false;
             }
             if(place_val.length<3){
-                alert('请填写正确地址');
+				$.dialog({
+                    content : '请填写正确地址',				
+                    ok : function() {                       
+                    },                   
+                    lock : false
+                }); 
+               
                 return false;
             }
             if(!number){
-                alert('请填写你的手机号');
+				$.dialog({
+                    content : '请填写你的手机号',				
+                    ok : function() {                       
+                    },                   
+                    lock : false
+                });
+              
                 return false;
             }
             if(!/^(13[0-9]|14[0-9]|15[0-9]|18[0-9])\d{8}$/i.test(number)){
-               alert('请填写正确的手机号');
+              
+			   $.dialog({
+                    content : '请填写正确的手机号',				
+                    ok : function() {                       
+                    },                   
+                    lock : false
+                });
                return false;
             }
             if(!userName){
-                alert('请填写你的姓名');
+               
+				$.dialog({
+                    content : '请填写你的姓名',				
+                    ok : function() {                       
+                    },                   
+                    lock : false
+                });
                 return false;
             }
             if(!/[\u4E00-\u9FA5\uF900-\uFA2D]/.test(userName)){
-                alert('请填正确的姓名');
+              
+				$.dialog({
+                    content : '请填正确的姓名',				
+                    ok : function() {                       
+                    },                   
+                    lock : false
+                });
                 return false;
             }
             if(userName.length<2){
-                alert('请填正确的姓名');
+                $.dialog({
+                    content : '请填正确的姓名',				
+                    ok : function() {                       
+                    },                   
+                    lock : false
+                });
                 return false;
             }
             localdata.setItem("fdata_place",place_val);
