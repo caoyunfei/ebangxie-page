@@ -34,15 +34,15 @@
 					</dl>
 					<dl class="H-dlList">
 					   <dt><span class="H-place2"></span></dt>
-					   <dd><input name="userAddress" value="" placeholder="填写你的地址" id="place"></dd>
+					   <dd><input name="userAddress" value="" placeholder="填写您的地址" id="place"></dd>
 					</dl>
                     <dl class="H-dlList">
                        <dt><span class="H-place3"></span></dt>
-                       <dd><input name="userName" value="" placeholder="填写你的姓名" id="userName"></dd>
+                       <dd><input name="userName" value="" placeholder="填写您的姓名" id="userName"></dd>
                     </dl>
                     <dl class="H-dlList">
                        <dt><span class="H-place4"></span></dt>
-                       <dd><input name="userMobile" value="" placeholder="填写你的电话" id="number"></dd>
+                       <dd><input name="userMobile" value="" placeholder="填写您的电话" id="number"></dd>
                     </dl>
 					<dl class="H-dlList">
 					   <dt><span class="H-place5"></span></dt>
@@ -116,11 +116,11 @@
                 return false;
             }
             if(!place_val){
-                alert('请填你的地址');
+                alert('请填您的地址');
                 return false;
             }
             if(!number){
-                alert('请填你的手机号');
+                alert('请填您的手机号');
                 return false;
             }
             if(!/^(13[0-9]|14[0-9]|15[0-9]|18[0-9])\d{8}$/i.test(number)){
@@ -128,7 +128,7 @@
                return false;
             }
             if(!userName){
-                alert('请填你的姓名');
+                alert('请填您的姓名');
                 return false;
             }
             if(!/[\u4E00-\u9FA5\uF900-\uFA2D]/.test(userName)){
@@ -231,7 +231,7 @@
             }
             if(!place_val){
 				$.dialog({
-                    content : '请填写你的地址',				
+                    content : '请填写您的地址',				
                     ok : function() {                       
                     },                   
                     lock : false
@@ -248,31 +248,11 @@
                 }); 
                
                 return false;
-            }
-            if(!number){
-				$.dialog({
-                    content : '请填写你的手机号',				
-                    ok : function() {                       
-                    },                   
-                    lock : false
-                });
-              
-                return false;
-            }
-            if(!/^(13[0-9]|14[0-9]|15[0-9]|18[0-9])\d{8}$/i.test(number)){
-              
-			   $.dialog({
-                    content : '请填写正确的手机号',				
-                    ok : function() {                       
-                    },                   
-                    lock : false
-                });
-               return false;
-            }
+            }            
             if(!userName){
                
 				$.dialog({
-                    content : '请填写你的姓名',				
+                    content : '请填写您的姓名',				
                     ok : function() {                       
                     },                   
                     lock : false
@@ -297,6 +277,26 @@
                     lock : false
                 });
                 return false;
+            }
+			if(!number){
+				$.dialog({
+                    content : '请填写您的手机号',				
+                    ok : function() {                       
+                    },                   
+                    lock : false
+                });
+              
+                return false;
+            }
+            if(!/^(13[0-9]|14[0-9]|15[0-9]|18[0-9])\d{8}$/i.test(number)){
+              
+			   $.dialog({
+                    content : '请填写正确的手机号',				
+                    ok : function() {                       
+                    },                   
+                    lock : false
+                });
+               return false;
             }
             localdata.setItem("fdata_place",place_val);
             localdata.setItem("fdata_remark",order_remark);
