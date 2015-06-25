@@ -73,29 +73,33 @@ $(function(){
              userName = localStorage.getItem("userName"),
              local = window.location.toString(),
              loll = local.substring(0,local.lastIndexOf("/")+1);
- navA.on("touchstart",function(){
+ navA.tap(function(){
   $(this).off("click");
-    if(!data || !data.clickCount){    
-		$.dialog({
-            content : '鞋篮还是空的哦~',				
-            ok : function() {                       
-            },                   
-            lock : false
-        });         
-      return false;
-    }
- });
- navA.on("click",function(){
-    if(!data || !data.clickCount){
-		$.dialog({
-            content : '鞋篮还是空的哦~',				
-            ok : function() {                       
-            },                   
-            lock : false
-        });    
-      return false;
-    }
- });
+  if(!data || !data.clickCount){
+    $(document.body).append('<div class="dialog"><div class="dialog-content">鞋篮还是空的哦~</div><div class="dialog-footer"><a class="dialog-ok" href="javascript:void(0);">好</a></div>');
+    $(".dialog-ok").tap(function(){
+      $(this).off("click");
+      $('.dialog').remove();
+    });
+    $(".dialog-ok").click(function(){
+      $('.dialog').remove();
+    });
+    return false;
+  }
+});
+navA.on("click",function(){
+  if(!data || !data.clickCount){
+    $(document.body).append('<div class="dialog"><div class="dialog-content">鞋篮还是空的哦~</div><div class="dialog-footer"><a class="dialog-ok" href="javascript:void(0);">好</a></div>');
+    $(".dialog-ok").tap(function(){
+      $(this).off("click");
+      $('.dialog').remove();
+    });
+    $(".dialog-ok").click(function(){
+      $('.dialog').remove();
+    });
+    return false;
+  }
+});
   if(data){
     if(data.clickCount){
       navSpan.addClass("tips");

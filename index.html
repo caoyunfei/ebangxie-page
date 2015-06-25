@@ -36,10 +36,11 @@
 </nav>
 </footer>
 </div>
+<!-- <div class="dialog"><div class="dialog-content">鞋篮还是空的哦~</div><div class="dialog-footer"><a class="dialog-ok" href="javascript:void(0);">好</a></div>
+</div> -->
 <script src="js/zepto.min.js"></script>
 <script src="js/swipe.min.js"></script>
 <script src="js/iscroll.js" defer></script>
-<script type="text/javascript" src="js/zepto.alert.min.js"></script>
 <script>
 $(function(){
    localStorage.removeItem("queryOrder");
@@ -81,26 +82,30 @@ window.addEventListener(orientationEvent, function() {
 var data = JSON.parse(localStorage.getItem("data")),
            navA = $('a[href="order.html"]'),
            navSpan = navA.find("span");
-navA.on("touchstart",function(){
+navA.tap(function(){
   $(this).off("click");
   if(!data || !data.clickCount){
-    $.dialog({
-            content : '鞋篮还是空的哦~',				
-            ok : function() {                       
-            },                   
-            lock : false
-        });    
+    $(document.body).append('<div class="dialog"><div class="dialog-content">鞋篮还是空的哦~</div><div class="dialog-footer"><a class="dialog-ok" href="javascript:void(0);">好</a></div>');
+    $(".dialog-ok").tap(function(){
+      $(this).off("click");
+      $('.dialog').remove();
+    });
+    $(".dialog-ok").click(function(){
+      $('.dialog').remove();
+    });
     return false;
   }
 });
 navA.on("click",function(){
   if(!data || !data.clickCount){
-    $.dialog({
-            content : '鞋篮还是空的哦~',				
-            ok : function() {                       
-            },                   
-            lock : false
-        });    
+    $(document.body).append('<div class="dialog"><div class="dialog-content">鞋篮还是空的哦~</div><div class="dialog-footer"><a class="dialog-ok" href="javascript:void(0);">好</a></div>');
+    $(".dialog-ok").tap(function(){
+      $(this).off("click");
+      $('.dialog').remove();
+    });
+    $(".dialog-ok").click(function(){
+      $('.dialog').remove();
+    });
     return false;
   }
 });
