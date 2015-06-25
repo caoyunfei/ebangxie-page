@@ -35,7 +35,7 @@
 </nav>
 </footer>
 </div>
-</div> -->
+</div>
 <script src="js/zepto.min.js"></script>
 <script src="js/swipe.min.js"></script>
 <script src="js/iscroll.js" defer></script>
@@ -80,23 +80,9 @@ window.addEventListener(orientationEvent, function() {
 var data = JSON.parse(localStorage.getItem("data")),
            navA = $('a[href="order.html"]'),
            navSpan = navA.find("span");
-navA.tap(function(){
-  $(this).off("click");
-  if(!data || !data.clickCount){
-    $(document.body).append('<div class="dialog"><div class="dialog-content">鞋篮还是空的哦~</div><div class="dialog-footer"><a class="dialog-ok" href="javascript:void(0);">好</a></div>');
-    $(".dialog-ok").tap(function(){
-      $(this).off("click");
-      $('.dialog').remove();
-    });
-    $(".dialog-ok").click(function(){
-      $('.dialog').remove();
-    });
-    return false;
-  }
-});
 navA.on("click",function(){
   if(!data || !data.clickCount){
-    $(document.body).append('<div class="dialog"><div class="dialog-content">鞋篮还是空的哦~</div><div class="dialog-footer"><a class="dialog-ok" href="javascript:void(0);">好</a></div>');
+    $('<div class="dialog"><div class="dialog-content">鞋篮还是空的哦~</div><div class="dialog-footer"><a class="dialog-ok" href="javascript:void(0);">好</a></div>').appendTo('body');
     $(".dialog-ok").tap(function(){
       $(this).off("click");
       $('.dialog').remove();

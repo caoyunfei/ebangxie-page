@@ -329,23 +329,9 @@ if(data && data.clickCount){
   }
 }
 //若没有任何订单则footer中的去往订单导航不可用
-navA.tap(function(){
-  $(this).off("click");
-  if(!data || !data.clickCount){
-    $(document.body).append('<div class="dialog"><div class="dialog-content">鞋篮还是空的哦~</div><div class="dialog-footer"><a class="dialog-ok" href="javascript:void(0);">好</a></div>');
-    $(".dialog-ok").tap(function(){
-      $(this).off("click");
-      $('.dialog').remove();
-    });
-    $(".dialog-ok").click(function(){
-      $('.dialog').remove();
-    });
-    return false;
-  }
-});
 navA.on("click",function(){
   if(!data || !data.clickCount){
-    $(document.body).append('<div class="dialog"><div class="dialog-content">鞋篮还是空的哦~</div><div class="dialog-footer"><a class="dialog-ok" href="javascript:void(0);">好</a></div>');
+    $('<div class="dialog"><div class="dialog-content">鞋篮还是空的哦~</div><div class="dialog-footer"><a class="dialog-ok" href="javascript:void(0);">好</a></div>').appendTo('body');
     $(".dialog-ok").tap(function(){
       $(this).off("click");
       $('.dialog').remove();
