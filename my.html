@@ -73,13 +73,10 @@ $(function(){
              loll = local.substring(0,local.lastIndexOf("/")+1);
 navA.on("click",function(){
   if(!data || !data.clickCount){
-    $('<div class="dialog"><div class="dialog-content">鞋篮还是空的哦~</div><div class="dialog-footer"><a class="dialog-ok" href="javascript:void(0);">好</a></div>').appendTo('body');
-    $(".dialog-ok").tap(function(){
-      $(this).off("click");
-      $('.dialog').remove();
-    });
+   $('<div class="cover"></div><div class="dialog"><div class="dialog-content">鞋篮还是空的哦~</div><div class="dialog-footer"><a class="dialog-ok" href="javascript:void(0);">好</a></div>').appendTo('body');
     $(".dialog-ok").click(function(){
       $('.dialog').remove();
+      $('.cover').remove();
     });
     return false;
   }
