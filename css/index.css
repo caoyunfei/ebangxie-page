@@ -53,9 +53,8 @@ nav a{float:left;font-size:0.6rem;width:33%;text-align:center;line-height:38px;}
   .dialog-footer a{
     display:block;
     height:100%;
-    width:100%;
+    width:50%;
     font-size:18px;
-    -webkit-box-flex:1;
     text-align:center;
   }
   .dialog-ok{
