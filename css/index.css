@@ -28,19 +28,76 @@ nav a{float:left;font-size:0.6rem;width:33%;text-align:center;line-height:38px;}
 .dialog-ok{color:#59cbf6;}
 .dialog-cancel{border-left:1px #343434 solid;color:#ff9501;}
 .cover{position:absolute;z-index:9999998;top:45px;bottom:45px;width:100%;height:100%;}
-#wrapper{display:-webkit-flex;display:flex;-webkit-flex-flow:column nowrap;flex-flow:column nowrap;}
-.content{background:red;-webkit-flex:1;flex:1;display:-webkit-flex;display:flex;font-size:.3rem;}
+
+
+#wrapper{
+
+  /*弹性布局老语法*/
+  display:-webkit-box;
+  -webkit-box-orient:vertical;
+  /*弹性布局新语法*/
+  display:-webkit-flex;
+  display:flex;
+  -webkit-flex-flow:column nowrap;
+  flex-flow:column nowrap;
+}
+.content{
+  background:red;
+  /*弹性布局老语法*/
+  display:-webkit-box;
+  -webkit-box-flex:1;
+  /*弹性布局新语法*/
+  display:-webkit-flex;
+  display:flex;
+  -webkit-flex:1;
+  flex:1;
+  font-size:.3rem;}
 .content .content-item:nth-child(1){background:yellow;border-right:1px blue solid;}
 .content-item{font-family:"方正兰亭细黑简体" "微软雅黑";color:white;
--webkit-flex:1;flex:1;display:-webkit-flex;display:flex;-webkit-flex-direction:column;flex-direction:column;}
-.content-item div{display:-webkit-flex;display:flex;-webkit-align-items:center;align-items:center;-webkit-justify-content:center;justify-content:center;}
-.content-item-img{background:url(../images/xiu2.png) top center no-repeat;-webkit-flex:2;flex:2;}
+/*弹性布局老语法*/
+display:-webkit-box;
+-webkit-box-flex:1;
+-webkit-box-orient:vertical;
+/*弹性布局新语法*/
+display:-webkit-flex;
+display:flex;
+-webkit-flex:1;
+flex:1;
+-webkit-flex-direction:column;
+flex-direction:column;
+}
+.content-item div{
+  /*弹性布局老语法*/
+  display:-webkit-box;
+  -webkit-box-pack:center;
+  -webkit-box-align:center;
+  /*弹性布局新语法*/
+  display:-webkit-flex;
+  display:flex;
+  -webkit-align-items:center;
+  align-items:center;
+  -webkit-justify-content:center;
+  justify-content:center;
+}
+.content-item-img{background:url(../images/xiu2.png) top center no-repeat;
+  /*弹性布局老语法*/
+  -webkit-box-flex:2;
+  /*弹性布局新语法*/
+  -webkit-flex:2;
+  flex:2;
+}
 .content-item-title{
+  /*弹性布局老语法*/
+  -webkit-box-flex:2;
+  /*弹性布局新语法*/
   -webkit-flex:2;
   flex:2;
   font-size:.5rem;
 }
 .content-item-explain{
+  /*弹性布局老语法*/
+   -webkit-box-flex:1;
+  /*弹性布局新语法*/
   -webkit-flex:1;
   flex:1
   font-size:.3rem;
