@@ -20,9 +20,9 @@
 <div class="wrap">
 <header id="header" class="bg"><div class="city"><a target="_self" href="index.html"><h6>< 返回</h6></a></div>光面</header>
 <ul class="nav">
-<li data-index=0 style="width:50%"><div>光面</div><span>0</span></li>
-<li data-index=1 style="width:50%"><div>非光面</div><span>0</span></li>
-<!-- <li data-index=2><div>修鞋|翻新</div><span>0</span></li> -->
+<!-- <li data-index=0><div>光面</div><span>0</span></li> -->
+<!-- <li data-index=1><div>非光面</div><span>0</span></li> -->
+<li data-index=2 style="width:100%"><div>修鞋|翻新</div><span>0</span></li>
 </ul>
 <div id="wrapper">
 <div id="scroller">
@@ -351,9 +351,9 @@ function tab(hash,isRefresh){
     listUl[hash].style.display="block";
     var html = "<div class='city'><a target='_self' href='index.html'><h6>< 返回</h6></a></div>";
     switch(hash){
-        case TYPE_FM:header.html(html+"洗鞋-非光面");break;
+        case TYPE_FM:header.html(html+"翻毛|磨砂");break;
         case TYPE_XX:header.html(html+"修鞋|翻新");break;
-        default:header.html(html+"洗鞋-光面");
+        default:header.html(html+"光面|网面");
     }
     isRefresh && myScroll.refresh();
 }
