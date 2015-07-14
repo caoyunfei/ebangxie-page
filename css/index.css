@@ -79,7 +79,7 @@ flex-direction:column;
 }
 .content-item-img{
   background:url(../images/xiu2.png) top center no-repeat;
-  background-size:1.4rem;
+  background-size:1.6rem;
   /*弹性布局老语法*/
   -webkit-box-flex:2;
   /*弹性布局新语法*/
