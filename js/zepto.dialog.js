@@ -1,34 +1,34 @@
 ;(function($,window,undefined) {
-	
-	var 
-	    wind = $(window),
-        docx = $(document);
-     
-    var Dialog = function(options){
-    	this.settings = $.extend({},Dialog.defaults,options);
-    	this.init();
-    };
+  
+  var 
+      win = $(window),
+      docx = $(document);
+
+      var Dialog = function(options){
+        this.settings = $.extend({},Dialog.defaults,options);
+        this.init();
+      };
 
     Dialog.prototype = {
 
 
-    	constructor:Dialog,
+      constructor:Dialog,
 
-    	init:function(){
+      init:function(){
         
           this.create();
-    	   
-    	},
-    	create:function(){
-          
-			// <div class="dialog-content">鞋篮还是空的哦~</div>
-			// <div class="dialog-button"><a href="javascript:void(0);">好</a></div>
+          if (!isNaN(this.settings.time)&&this.settings.time!=null) {
+                this.time();
+          }
+      },
+      create:function(){
 
-          var temp = '<div class="dialog-content">'+this.settings.content+
-                     '<div class="dialog-button"><a href="javascript:void(0);">好</a>'+
-                     '</div>';
-          this.dialog = $("<div>").addClass("dialog").css({zIndex:this.settings.zIndex}).html("").appendTo("body");
+          var temp = '<div class="dialog-content">'+this.settings.content+'</div>'+
+          '<div class="dialog-footer"></div>';
           
+          this.dialog = $("<div>").addClass("dialog").css({zIndex:this.settings.zIndex}).html(temp).appendTo("body");
+          $("<div>").addClass("cover").appendTo("body");
+
           if($.isFunction(this.settings.ok)){
              this.ok();
           }
@@ -39,74 +39,82 @@
 
           this.size();
           
-          this.position();
+          // this.position();
 
-    	},
-    	ok:function(){
+      },
+      ok:function(){
             
             var
-                _this = $(this),
+                _this = this,
                 footer = this.dialog.find(".dialog-footer");
-
             $("<a>",{
-            	href:"javascript:void(0);",
-            	text:this.settings.okText
+              href:"javascript:;",
+              text:this.settings.okText
             }).on("click",function(){
-            	var okCallback = _this.settings.ok();
-            	if(okCallback === undefined || okCallback){
-            		_this.close();
-            	}
+              var okCallback = _this.settings.ok();//执行ok回调，取出返回值
+              if(okCallback === undefined || okCallback){
+                _this.close();
+              }
             }).addClass("dialog-ok").appendTo(footer);
 
-    	},
-    	cancel:function(){
+      },
+      cancel:function(){
             var 
-                _this = $(this),
+                _this = this,
                 footer = this.dialog.find(".dialog-footer");
             $("<a>",{
-            	href:"javascript:void(0);",
-            	text:this.settings.cancelText
+              href:"javascript:;",
+              text:this.settings.cancelText
             }).on("click",function(){
-            	 var cancelCallback = _this.settings.cancel();
+               var cancelCallback = _this.settings.cancel();
                  if (cancelCallback == undefined || cancelCallback) {
                      _this.close();
                  }
             }).addClass("dialog-cancel").appendTo(footer);
-    	},
+      },
 
-    	size:function(){
+      size:function(){
           
            var content = this.dialog.find(".dialog-content");
            
            content.css({
-           	 width:this.settings.width,
-           	 height:this.settings.height
+             width:this.settings.width,
+             height:this.settings.height
            })
 
-    	},
+      },
 
-    	position:function(){
-    		var 
-    		    _this = this,
-    		     winWidth = win.width(),
+      position:function(){
+        var 
+            _this = this,
+             winWidth = win.width(),
                 winHeight = win.height(),
                 scrollTop = 0;
             this.dialog.css({ 
                 left : (winWidth - _this.dialog.width()) / 2,
                 top : (winHeight - _this.dialog.height()) / 2 + scrollTop
             });
-    	},
-    	close : function() {
+      },
+      close : function() {
             this.dialog.remove();
-            this.unLock();
+            $('.cover').remove();
         },
+      time : function() {
+          
+          var _this = this;
+          
+          this.closeTimer = setTimeout(function() {
+              _this.close();
+          }, this.settings.time);
+
+      }
     };
     
     Dialog.defaults = {
       
       content:"确定吗？",
 
-      height:110,
+      height:70,
 
       width:230,
 
@@ -114,7 +122,7 @@
 
       cancel:null,
 
-      okText:"确定",
+      okText:"好",
 
       cancelText:"取消",
 
@@ -123,9 +131,9 @@
     };
 
     var newDialog = function(options){
-    	return new Dialog(options);
+      return new Dialog(options);
     };
-
+    //把Dialog对象挂载到$下
     window.newDialog = $.newDialog = $.dialog = newDialog;
 
 })(window.Zepto || window.jQuery,window);

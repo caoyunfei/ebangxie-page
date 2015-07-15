@@ -17,13 +17,14 @@ nav a{float:left;font-size:0.6rem;width:33%;text-align:center;line-height:38px;}
 
 .tips{background:#fb0a53;display:inline-block !important;width:19px;height:19px;text-align:center;line-height:19px;border-radius:50%;color: #fff;font-size:12px;font-family:"Helvetica","微软雅黑","宋体";position:absolute;top:4px; right: 20%; } a[href="order.html"]{position: relative;}
 .red{color:#fb0a53;}
-.dialog{height:110px;width:230px;background:rgba(0,0,0,0.7);border-radius:10px;color:#fff;display:-webkit-box;-webkit-box-orient:vertical;z-index:9999999;position:absolute;left:50%;top:40%;margin-left:-115px;font-size:16px;font-family:"方正兰亭细黑简体" "微软雅黑";}
+
+/*.dialog{height:110px;width:230px;background:rgba(0,0,0,0.7);border-radius:10px;color:#fff;display:-webkit-box;-webkit-box-orient:vertical;z-index:9999999;position:absolute;left:50%;top:40%;margin-left:-115px;font-size:16px;font-family:"方正兰亭细黑简体" "微软雅黑";}
 .dialog-content{-webkit-box-flex:3;display:-webkit-box;-webkit-box-pack:center;-webkit-box-align:center;border-bottom:1px #343434 solid;}
 .dialog-footer{-webkit-box-flex:1;display:-webkit-box;-webkit-box-pack:center;-webkit-box-align:center;}
 .dialog-footer a{display:block;height:100%;width:50%;font-size:18px;text-align:center;}
 .dialog-ok{color:#59cbf6;}
 .dialog-cancel{border-left:1px #343434 solid;color:#ff9501;}
-.cover{position:absolute;z-index:9999998;top:45px;bottom:45px;width:100%;height:100%;}
+.cover{position:absolute;z-index:9999998;top:45px;bottom:45px;width:100%;height:100%;}*/
 
 /*弹性布局老语法 是为了支持Android4.3及以下系统的浏览器。*/
 #wrapper{
