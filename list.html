@@ -15,6 +15,7 @@
 <link rel="shortcut icon" href=images/logo_50_50png.png>
 <link rel=stylesheet href=css/style.css>
 <link rel=stylesheet href=css/list.css>
+<link rel=stylesheet href=css/zepto.dialog.css>
 </head>
 <body>
 <div class="wrap">
@@ -268,23 +269,17 @@
     </li>
 </ul>
 </div></div></div>
-<footer id="footer" class="footerbg">
-    <nav>
-            <a target=_self href=index.html>
-             <img width=24 height=24 src="images/nav.png">
-            </a>
-           <a target=_self href=order.html>
-             <img width=24 height=24 src="images/nav2_.png">
-           <span style="display:none;">0</span>
-           </a>
-           <a target=_self href=my.html>
-             <img width=24 height=24 src="images/nav3.png">
-           </a>
-      </nav>
+<footer id="footer"  class="footerbg">
+    <nav>   
+      <a target=_self href=index.html></a>
+      <a target=_self href=order.html><span style="display:none;">0</span></a>
+      <a target=_self href=my.html></a>
+    </nav>
 </footer>
 </div>
-<script src="js/iscroll.js" defer></script>
 <script src="js/zepto.min.js"></script>
+<script src="js/iscroll.js" defer></script>
+<script src="js/zepto.dialog.js" defer></script>
 <script>
 $(function(){
 var 
@@ -331,10 +326,11 @@ if(data && data.clickCount){
 //若没有任何订单则footer中的去往订单导航不可用
 navA.on("click",function(){
   if(!data || !data.clickCount){
-    $('<div class="cover"></div><div class="dialog"><div class="dialog-content">鞋篮还是空的哦~</div><div class="dialog-footer"><a class="dialog-ok" href="javascript:void(0);">好</a></div>').appendTo('body');
-    $(".dialog-ok").click(function(){
-      $('.dialog').remove();
-      $('.cover').remove();
+    $.dialog({
+            content : '鞋篮还是空的哦~',
+            okText: '好',
+            cancelText: '添加',
+            ok:function(){}
     });
     return false;
   }
