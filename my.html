@@ -83,6 +83,7 @@ navA.on("click",function(){
   if(data){
     if(data.clickCount){
       navSpan.addClass("tips");
+      navA.addClass("hasOrder");
       navSpan.html(data.clickCount);
     };
 }

@@ -19,3 +19,15 @@ header a{color:#fff;}.f_l{float:left;}.f_r{float:right;}
 .item-list dt.to{background:url(../images/kefu.svg) 10px center no-repeat;background-size:35px 35px;}
 .H-submit{margin:.2rem;height:.88rem;border-radius:.08rem;background-clip:padding-box;}
 .reserBtn{width:100%;height:100%;display:block;color:#fff;-webkit-box-pack:center;border:none;border-radius:.08rem;}
+.hasOrder:before{
+   content:" ";
+   font-size:20px;
+   text-align:center;
+   color:white;
+   vertical-align:top;
+   display:inline-block;
+   height:90px;
+   width:90px;
+   background:url(../images/icon_2.png) 50% 65% no-repeat #65c3ed;
+   border-radius:100%;
+}
