@@ -23,12 +23,14 @@
       },
       create:function(){
 
-          var temp = '<div class="dialog-content">'+this.settings.content+'</div>'+
-          '<div class="dialog-footer"></div>';
-          
+          var temp = '<div class="dialog-content">'+this.settings.content+'</div>'
+         
+          if( this.settings.ok || this.settings.cancel ){
+               temp += '<div class="dialog-footer"></div>';
+          }
           this.dialog = $("<div>").addClass("dialog").css({zIndex:this.settings.zIndex}).html(temp).appendTo("body");
           $("<div>").addClass("cover").appendTo("body");
-
+          
           if($.isFunction(this.settings.ok)){
              this.ok();
           }
