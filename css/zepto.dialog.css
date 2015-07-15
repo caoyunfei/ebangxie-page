@@ -38,16 +38,16 @@
 	-webkit-box-pack:center;
 	-webkit-box-align:center;
 	/*弹性布局新写法*/
-	display:-webkit-flex;
+	/*display:-webkit-flex;
 	display:flex;
 	-webkit-flex:1;
 	flex:1;
 	-webkit-align-items:center;
 	align-item:center;
 	-webkit-justify-content:center;
-	justify-content:center;
+	justify-content:center;*/
 }
-.dialog-footer a{display:inline-block;height:100%;width:50%;font-size:18px;text-align:center;}
+.dialog-footer a{height:100%;width:50%;font-size:18px;text-align:center;}
 .dialog-footer a:hover{cursor:pointer;}
 .dialog-ok{color:#59cbf6;}
 .dialog-cancel{border-left:1px #343434 solid;color:#ff9501;}
