@@ -28,7 +28,7 @@
 	flex:3;
 	-webkit-align-items:center;
 	align-items:center;
-	=webkit-justify-content:center;
+	-webkit-justify-content:center;
 	justify-content:center;
 	border-bottom:1px #343434 solid;}
 .dialog-footer{
