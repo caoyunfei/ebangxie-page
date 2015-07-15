@@ -7,12 +7,6 @@
 	   /*弹性布局老写法*/
 	   display:-webkit-box;
 	   -webkit-box-orient:vertical;
-       /*弹性布局新写法*/
-       display:-webkit-flex;
-       display:flex;
-       -webkit-flex-direction:column;
-       flex-direction:column;
-
 	   z-index:9999;
 	   position:absolute;left:50%;top:50%;margin-left:-115px;font-size:16px;font-family:"方正兰亭细黑简体" "微软雅黑";}
 .dialog-content{
@@ -21,15 +15,6 @@
 	-webkit-box-flex:3;
 	-webkit-box-pack:center;
 	-webkit-box-align:center;
-	/*弹性布局新写法*/
-    display:-webkit-flex;
-    display:flex;
-	-webkit-flex:3;
-	flex:3;
-	-webkit-align-items:center;
-	align-items:center;
-	-webkit-justify-content:center;
-	justify-content:center;
 	border-bottom:1px #343434 solid;
 }
 .dialog-footer{
@@ -38,17 +23,14 @@
 	-webkit-box-flex:1;
 	-webkit-box-pack:center;
 	-webkit-box-align:center;
-	/*弹性布局新写法*/
-	display:-webkit-flex;
-	display:flex;
-	-webkit-flex:1;
-	flex:1;
-	-webkit-align-items:center;
-	align-item:center;
-	-webkit-justify-content:center;
-	justify-content:center;
 }
-.dialog-footer a{display:inline-block;height:100%;width:50%;font-size:18px;text-align:center;}
+.dialog-footer a{
+    display:-webkit-box;
+	-webkit-box-flex:1;
+	-webkit-box-pack:center;
+	-webkit-box-align:center;
+	font-size:18px;
+}
 .dialog-footer a:hover{cursor:pointer;}
 .dialog-ok{color:#59cbf6;}
 .dialog-cancel{border-left:1px #343434 solid;color:#ff9501;}
