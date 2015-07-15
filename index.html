@@ -10,7 +10,7 @@
 <div class="swipe" id="slider" style="visibility:visible;">
 <div id="banners" class="swipe-wrap">
 <a href="banner1.html"><img width=640 height=270 src="images/banner.jpg" alt=" " onerror="this.src='images/banner1.jpg'"></a>
-<!-- <a href="banner2.html"><img width=640 height=270 src="images/banner2.webp" alt=" " onerror="this.src='images/banner2.jpg'"></a> -->
+<a href="banner2.html"><img width=640 height=270 src="images/banner2.webp" alt=" " onerror="this.src='images/banner2.jpg'"></a>
 </div>
 <ul id="position"><li></li><li></li></ul>
 </div>
@@ -44,30 +44,30 @@ $(function(){
    localStorage.removeItem("queryOrder");
    localStorage.removeItem("myOrderDetail");
    localStorage.removeItem("id");
-// function set_imgsize(){
-//  var bullets = $("#position li");
-//  new Swipe(document.getElementById('slider'),{
-//    auto:2000,
-//    continuous:true,
-//    disableScroll:true,
-//    stopPropagation:false,
-//    callback:function(pos){
-//        if(bullets.size()<=2){
-//                 if(pos>1){
-//                     pos = (pos+1)/2-1;
-//                 }
-//             }
-//             bullets.removeClass("cur").eq(pos).addClass("cur");
-//         }
-//  });
-//   }
-//    var 
-//        width = $("body").width(),
-//        orientationEvent = "onorientationchange" in window ? "orientationchange": "resize";
-// set_imgsize();
-// window.addEventListener(orientationEvent, function() {
-//  set_imgsize();
-// }, false);
+function set_imgsize(){
+ var bullets = $("#position li");
+ new Swipe(document.getElementById('slider'),{
+   auto:2000,
+   continuous:true,
+   disableScroll:true,
+   stopPropagation:false,
+   callback:function(pos){
+       if(bullets.size()<=2){
+                if(pos>1){
+                    pos = (pos+1)/2-1;
+                }
+            }
+            bullets.removeClass("cur").eq(pos).addClass("cur");
+        }
+ });
+  }
+   var 
+       width = $("body").width(),
+       orientationEvent = "onorientationchange" in window ? "orientationchange": "resize";
+set_imgsize();
+window.addEventListener(orientationEvent, function() {
+ set_imgsize();
+}, false);
 var data = JSON.parse(localStorage.getItem("data")),
            navA = $('a[href="order.html"]'),
            navSpan = navA.find("span");
