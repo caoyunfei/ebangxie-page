@@ -1,6 +1,5 @@
 @charset "utf-8";
 header a{color:#fff;}
-footer{  position:absolute;}
 .city-item{margin-top:10px;border-top:1px solid #ddd;border-bottom:1px solid #ddd;background:#fff;}
 nav a:nth-of-type(1){background:url(../images/icon_1.png) 50% 65% no-repeat;background-size:30px 42px;} 
 nav a:nth-of-type(2){background:url(../images/icon_2.png) 50% 65% no-repeat;background-size:30px 42px;} 
