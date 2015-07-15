@@ -95,3 +95,15 @@ flex-direction:column;
   flex:1
   font-size:.3rem;
 }
+.hasOrder:before{
+   content:" ";
+   font-size:20px;
+   text-align:center;
+   color:white;
+   vertical-align:top;
+   display:inline-block;
+   height:90px;
+   width:90px;
+   background:url(../images/icon_2.png) 50% 65% no-repeat #65c3ed;
+   border-radius:100%;
+}

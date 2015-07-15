@@ -305,6 +305,7 @@ var
 //就把值取出来，赋值到 tab、footer、text上
 if(data && data.clickCount){
   navSpan.addClass("tips");
+  navA.addClass("hasOrder");
   navSpan.html(data.clickCount);
   orderList = data.orderList;
   for(len = orderList.length;i<len;i++){
@@ -322,6 +323,8 @@ if(data && data.clickCount){
         }
      }
   }
+}else{
+    navA.removeClass("hasOrder");
 }
 //若没有任何订单则footer中的去往订单导航不可用
 navA.on("click",function(){
@@ -395,6 +398,7 @@ listUl.find(".add").each(function() {
         text.html(curValue);
         navLiSpan.addClass("tips");
         navSpan.addClass("tips");
+        navA.addClass("hasOrder");
         navLiSpan.html(count);
         navSpan.html(clickCount);
         save(index,count,subtype,curValue);
@@ -411,6 +415,7 @@ listUl.find(".add").each(function() {
         text.html(curValue);
         navLiSpan.addClass("tips");
         navSpan.addClass("tips");
+        navA.addClass("hasOrder");
         navLiSpan.html(count);
         navSpan.html(clickCount);
         save(index,count,subtype,curValue);
@@ -443,14 +448,18 @@ var
     text.html(curValue);
     if(!count){
        navLiSpan.removeClass("tips");
+       navA.removeClass("hasOrder");
     }else{
        navLiSpan.addClass("tips");
+       navA.addClass("hasOrder");
     }
     navLiSpan.html(count);
     if(!clickCount){
        navSpan.removeClass("tips");
+       navA.removeClass("hasOrder");
     }else{
        navSpan.addClass("tips"); 
+       navA.addClass("hasOrder");
     }
     navSpan.html(clickCount);
     save(index,count,subtype,curValue);
@@ -478,8 +487,10 @@ _this.on('click',function(){
     navLiSpan.html(count);
     if(!clickCount){
        navSpan.removeClass("tips");
+       navA.removeClass("hasOrder");
     }else{
        navSpan.addClass("tips"); 
+       navA.addClass("hasOrder");
     }
     navSpan.html(clickCount);
     save(index,count,subtype,curValue);
