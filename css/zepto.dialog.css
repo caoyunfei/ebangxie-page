@@ -16,6 +16,8 @@
 	-webkit-box-pack:center;
 	-webkit-box-align:center;
 	border-bottom:1px #343434 solid;
+	box-sizing:border-box;
+	padding: 0 10px;
 }
 .dialog-footer{
 	/*弹性布局老写法*/
