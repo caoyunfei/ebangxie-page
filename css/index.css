@@ -79,10 +79,7 @@ flex-direction:column;
 }
 /*当屏幕宽度大于420px时，固定背景图的大小为100px*/
 @media screen and (min-width:420px){
-  .content-item-img{
-    background-size:100px;
- }
-}
+  .content-item-img{background-size:100px;}}
 .content-item-title{
   /*弹性布局老语法*/
   -webkit-box-flex:2;
@@ -96,7 +93,7 @@ flex-direction:column;
    -webkit-box-flex:1;
   /*弹性布局新语法*/
   -webkit-flex:1;
-  flex:1
+  flex:1;
   font-size:.3rem;
 }
 .hasOrder:before{

@@ -20,9 +20,9 @@
 <div class="wrap">
 <header id="header" class="bg"><div class="city"><a target="_self" href="index.html"><h6>< 返回</h6></a></div>光面</header>
 <ul class="nav">
-<li data-index=0 style="width:25%"><div>光面</div><span>0</span></li>
-<li data-index=1 style="width:25%;border-right:1px #ccc dotted;"><div>非光面</div><span>0</span></li>
-<li data-index=2 style="width:50%"><div>修鞋</div><span>0</span></li>
+<li data-index=0 style="width:25%;"><div>光面</div><span>0</span></li>
+<li data-index=1 style="width:25%;border-right:1px #ccc solid;"><div>非光面</div><span>0</span></li>
+<li data-index=2 style="width:50%;"><div>修鞋</div><span>0</span></li>
 </ul>
 <div id="wrapper">
 <div id="scroller">
@@ -340,8 +340,17 @@ navA.on("click",function(){
 function tab(hash,isRefresh){
     isRefresh = isRefresh || false;
     hash = +hash || TYPE_GW;
-    navLi.find("div").removeClass("selct");
-    $(navLi[hash]).find("div").addClass("selct");
+    if(hash === 2){
+        navLi.removeClass("selct-xiu");
+        $(navLi[hash]).addClass("selct-xiu");
+        navLi.removeClass("selct");
+    }else{
+        navLi.removeClass("selct");
+        $(navLi[hash]).addClass("selct");
+         navLi.removeClass("selct-xiu");
+    }
+    
+
     listUl.css("display","none");
     listUl[hash].style.display="block";
     var html = "<div class='city'><a target='_self' href='index.html'><h6>< 返回</h6></a></div>";
