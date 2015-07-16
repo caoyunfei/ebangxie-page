@@ -16,14 +16,9 @@ nav a:nth-of-type(3){background:url(../images/icon_3.png) 50% 65% no-repeat;back
 /*弹性布局老语法 是为了支持Android4.3及以下系统的浏览器。*/
 #wrapper{
   /*弹性布局老语法*/
-  display:-webkit-box;
-  -webkit-box-orient:vertical;
+  display:-webkit-box;-webkit-box-orient:vertical;
   /*弹性布局新语法*/
-  display:-webkit-flex;
-  display:flex;
-  -webkit-flex-flow:column nowrap;
-  flex-flow:column nowrap;
-}
+  display:-webkit-flex; display:flex;-webkit-flex-flow:column nowrap;flex-flow:column nowrap;}
 .content{
   background:#fed22e;
   /*弹性布局老语法*/
@@ -96,15 +91,4 @@ flex-direction:column;
   flex:1;
   font-size:.3rem;
 }
-.hasOrder:before{
-   content:" ";
-   font-size:20px;
-   text-align:center;
-   color:white;
-   vertical-align:top;
-   display:inline-block;
-   height:90px;
-   width:90px;
-   background:url(../images/icon_2.png) 50% 65% no-repeat #65c3ed;
-   border-radius:100%;
-}
+.hasOrder:before{content:" ";font-size:20px;text-align:center;color:white;vertical-align:top;display:inline-block;height:90px;width:90px;background:url(../images/icon_2.png) 50% 65% no-repeat #65c3ed;border-radius:100%;}

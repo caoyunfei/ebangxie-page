@@ -14,6 +14,7 @@
 <link rel="shortcut icon" href="images/logo.png"/>
 <link rel=stylesheet href="css/style.css">
 <link rel=stylesheet href="css/success.css">
+<link rel=stylesheet href="css/zepto.dialog.css">
 </head>
 <body>
 <div class="wrap">
@@ -46,13 +47,13 @@
 </div>
 </div>
 <script src="js/zepto.min.js"></script>
+<script src="js/zepto.dialog.js" defer></script>
 <script>
 $(function(){
   $(".order-num span").html(localStorage.getItem("id"));
   var local = window.location.toString(),
       loll = local.substring(0,local.lastIndexOf("/")+1),order = null;
   $("#view").tap(function(){
-    // alert('view');
     $(this).off("click");
       $.ajax({
             type:'post',
@@ -97,8 +98,13 @@ $(function(){
             success:function(msg){
               order = JSON.parse(msg);
               if(+order.code === 1000){
-                 alert("订单取消成功~");
-                 window.location = loll+"list.html";
+                 $.dialog({
+                    content:'订单取消成功~',
+                    okText:'好',
+                    ok:function(){
+                       window.location = loll+"list.html";
+                    }
+                  });
               }else{
                  window.location = loll+"error.html";
               }
