@@ -33,9 +33,9 @@ $(function(){
      loll = local.substring(0,local.lastIndexOf("/")+1),
      getType = function(type){
          switch(type){
-          case 0 :return '光面|网面';
-          case 1 :return '翻毛|磨砂';
-          case 2 :return '修鞋|翻新';
+          case 0 :return '光面';
+          case 1 :return '非光面';
+          case 2 :return '修鞋';
          }
        },
         myScroll = new IScroll('#wrapper', { 
@@ -64,17 +64,17 @@ $(function(){
          var pro = arr[i].split("x")[0];
          var count = arr[i].split("x")[1];
          if(pro == "A"){
-             desc+="光网--低帮X"+count+",";
+             desc+="光面--低帮X"+count+",";
          }else if(pro == 'B'){
-             desc+="光网--高帮X"+count+",";
+             desc+="光面--高帮X"+count+",";
          }else if(pro == 'C'){
-             desc+= "光网--过膝X"+count+",";          
+             desc+= "光面--过膝X"+count+",";          
          }else if(pro == 'D'){
-             desc+= "翻磨--低帮X"+count+",";          
+             desc+= "非光面--低帮X"+count+",";          
          }else if(pro == 'E'){
-             desc+= "翻磨--高帮X"+count+",";          
+             desc+= "非光面--高帮X"+count+",";          
          }else if(pro == 'F'){
-             desc+= "翻磨--高帮X"+count+",";          
+             desc+= "非光面--高帮X"+count+",";          
          }else if(pro == 'G'){
              desc+= "后掌--高帮X"+count+",";          
          }else if(pro == 'H'){
