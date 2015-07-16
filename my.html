@@ -11,7 +11,7 @@
 <meta name=description content=e帮鞋>
 <meta name=keywords content=e帮鞋>
 <title>e帮鞋-我的</title>
-<link rel="shortcut icon" href=images/logo_50_50png.png>
+<link rel="shortcut icon" href=images/logo.png>
 <link rel=stylesheet href=css/style.css>
 <link rel=stylesheet href=css/my.css>
 <link rel=stylesheet href=css/zepto.dialog.css>
@@ -22,7 +22,7 @@
 <div id="wrapper">
   <div id="scroller">
     <div class="user-container">
-      <div class="f_l"></div>
+      <div class="f_l" style="background-size:contain;"></div>
       <div class="f_r">
         <p class="first">账 户：</p>
         <p id="number" style="color:#848484;font-weight:700;">18240697521</p>
@@ -88,11 +88,11 @@ navA.on("click",function(){
     };
 }
 $("#number").html(localStorage.getItem("number"));
-if(userName === null){
-  $(".f_l").html("您");
-}else{
+// if(userName === null){
+//   $(".f_l").html("您");
+// }else{
   $(".f_l").html(userName.substring(userName.length-1));
-}
+// }
 $("#queryOrder").on('touchstart',function(){
   $(this).off("click");
    $.ajax({
