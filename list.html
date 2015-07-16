@@ -355,9 +355,9 @@ function tab(hash,isRefresh){
     listUl[hash].style.display="block";
     var html = "<div class='city'><a target='_self' href='index.html'><h6>< 返回</h6></a></div>";
     switch(hash){
-        case TYPE_FM:header.html(html+"非光面");break;
+        case TYPE_FM:header.html(html+"洗-非光面");break;
         case TYPE_XX:header.html(html+"修鞋");break;
-        default:header.html(html+"光面");
+        default:header.html(html+"洗-光面");
     }
     isRefresh && myScroll.refresh();
 }
