@@ -88,11 +88,6 @@ navA.on("click",function(){
     };
 }
 $("#number").html(localStorage.getItem("number"));
-// if(userName === null){
-//   $(".f_l").html("您");
-// }else{
-  $(".f_l").html(userName.substring(userName.length-1));
-// }
 $("#queryOrder").on('touchstart',function(){
   $(this).off("click");
    $.ajax({

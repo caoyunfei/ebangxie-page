@@ -40,25 +40,25 @@ $(function(){
          subtype = +subtype
    if(type === 0){
        if(subtype === 0){
-         return "光面、网面--低帮";
+         return "光面--低帮";
        }else if(subtype === 1){
-         return "光面、网面--高帮";
+         return "光面--高帮";
        }else if(subtype === 2){
-         return "光面、网面--过膝";
+         return "光面--过膝";
        }
    }else if(type === 1){
       if(subtype === 0){
-         return "翻毛、磨砂--低帮";
+         return "非光面--低帮";
        }else if(subtype === 1){
-         return "翻毛、磨砂--高帮";
+         return "非光面--高帮";
        }else if(subtype === 2){
-         return "翻毛、磨砂--过膝";
+         return "非光面--过膝";
        }
    }else if(type === 2){
       if(subtype === 0){
-         return "换跟钉、加后掌";
-       }else if(subtype === 1){
          return "加前掌";
+       }else if(subtype === 1){
+         return "加后掌";
        }else if(subtype === 2){
          return "补色、翻新";
        }
