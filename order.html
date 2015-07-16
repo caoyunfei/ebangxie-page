@@ -28,26 +28,26 @@
 					<span class="H-go"></span>
 				</div>
 				<div class="H-dlbox">
-					<dl class="H-dlList">
+					<!-- <dl class="H-dlList">
 					   <dt><span class="H-place1"></span></dt>
 					   <dd><input name="pickupTime" value="" placeholder="选择服务时间" id="svctime" readonly="true"><i></i></dd>
-					</dl>
+					</dl> -->
+          <dl class="H-dlList">
+              <dt><span class="H-place4"></span></dt>
+              <dd><input name="userMobile" value="" placeholder="填写您的手机号" id="number"></dd>
+           </dl>
 					<dl class="H-dlList">
 					   <dt><span class="H-place2"></span></dt>
 					   <dd><input name="userAddress" value="" placeholder="填写您的地址" id="place"></dd>
 					</dl>
-                    <dl class="H-dlList">
-                       <dt><span class="H-place3"></span></dt>
-                       <dd><input name="userName" value="" placeholder="填写您的姓名" id="userName"></dd>
-                    </dl>
-                    <dl class="H-dlList">
-                       <dt><span class="H-place4"></span></dt>
-                       <dd><input name="userMobile" value="" placeholder="填写您的电话" id="number"></dd>
-                    </dl>
-					<dl class="H-dlList">
+         <!--  <dl class="H-dlList">
+             <dt><span class="H-place3"></span></dt>
+             <dd><input name="userName" value="" placeholder="填写您的姓名" id="userName"></dd>
+          </dl> -->
+					<!-- <dl class="H-dlList">
 					   <dt><span class="H-place5"></span></dt>
 					   <dd><input name="remark" value="" placeholder="填写更多要求" id="order_remark"></dd>
-					</dl>
+					</dl> -->
 				</div>
 				<div class="H-submit">
 					<input type="hidden" name="keyword" value="project_xiu">
@@ -103,21 +103,40 @@
               Hcont.html("共"+data.clickCount+"件，合计"+data.allTotal+"元");
           };
       $('#submit').on('click',function(){
-         var    place_val = $('#place').val(),
-                svctime_val = $('#svctime').val(),
-                keyword = $("#keyword").val(),
+         var    
+                place_val = $('#place').val(),
+                // svctime_val = $('#svctime').val(),
+                // keyword = $("#keyword").val(),
                 number = $("#number").val(),
-                userName = $("#userName").val(),
-                order_remark = $("#order_remark").val(),
+                // userName = $("#userName").val(),
+                // order_remark = $("#order_remark").val(),
                 local = window.location.toString(),
                 loll = local.substring(0,local.lastIndexOf("/")+1);
-            if(!svctime_val){
+            // if(!svctime_val){
               
-				        $.dialog({
-                    content : '请选择服务时间',				                            
-					          time : 800
-                });              
+				        // $.dialog({
+            //         content : '请选择服务时间',				                            
+					       //    time : 800
+            //     });              
+            //     return false;
+            // }
+           if(!number){
+
+                $.dialog({
+                    content : '请填写您的手机号',       
+                    time : 800
+                });
+              
                 return false;
+            }
+            if(!/^(13[0-9]|14[0-9]|15[0-9]|18[0-9])\d{8}$/i.test(number)){
+              
+               $.dialog({
+                    content : '请填写正确的手机号',        
+                    time : 850
+                });
+
+               return false;
             }
             if(!place_val){
 
@@ -129,7 +148,6 @@
                 return false;
             }
             if(place_val.length<3){
-
 				        $.dialog({
                     content : '请填写正确地址',				
                     time : 800
@@ -137,51 +155,34 @@
                
                 return false;
             }            
-            if(!userName){
+            // if(!userName){
                
-				        $.dialog({
-                    content : '请填写您的姓名',				
-                    time : 800
-                });
+				        // $.dialog({
+            //         content : '请填写您的姓名',				
+            //         time : 800
+            //     });
 
-                return false;
-            }
-            if(!/[\u4E00-\u9FA5\uF900-\uFA2D]/.test(userName)){
+            //     return false;
+            // }
+            // if(!/[\u4E00-\u9FA5\uF900-\uFA2D]/.test(userName)){
               
-				        $.dialog({
-                    content : '请填正确的姓名',				
-                    time : 800
-                });
+				        // $.dialog({
+            //         content : '请填正确的姓名',				
+            //         time : 800
+            //     });
 
-                return false;
-            }
-            if(userName.length<2){
+            //     return false;
+            // }
+            // if(userName.length<2){
 
-                $.dialog({
-                    content : '请填正确的姓名',				
-                    time : 800
-                });
+            //     $.dialog({
+            //         content : '请填正确的姓名',				
+            //         time : 800
+            //     });
 
-                return false;
-            }
-			if(!number){
-
-				        $.dialog({
-                    content : '请填写您的手机号',				
-                    time : 800
-                });
-              
-                return false;
-            }
-            if(!/^(13[0-9]|14[0-9]|15[0-9]|18[0-9])\d{8}$/i.test(number)){
-              
-			         $.dialog({
-                    content : '请填写正确的手机号',				
-                    time : 850
-                });
-
-               return false;
-            }
+            //     return false;
+            // }
+			    
             localdata.setItem("fdata_place",place_val);
             localdata.setItem("fdata_remark",order_remark);
             localdata.setItem("number",number);

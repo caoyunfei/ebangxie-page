@@ -321,7 +321,9 @@ if(data && data.clickCount){
 }
 //若没有任何订单则footer中的去往订单导航不可用
 navA.on("click",function(){
-  if(!data || !data.clickCount){
+  //判断footer中的数值是否大于0
+  if(!+navSpan.html()){
+  // if(!data || !data.clickCount){//这样判断的话会有bug，当页面的dom发生了变化，但其实本地存储还没有更新，要刷新一下，但是刷新的话用户体验不好。。所以换一种判断方式。
     $.dialog({
             content : '鞋篮还是空的哦~',
             okText: '好',
