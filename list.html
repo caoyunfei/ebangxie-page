@@ -15,6 +15,7 @@
 <link rel="shortcut icon" href=images/logo_50_50png.png>
 <link rel=stylesheet href=css/style.css>
 <link rel=stylesheet href=css/list.css>
+<link rel=stylesheet href=css/zepto.dialog.css>
 </head>
 <body>
 <div class="wrap">
@@ -276,8 +277,9 @@
     </nav>
 </footer>
 </div>
-<script src="js/iscroll.js" defer></script>
 <script src="js/zepto.min.js"></script>
+<script src="js/iscroll.js" defer></script>
+<script src="js/zepto.dialog.js" defer></script>
 <script>
 $(function(){
 var 
@@ -298,9 +300,9 @@ var
     data = JSON.parse(localStorage.getItem("data")),
     i = len = 0,
     orderList = order = addClass = lu = iii =null,
-    TYPE_GW = 0,TYPE_FM = 1,TYPE_XX = 2;//光面0，网面1，翻毛2，磨砂3
+    TYPE_GW = 0,TYPE_FM = 1,TYPE_XX = 2;//光面0，非光面（翻毛磨砂）1，洗修2
 //在进入选择页面之后，首先访问本地存储，看看有没有值，若有值
-//就把值取出来，赋值到 tab、footer、text上
+//就把值取出来，赋值到 tab、footer、text上  无bug
 if(data && data.clickCount){
   navSpan.addClass("tips");
   navA.addClass("hasOrder");
@@ -326,16 +328,18 @@ if(data && data.clickCount){
 //若没有任何订单则footer中的去往订单导航不可用
 navA.on("click",function(){
   if(!data || !data.clickCount){
-    $('<div class="cover"></div><div class="dialog"><div class="dialog-content">鞋篮还是空的哦~</div><div class="dialog-footer"><a class="dialog-ok" href="javascript:void(0);">好</a></div>').appendTo('body');
-    $(".dialog-ok").click(function(){
-      $('.dialog').remove();
-      $('.cover').remove();
+    $.dialog({
+            content : '鞋篮还是空的哦~',
+            okText: '好',
+            ok:function(){}
     });
     return false;
   }
 });
 /**
 *是否刷新？默认为false
+*切换顶部tab、显示当前的条目、改变header中的text
+*无bug
 */         
 function tab(hash,isRefresh){
     isRefresh = isRefresh || false;
@@ -349,7 +353,6 @@ function tab(hash,isRefresh){
         $(navLi[hash]).addClass("selct");
          navLi.removeClass("selct-xiu");
     }
-    
 
     listUl.css("display","none");
     listUl[hash].style.display="block";
