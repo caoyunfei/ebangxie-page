@@ -109,7 +109,7 @@ $("#queryOrder").on('touchstart',function(){
 $(".reserBtn").tap(function(){
    $(this).off("click");
    $.dialog({
-            content:'将会清空您的订单信息、手机号、地址',
+            content:'将会清空您的订单信息、手机号、地址等信息',
             okText:'不清空了',
             cancelText:'继续',
             ok:function(){},
@@ -126,25 +126,6 @@ $(".reserBtn").tap(function(){
             }
    });
 });
-// $(".reserBtn").on("click",function(){
-//    $.dialog({
-//             content:'将清空您的订单信息、手机号、地址',
-//             okText:'确定',
-//             cancelText:'不清空了',
-//             ok:function(){
-//                localStorage.removeItem("data");
-//                localStorage.removeItem("fdata_place");
-//                localStorage.removeItem("fdata_remark");
-//                localStorage.removeItem("fdata_svctime");
-//                localStorage.removeItem("number");
-//                localStorage.removeItem("queryOrder");
-//                localStorage.removeItem("myOrderDetail");
-//                localStorage.removeItem("userName");
-//                window.location = loll+"index.html";
-//             },
-//             cancel:function(){}
-//    });
-// });
 $("#queryOrder").on('click',function(){
    $.ajax({
             type:'post',
