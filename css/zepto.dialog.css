@@ -12,10 +12,11 @@
 .dialog-content{
 	/*弹性布局老写法*/
 	display:-webkit-box;
-	-webkit-box-flex:3;
+	-webkit-box-flex:5;
 	-webkit-box-pack:center;
 	-webkit-box-align:center;
 	border-bottom:1px #343434 solid;
+	/*在ios上需加前缀*/
 	-webkit-box-sizing:border-box;
 	box-sizing:border-box;
 	padding: 0 10px;
@@ -23,7 +24,7 @@
 .dialog-footer{
 	/*弹性布局老写法*/
 	display:-webkit-box;
-	-webkit-box-flex:1;
+	-webkit-box-flex:2;
 	-webkit-box-pack:center;
 	-webkit-box-align:center;
 }
