@@ -95,8 +95,8 @@
         var localdata = window.localStorage;
         $('#place').val(localdata.getItem("fdata_place"));
         $('#number').val(localdata.getItem("number"));
-        $('#userName').val(localdata.getItem("userName"));
-        $("#order_remark").val(localdata.getItem("fdata_remark"));
+        // $('#userName').val(localdata.getItem("userName"));
+        // $("#order_remark").val(localdata.getItem("fdata_remark"));
       var Hcont = $(".H-cont"),
           data = JSON.parse(localStorage.getItem("data"));
           if(data){
@@ -184,9 +184,9 @@
             // }
 			    
             localdata.setItem("fdata_place",place_val);
-            localdata.setItem("fdata_remark",order_remark);
+            // localdata.setItem("fdata_remark",order_remark);
             localdata.setItem("number",number);
-            localdata.setItem("userName",userName);
+            // localdata.setItem("userName",userName);
          var data = JSON.parse(localStorage.getItem("data")),
              orderList = data.orderList,
              i = 0,len = orderList.length,
