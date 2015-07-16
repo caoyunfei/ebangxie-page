@@ -75,6 +75,7 @@ flex-direction:column;
 }
 .xi{
   background:url(../images/gw2.png) top center no-repeat;
+  background-size: 1.6rem;
 }
 /*当屏幕宽度大于420px时，固定背景图的大小为100px*/
 @media screen and (min-width:420px){
