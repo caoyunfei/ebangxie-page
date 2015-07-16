@@ -25,7 +25,7 @@ nav a:nth-of-type(3){background:url(../images/icon_3.png) 50% 65% no-repeat;back
   flex-flow:column nowrap;
 }
 .content{
-  background:red;
+  background:#fed22e;
   /*弹性布局老语法*/
   display:-webkit-box;
   -webkit-box-flex:1;
@@ -35,7 +35,7 @@ nav a:nth-of-type(3){background:url(../images/icon_3.png) 50% 65% no-repeat;back
   -webkit-flex:1;
   flex:1;
   font-size:.3rem;}
-.content .content-item:nth-child(1){background:yellow;border-right:1px blue solid;}
+.content .content-item:nth-child(1){background:#66d4ef;border-right:1px #ff9500 dotted;}
 .content-item{font-family:"方正兰亭细黑简体" "微软雅黑";color:white;
 /*弹性布局老语法*/
 display:-webkit-box;
@@ -72,6 +72,9 @@ flex-direction:column;
   /*弹性布局新语法*/
   -webkit-flex:2;
   flex:2;
+}
+.xi{
+  background:url(../images/gw2.png) top center no-repeat;
 }
 /*当屏幕宽度大于420px时，固定背景图的大小为100px*/
 @media screen and (min-width:420px){

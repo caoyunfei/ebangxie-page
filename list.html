@@ -11,19 +11,18 @@
 <meta http-equiv="content-type" content="text/html;charset=UTF-8">
 <meta name=description content=e帮鞋>
 <meta name=keywords content=e帮鞋>
-<title>e帮鞋-下订单</title>
+<title>e帮鞋-选择</title>
 <link rel="shortcut icon" href=images/logo_50_50png.png>
 <link rel=stylesheet href=css/style.css>
 <link rel=stylesheet href=css/list.css>
-<link rel=stylesheet href=css/zepto.dialog.css>
 </head>
 <body>
 <div class="wrap">
 <header id="header" class="bg"><div class="city"><a target="_self" href="index.html"><h6>< 返回</h6></a></div>光面</header>
 <ul class="nav">
-<li data-index=0 style="width:50%"><div>光面</div><span>0</span></li>
-<li data-index=1 style="width:50%"><div>非光面</div><span>0</span></li>
-<!-- <li data-index=2><div>修鞋|翻新</div><span>0</span></li> -->
+<li data-index=0 style="width:25%"><div>光面</div><span>0</span></li>
+<li data-index=1 style="width:25%;border-right:1px #ccc dotted;"><div>非光面</div><span>0</span></li>
+<li data-index=2 style="width:50%"><div>修鞋</div><span>0</span></li>
 </ul>
 <div id="wrapper">
 <div id="scroller">
@@ -277,9 +276,8 @@
     </nav>
 </footer>
 </div>
-<script src="js/zepto.min.js"></script>
 <script src="js/iscroll.js" defer></script>
-<script src="js/zepto.dialog.js" defer></script>
+<script src="js/zepto.min.js"></script>
 <script>
 $(function(){
 var 
@@ -313,6 +311,7 @@ if(data && data.clickCount){
      addClass = $(navLi[order.type]).find("span");
      if(order.count){
         addClass.addClass("tips");
+        navA.addClass("hasOrder");
         addClass.html(order.count);
         lu = $(listUl[order.type]);
         iii = $(lu.find(".add")[order.subtype]).prev();
@@ -323,17 +322,14 @@ if(data && data.clickCount){
         }
      }
   }
-}else{
-    navA.removeClass("hasOrder");
 }
 //若没有任何订单则footer中的去往订单导航不可用
 navA.on("click",function(){
   if(!data || !data.clickCount){
-    $.dialog({
-            content : '鞋篮还是空的哦~',
-            okText: '好',
-            cancelText: '添加',
-            ok:function(){}
+    $('<div class="cover"></div><div class="dialog"><div class="dialog-content">鞋篮还是空的哦~</div><div class="dialog-footer"><a class="dialog-ok" href="javascript:void(0);">好</a></div>').appendTo('body');
+    $(".dialog-ok").click(function(){
+      $('.dialog').remove();
+      $('.cover').remove();
     });
     return false;
   }
@@ -350,9 +346,9 @@ function tab(hash,isRefresh){
     listUl[hash].style.display="block";
     var html = "<div class='city'><a target='_self' href='index.html'><h6>< 返回</h6></a></div>";
     switch(hash){
-        case TYPE_FM:header.html(html+"洗鞋-非光面");break;
-        case TYPE_XX:header.html(html+"修鞋|翻新");break;
-        default:header.html(html+"洗鞋-光面");
+        case TYPE_FM:header.html(html+"非光面");break;
+        case TYPE_XX:header.html(html+"修鞋");break;
+        default:header.html(html+"光面");
     }
     isRefresh && myScroll.refresh();
 }
@@ -448,10 +444,8 @@ var
     text.html(curValue);
     if(!count){
        navLiSpan.removeClass("tips");
-       navA.removeClass("hasOrder");
     }else{
        navLiSpan.addClass("tips");
-       navA.addClass("hasOrder");
     }
     navLiSpan.html(count);
     if(!clickCount){
