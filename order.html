@@ -261,7 +261,6 @@
                 productNumber:data.clickCount,
                 productDesc:desc
        };
-       console.log(order);
         $.ajax({
             type:'post',
             url:'/admin/order/add',
@@ -274,13 +273,10 @@
                  localStorage.setItem("id",order.id);
                  window.location = loll+"success.html";
                }else{
-                 console.log(order.code);
-                 return;
                  window.location = loll+"error.html";
                }
             },
             error:function(){
-              console.loga(order.code); return;
               window.location = loll+"error.html";
             }
         });
