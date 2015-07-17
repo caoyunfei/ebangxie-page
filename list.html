@@ -280,6 +280,7 @@
 <script src="js/iscroll.js" defer></script>
 <script src="js/zepto.dialog.js" defer></script>
 <script>
+document.body.ontouchmove=function(e){e.preventDefault();}
 $(function(){
 var myScroll = new IScroll('#wrapper',{bounceEasing:'elastic',bounceTime:1200,fadeScrollbars:false,scrollbars:false,preventDefault:false}),
     hash = window.location.hash,
