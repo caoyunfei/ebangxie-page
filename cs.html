@@ -27,20 +27,10 @@
     </div>
     <div class="section order-btn center">
       <div class="H-submit center">
-        <input id="submit" type="button" class="reserBtn" value="返回首页">
+        <a class="reserBtn center" style="display:-webkit-box;display:box;" href="index.html">返回首页</a>
       </div>
     </div>
   </div>
 </div> 
 </div>
-</div>
-<script src="js/zepto.min.js"></script>
-<script>
-$(function(){
-  $("#submit").tap(function(){
-      $(this).off("click");
-      var local = window.location.toString(),
-          loll = local.substring(0,local.lastIndexOf("/")+1);
-      window.location = loll+"index.html";
-  });
-})</script></body></html>
+</div></body></html>
