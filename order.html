@@ -35,7 +35,7 @@
              <dd><input name="remark" value="" placeholder="填写更多要求" id="order_remark"></dd>
           </dl>
         </div>
-        
+
         <div class="H-dlbox">
            <dl class="H-dlList">
              <dt><span class="H-place1"></span></dt>
@@ -133,20 +133,11 @@
                 order_remark = $("#order_remark").val(),
                 local = window.location.toString(),
                 loll = local.substring(0,local.lastIndexOf("/")+1);
-            // if(!svctime_val){
-              
-            //     $.dialog({
-            //         content : '请选择服务时间',                                    
-            //         time : 800
-            //     });              
-            //     return false;
-            // }
             if(!place_val){
                 $.dialog({
                     content : '请填写您的地址',        
                     time : 800
                 });   
-                
                 return false;
             }
             if(place_val.length<3){
@@ -157,22 +148,14 @@
                
                 return false;
             }            
-            // if(!userName){
-               
-            //     $.dialog({
-            //         content : '请填写您的姓名',        
-            //         time : 800
-            //     });
-            //     return false;
-            // }
-            if(!/[\u4E00-\u9FA5\uF900-\uFA2D]/.test(userName)){
-              
+            if(userName){
+              if(!/[\u4E00-\u9FA5\uF900-\uFA2D]/.test(userName)){
                 $.dialog({
                     content : '请填正确的姓名',        
                     time : 800
                 });
                 return false;
-            }
+              }
             if(userName.length<2){
                 $.dialog({
                     content : '请填正确的姓名',        
@@ -180,7 +163,8 @@
                 });
                 return false;
             }
-      if(!number){
+          }
+            if(!number){
                 $.dialog({
                     content : '请填写您的手机号',       
                     time : 800
@@ -188,7 +172,6 @@
                 return false;
             }
             if(!/^(13[0-9]|14[0-9]|15[0-9]|18[0-9])\d{8}$/i.test(number)){
-              
                $.dialog({
                     content : '请填写正确的手机号',        
                     time : 850
