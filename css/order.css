@@ -7,7 +7,7 @@
 .H-submit{margin:.2rem;height:.88rem;border-radius:.08rem;background-clip:padding-box;display:-webkit-flex;display:flex;display:-webkit-box;}
 .reserBtn{-webkit-flex:1;-webkit-box-flex:1;margin-right:10px;width:50%;height:100%;display:block;color:#fff;-webkit-box-pack:center;border:none;border-radius:.08rem;font-size:.44rem;}
 .reserBtn:nth-child(2){background:#ff9501;}
-.H-dlbox-wrap{width:300%;display:-webkit-flex;display:flex;display:-webkit-box;-webkit-transform:translate(-66%);transform:translate(-66%);-webkit-transition:all 1s ease-in-out;transition:all .8s ease-in-out;}
+.H-dlbox-wrap{width:300%;display:-webkit-flex;display:flex;display:-webkit-box;-webkit-transform:translate(-66%);transform:translate(-66%);-webkit-transition:all 1s ease-in-out;transition:all .7s ease-in-out;}
 .H-dlbox{-webkit-flex:1;flex:1;-webkit-box-flex:1;}
 @media screen and (max-width:359px){#header span{font-size:18px;}}
 .explain{margin-top:1rem;font-size:.3rem;padding:15px;text-indent:.3rem;font-family:"方正兰亭细黑简体" "微软雅黑";color:#B0AFAD;}
