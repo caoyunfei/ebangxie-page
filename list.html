@@ -280,6 +280,8 @@
 <script src="js/iscroll.js" defer></script>
 <script src="js/zepto.dialog.js" defer></script>
 <script>
+// 禁止页面拖动
+document.addEventListener('touchstart',function(e){e.preventDefault();})
 $(function(){
 var myScroll = new IScroll('#wrapper',{bounceEasing:'elastic',bounceTime:1200,fadeScrollbars:false,scrollbars:false,preventDefault:false}),
     hash = window.location.hash,

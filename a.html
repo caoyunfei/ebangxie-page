@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
+    <meta name=viewport content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
 	<style>
      .d{
      	width:100px;
@@ -21,13 +22,17 @@
      }
 	</style>
 	<script>
+    document.addEventListener('touchstart',function(e){
+        e.preventDefault();
+        // alert(222);
+    })
     window.onload = function(){
 
          var oD = document.querySelector(".d");
-
-         oD.onclick = function(){
-         	this.className = "d animation";
-         }
+          oD.addEventListener('touchstart',function(e){
+            // e.preventDefault();
+            alert(111222);
+         })
 
     }
 	</script>
