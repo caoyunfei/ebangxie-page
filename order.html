@@ -10,58 +10,177 @@
 <meta http-equiv="content-type" content="text/html;charset=UTF-8">
 <meta name=description content=e帮鞋>
 <meta name=keywords content=e帮鞋>
-<title>e帮鞋-填写信息</title>
+<title>e帮鞋-填写订单信息</title>
 <link rel="shortcut icon" href="images/logo.png"/>
 <link rel="stylesheet" type="text/css" href="css/zepto.dialog.css">
 <link rel=stylesheet href="css/style.css">
 <link rel=stylesheet href="css/order.css">
+<style>
+
+</style>
 </head>
 <body>
-	<div class="wrap">
-		<header id="header" class="bg"><div class="city"><a target="_self" href="list.html"><h6>< 返回</h6></a></div>填写订单信息</header>
-		<div class="main">
-			<form action="#" method="POST" id="forms" autocomplete="off">
-				<input type="hidden" name="keyword" id="keyword" value="project_xiu">
-				<div class="H-intro">
-					<a href="order-detail.html" class="H-cont"></a>
-					<span class="H-go"></span>
-				</div>
-				<div class="H-dlbox">
+  <div class="wrap">
+    <header id="header" class="bg"><div class="city"><a target="_self" href="list.html"><h6>< 返回</h6></a></div>填写订单信息</header>
+    <div class="main">
+      <form action="#" method="POST" id="forms" autocomplete="off">
+        <div class="H-intro">
+          <a href="order-detail.html" class="H-cont"></a>
+          <span class="H-go"></span>
+        </div>
+        <div class="H-dlbox-wrap">
+        <div class="H-dlbox">
+          <dl class="H-dlList">
+             <dt><span class="H-place5"></span></dt>
+             <dd><input name="remark" value="" placeholder="填写更多要求" id="order_remark"></dd>
+          </dl>
+        </div>
+        
+        <div class="H-dlbox">
+           <dl class="H-dlList">
+             <dt><span class="H-place1"></span></dt>
+             <dd><input name="pickupTime" value="" placeholder="选择服务时间" id="svctime" readonly="true"><i></i></dd>
+           </dl>
+           <dl class="H-dlList">
+              <dt><span class="H-place3"></span></dt>
+              <dd><input name="userName" value="" placeholder="填写您的姓名" id="userName"></dd>
+           </dl>
+        </div>
+
+        <div class="H-dlbox">
           <dl class="H-dlList">
               <dt><span class="H-place4"></span></dt>
-              <dd><input name="userMobile" value="" placeholder="填写您的手机号" id="number"></dd>
-           </dl>
-					<dl class="H-dlList">
-					   <dt><span class="H-place2"></span></dt>
-					   <dd><input name="userAddress" value="" placeholder="填写您的地址" id="place"></dd>
-					</dl>
-				</div>
-				<div class="H-submit">
-					<input type="hidden" name="keyword" value="project_xiu">
-					<input id="submit" type="button" class="reserBtn bg" value="提交订单">
-				</div>
-			</form>
-		</div>
-	</div>
+              <dd><input name="userMobile" value="" placeholder="填写您的电话" id="number"></dd>
+          </dl>
+          <dl class="H-dlList">
+             <dt><span class="H-place2"></span></dt>
+             <dd><input name="userAddress" value="" placeholder="填写您的地址" id="place"></dd>
+          </dl>
+        </div>
+        </div>
+        <div class="H-submit">
+          <input id="submit" type="button" class="reserBtn bg" value="提交订单">
+          <input id="next" type="button" class="reserBtn" value="下一步">
+        </div>
+      </form>
+    </div>
+  </div>
 <script src="js/zepto.min.js"></script>
+<script src="js/mobiscroll.zepto.js"></script>
+<script src="js/mobiscroll.core.js"></script>
+<script src="js/mobiscroll.scroller.js" defer></script>
+<script src="js/mobiscroll.datetime.js" defer></script>
+<script src="js/mobiscroll.scroller.android-ics.js" defer></script>
+<script src="js/mobiscroll.i18n.zh.js" defer></script>
+<script src="js/date.min.js" defer></script>
 <script src="js/zepto.dialog.js" defer></script>
+<link href="css/mobiscroll.scroller.css" rel="stylesheet" type="text/css">
+<link href="css/mobiscroll.scroller.android-ics.css" rel="stylesheet" type="text/css">
 <script type="text/javascript">
     $(function () {
+       // -66  -33 -0
+       var c = 0;
+       $('#next').on('click',function(){
+          c++;
+          if(c == 1){
+            $('.H-dlbox-wrap').css({transform:'translate(-33%)'});
+          }else if(c == 2){
+            $('.H-dlbox-wrap').css({transform:'translate(0%)'});
+            c=0;
+            $(this).remove();
+          }
+       })
+
+
+
+        var dateScroll = function(){
+            var date = new Date();
+            var curr = new Date().getFullYear(),
+                d = date.getDate(),
+                m = date.getMonth();
+            $('#svctime').scroller('destroy').scroller({
+                preset: 'datehour',
+                minDate: new Date(curr, m, d, 8, 00),
+                maxDate: new Date(curr, m, d+7),
+                invalid: [{ d: new Date(), start: '00:00', end: (date.getHours()+2)+':'+date.getMinutes() }],
+                theme: "android-ics light",
+                mode: "scroller",
+                lang: 'zh',
+                display:"bottom",
+                animate: "slideup",
+                stepMinute: 30,
+                dateOrder: 'MMDdd',
+                timeWheels: 'HHii',
+                rows:3
+            });
+        }
+        dateScroll();//时间选择控件
         var localdata = window.localStorage;
         $('#place').val(localdata.getItem("fdata_place"));
         $('#number').val(localdata.getItem("number"));
+        $('#userName').val(localdata.getItem("userName"));
+        $("#order_remark").val(localdata.getItem("fdata_remark"));
       var Hcont = $(".H-cont"),
           data = JSON.parse(localStorage.getItem("data"));
           if(data){
               Hcont.html("共"+data.clickCount+"件，合计"+data.allTotal+"元");
           };
       $('#submit').on('click',function(){
-         var    
-                place_val = $('#place').val(),
+         var    place_val = $('#place').val(),
+                svctime_val = $('#svctime').val(),
                 number = $("#number").val(),
+                userName = $("#userName").val(),
+                order_remark = $("#order_remark").val(),
                 local = window.location.toString(),
                 loll = local.substring(0,local.lastIndexOf("/")+1);
-           if(!number){
+            // if(!svctime_val){
+              
+            //     $.dialog({
+            //         content : '请选择服务时间',                                    
+            //         time : 800
+            //     });              
+            //     return false;
+            // }
+            if(!place_val){
+                $.dialog({
+                    content : '请填写您的地址',        
+                    time : 800
+                });   
+                
+                return false;
+            }
+            if(place_val.length<3){
+                $.dialog({
+                    content : '请填写正确地址',        
+                    time : 800
+                }); 
+               
+                return false;
+            }            
+            // if(!userName){
+               
+            //     $.dialog({
+            //         content : '请填写您的姓名',        
+            //         time : 800
+            //     });
+            //     return false;
+            // }
+            if(!/[\u4E00-\u9FA5\uF900-\uFA2D]/.test(userName)){
+              
+                $.dialog({
+                    content : '请填正确的姓名',        
+                    time : 800
+                });
+                return false;
+            }
+            if(userName.length<2){
+                $.dialog({
+                    content : '请填正确的姓名',        
+                    time : 800
+                });
+                return false;
+            }
+      if(!number){
                 $.dialog({
                     content : '请填写您的手机号',       
                     time : 800
@@ -69,28 +188,17 @@
                 return false;
             }
             if(!/^(13[0-9]|14[0-9]|15[0-9]|18[0-9])\d{8}$/i.test(number)){
+              
                $.dialog({
                     content : '请填写正确的手机号',        
                     time : 850
                 });
                return false;
             }
-            if(!place_val){
-				        $.dialog({
-                    content : '请填写您的地址',				
-                    time : 800
-                });   
-                return false;
-            }
-            if(place_val.length<3){
-				        $.dialog({
-                    content : '请填写正确地址',				
-                    time : 800
-                }); 
-                return false;
-            }            
             localdata.setItem("fdata_place",place_val);
+            localdata.setItem("fdata_remark",order_remark);
             localdata.setItem("number",number);
+            localdata.setItem("userName",userName);
          var data = JSON.parse(localStorage.getItem("data")),
              orderList = data.orderList,
              i = 0,len = orderList.length,
@@ -134,11 +242,11 @@
          desc = desc.substring(0,desc.length-1);
        }
        var order = {
-                pickupTime:null,
+                pickupTime:svctime_val,
                 userAddress:place_val,
-                userName:null,
+                userName:userName,
                 userMobile:number,
-                remark:null,
+                remark:order_remark,
                 productPrice:data.allTotal,
                 productNumber:data.clickCount,
                 productDesc:desc

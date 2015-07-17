@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+     .d{
+     	width:100px;
+     	height:100px;
+     	background:red;
+     	-webkit-transition:all 2s ease-in-out;
+     	position:absolute;
+     	/*left也可以用百分比，其半分比的参照为父元素的宽度*/
+     	left:50%;
+     	margin-left:-50px;
+     	top:0;
+     }
+     .animation{
+     	/*transform:translate的唯一大小可以用百分比，他的半分比的参照为宽度*/
+         transform:translate(1000px);
+     }
+	</style>
+	<script>
+    window.onload = function(){
+
+         var oD = document.querySelector(".d");
+
+         oD.onclick = function(){
+         	this.className = "d animation";
+         }
+
+    }
+	</script>
+</head>
+<body>
+	
+	<div class="d"></div>
+
+</body>
+</html>
