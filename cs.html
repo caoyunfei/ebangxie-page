@@ -37,7 +37,7 @@
 <script src="js/zepto.min.js"></script>
 <script>
 $(function(){
-  $("#submit").on('touchstart',function(){
+  $("#submit").tap(function(){
       $(this).off("click");
       var local = window.location.toString(),
           loll = local.substring(0,local.lastIndexOf("/")+1);

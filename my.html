@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html><head>
-<meta charset="utf-8">
-<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
-<meta content="320" name="MobileOptimized">
-<meta content="yes" name="apple-mobile-web-app-capable">
-<meta content="black" name="apple-mobile-web-app-status-bar-style">
-<meta name="format-detection" content="telephone=no">
-<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
-<meta http-equiv="content-type" content="text/html;charset=UTF-8">
+<meta charset=UTF-8>
+<meta content="IE=edge,chrome=1" http-equiv=X-UA-Compatible>
+<meta content=320 name=MobileOptimized>
+<meta content=yes name=apple-mobile-web-app-capable>
+<meta content=black name=apple-mobile-web-app-status-bar-style>
+<meta name=format-detection content="telephone=no">
+<meta name=viewport content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<meta http-equiv=content-type content="text/html;charset=UTF-8">
 <meta name=description content=e帮鞋>
 <meta name=keywords content=e帮鞋>
 <title>e帮鞋-我的</title>
@@ -88,8 +88,25 @@ navA.on("click",function(){
     };
 }
 $("#number").html(localStorage.getItem("number"));
-$("#queryOrder").on('touchstart',function(){
+$("#queryOrder").tap(function(){
   $(this).off("click");
+   $.ajax({
+            type:'post',
+            url:'/admin/order/query',
+            data:{mobile:localStorage.getItem("number")},
+            dataType:'text',
+            success:function(msg){
+              var order = JSON.parse(msg);
+              if(+order.code === 1000){
+                 localStorage.setItem("queryOrder",msg);
+                 window.location = loll+"myorder.html";
+              }else{
+                 window.location = loll+"noOrder.html";
+              }
+            }
+        })
+});
+$("#queryOrder").on('click',function(){
    $.ajax({
             type:'post',
             url:'/admin/order/query',
@@ -125,22 +142,5 @@ $(".reserBtn").tap(function(){
                window.location = loll+"index.html";
             }
    });
-});
-$("#queryOrder").on('click',function(){
-   $.ajax({
-            type:'post',
-            url:'/admin/order/query',
-            data:{mobile:localStorage.getItem("number")},
-            dataType:'text',
-            success:function(msg){
-              var order = JSON.parse(msg);
-              if(+order.code === 1000){
-                 localStorage.setItem("queryOrder",msg);
-                 window.location = loll+"myorder.html";
-              }else{
-                 window.location = loll+"noOrder.html";
-              }
-            }
-        })
 });
 })</script></body></html>
