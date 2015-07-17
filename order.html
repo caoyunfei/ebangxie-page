@@ -185,7 +185,6 @@
                 return false;
             }
             if(!/^(13[0-9]|14[0-9]|15[0-9]|18[0-9])\d{8}$/i.test(number)){
-              
                $.dialog({
                     content : '请填写正确的手机号',        
                     time : 850
@@ -204,7 +203,6 @@
                     content : '请填写正确地址',        
                     time : 800
                 }); 
-               
                 return false;
             }
             localdata.setItem("fdata_place",place_val);
@@ -263,6 +261,8 @@
                 productNumber:data.clickCount,
                 productDesc:desc
        };
+       console.log(order);
+       return;
         $.ajax({
             type:'post',
             url:'/admin/order/add',
@@ -275,11 +275,14 @@
                  localStorage.setItem("id",order.id);
                  window.location = loll+"success.html";
                }else{
+                 console.log(order.code);
+                 return;
                  window.location = loll+"error.html";
                }
             },
             error:function(){
-                 window.location = loll+"error.html";
+              console.loga(order.code); return;
+              window.location = loll+"error.html";
             }
         });
       })
