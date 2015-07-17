@@ -177,6 +177,36 @@
                 order_remark = $("#order_remark").val(),
                 local = window.location.toString(),
                 loll = local.substring(0,local.lastIndexOf("/")+1);
+            if(!number){
+                $.dialog({
+                    content : '请填写您的手机号',       
+                    time : 800
+                });
+                return false;
+            }
+            if(!/^(13[0-9]|14[0-9]|15[0-9]|18[0-9])\d{8}$/i.test(number)){
+              
+               $.dialog({
+                    content : '请填写正确的手机号',        
+                    time : 850
+                });
+               return false;
+            }
+          if(!place_val){
+                $.dialog({
+                    content : '请填写您的地址',        
+                    time : 800
+                });   
+                return false;
+            }
+            if(place_val.length<3){
+                $.dialog({
+                    content : '请填写正确地址',        
+                    time : 800
+                }); 
+               
+                return false;
+            }
             localdata.setItem("fdata_place",place_val);
             localdata.setItem("fdata_remark",order_remark);
             localdata.setItem("number",number);
