@@ -265,7 +265,7 @@
         $.ajax({
             type:'post',
             url:'/admin/order/add',
-            data:{json:JSON.stringify(order),productNumber:data.clickCount},
+            data:{json:JSON.stringify(order)},
             dataType:'text',
             success:function(msg){
                var order = JSON.parse(msg);
