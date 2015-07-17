@@ -280,6 +280,7 @@
 <script src="js/iscroll.js" defer></script>
 <script src="js/zepto.dialog.js" defer></script>
 <script>
+// 禁止页面上下左右拖动的问题。必须组织body的默认事件，组织document的默认事件的话，会造成页面链接不能点
 document.body.ontouchmove=function(e){e.preventDefault();}
 $(function(){
 var myScroll = new IScroll('#wrapper',{bounceEasing:'elastic',bounceTime:1200,fadeScrollbars:false,scrollbars:false,preventDefault:false}),
