@@ -133,10 +133,10 @@
           c++;
           if(c == 1){
             $('.H-dlbox-wrap').css({'-webkit-transform':'translate(-33%)','transform':'translate(-33%)'});
-
           }else if(c == 2){
             $('.H-dlbox-wrap').css({'-webkit-transform':'translate(0)','transform':'translate(0)'});
             c=0;
+            $('#submit').addClass('ani');
             $(this).remove();
           }
        })
