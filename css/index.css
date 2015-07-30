@@ -29,9 +29,16 @@ nav a:nth-of-type(3){background:url(../images/icon_3.png) 50% 65% no-repeat;back
   display:flex;
   -webkit-flex:1;
   flex:1;
-  font-size:.3rem;}
-.content .content-item:nth-child(1){background:#66d4ef;border-right:1px #ff9500 dotted;}
-.content-item{font-family:"方正兰亭细黑简体" "微软雅黑";color:white;
+  font-size:.3rem;
+  background: url(../images/bg.jpg) center center no-repeat;
+  background: cover;}
+.content .content-item:nth-child(1){
+  /*background:#66d4ef;border-right:1px #ff9500 dotted;*/
+  /*background: url(../images/pic_xi.jpg) center center no-repeat;*/
+}
+.content-item{
+/*background: url(../images/pic_xiu.jpg) center center no-repeat;*/
+  font-family:"方正兰亭细黑简体" "微软雅黑";color:white;
 /*弹性布局老语法*/
 display:-webkit-box;
 -webkit-box-flex:1;
@@ -60,7 +67,7 @@ flex-direction:column;
 
 /*当屏幕宽度小于420px时，按照比例设置背景图的大小*/
 .content-item-img{
-  background:url(../images/xiu2.png) top center no-repeat;
+  background:url(../images/shoe.png) top center no-repeat;
   background-size:1.6rem;
   /*弹性布局老语法*/
   -webkit-box-flex:2;
@@ -69,7 +76,7 @@ flex-direction:column;
   flex:2;
 }
 .xi{
-  background:url(../images/gw2.png) top center no-repeat;
+  background:url(../images/hammer.png) top center no-repeat;
   background-size: 1.6rem;
 }
 /*当屏幕宽度大于420px时，固定背景图的大小为100px*/
@@ -91,4 +98,10 @@ flex-direction:column;
   flex:1;
   font-size:.3rem;
 }
-.hasOrder:before{content:" ";font-size:20px;text-align:center;color:white;vertical-align:top;display:inline-block;height:90px;width:90px;background:url(../images/icon_2.png) 50% 65% no-repeat #65c3ed;border-radius:100%;}
+.hasOrder:before{
+  content:" ";
+  background: url(../images/hasOrder.png) center center no-repeat;
+font-size:20px;text-align:center;color:white;vertical-align:top;display:inline-block;height:90px;width:90px;
+/*background:url(../images/icon_5.png) 50% 65% no-repeat #65c3ed;*/
+border-radius:100%;
+}
