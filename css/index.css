@@ -67,7 +67,7 @@ flex-direction:column;
 
 /*当屏幕宽度小于420px时，按照比例设置背景图的大小*/
 .content-item-img{
-  background:url(../images/shoe.png) top center no-repeat;
+  background:url(../images/hammer.png) top center no-repeat;
   background-size:1.6rem;
   /*弹性布局老语法*/
   -webkit-box-flex:2;
@@ -76,7 +76,7 @@ flex-direction:column;
   flex:2;
 }
 .xi{
-  background:url(../images/hammer.png) top center no-repeat;
+  background:url(../images/shoe.png) top center no-repeat;
   background-size: 1.6rem;
 }
 /*当屏幕宽度大于420px时，固定背景图的大小为100px*/
